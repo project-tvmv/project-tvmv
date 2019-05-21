@@ -1,7 +1,6 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
 import axios from 'axios';
-import bodymovin from 'bodymovin';
 //--------------STYLES-------------------//
 import './App.css';
 //--------------CLASS COMPONENT-------------------//
@@ -40,7 +39,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <div className='App' id='svgContainer'>
+        <div className='App'>
           <h1>Project TVMV</h1>
         </div>
       </>
