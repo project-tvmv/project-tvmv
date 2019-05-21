@@ -1,11 +1,14 @@
 //--------------DEPENDANCIES-------------------//
-import React from 'react';
-import axios from 'axios';
-import { Route } from 'react-router-dom';
+import React from "react";
+import axios from "axios";
+import { Route } from "react-router-dom";
 //--------------STYLES-------------------//
-import './App.css';
+import "./App.css";
 //--------------IMPORTS-------------------//
-import Home from './components/Home';
+import Home from "./components/Home";
+import Search from "./components/Search";
+import Movies from "./components/Movies";
+import Television from "./components/Television";
 //--------------CLASS COMPONENT-------------------//
 class App extends React.Component {
   constructor() {
@@ -19,12 +22,12 @@ class App extends React.Component {
   componentDidMount() {
     function getPopularMovies() {
       return axios.get(
-        'https://api.themoviedb.org/3/movie/popular?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1'
+        "https://api.themoviedb.org/3/movie/popular?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1"
       );
     }
     function getPopularShows() {
       return axios.get(
-        'https://api.themoviedb.org/3/tv/popular?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1'
+        "https://api.themoviedb.org/3/tv/popular?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1"
       );
     }
     axios
@@ -42,10 +45,13 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <div className='App'>
+        <div className="App">
+          {/* //------------------------Search Route---------------// */}
+          <Route exact path="/search" render={props => <Search />} />
+          {/* //--------------------Home Route-----------------// */}
           <Route
             exact
-            path='/'
+            path="/"
             render={props => (
               <Home
                 {...props}
@@ -54,6 +60,23 @@ class App extends React.Component {
               />
             )}
           />
+          {/* //---------------------------Movies Route-------------//           */}
+          <Route
+            exact
+            path="/movies/:id"
+            render={props => (
+              <Movies {...props} popularMovies={this.state.popularMovies} />
+            )}
+          />
+          {/* //--------------------------TV Shows Route-------------// */}
+          <Route
+            exact
+            path="/television/:id"
+            render={props => (
+              <Television {...props} popularShows={this.state.popularShows} />
+            )}
+          />
+          )}
         </div>
       </>
     );
