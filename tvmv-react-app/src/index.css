@@ -6,3 +6,7 @@ body {
   background: #0c0c0c;
   color: white;
 }
+
+button {
+  font-family: 'Roboto', sans-serif;
+}

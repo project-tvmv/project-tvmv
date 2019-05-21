@@ -1,3 +1,22 @@
 .App {
   text-align: center;
 }
+
+.six-poster-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.posters {
+  width: 265px;
+  height: 397px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.posters:hover {
+  transform: scale(1.05);
+}
