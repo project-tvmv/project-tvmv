@@ -1,20 +1,23 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 //--------------STYLES-------------------//
 import './App.css';
+//--------------IMPORTS-------------------//
+import Home from './components/Home';
 //--------------CLASS COMPONENT-------------------//
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      popularMovie: [],
-      popularShow: []
+      popularMovies: [],
+      popularShows: []
     };
   }
   //--------------GET MOST POPULAR MOVIE-------------------//
   componentDidMount() {
-    function getPopularMovie() {
+    function getPopularMovies() {
       return axios.get(
         'https://api.themoviedb.org/3/movie/popular?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1'
       );
@@ -25,12 +28,12 @@ class App extends React.Component {
       );
     }
     axios
-      .all([getPopularMovie(), getPopularShows()])
+      .all([getPopularMovies(), getPopularShows()])
       .then(res => {
         console.log(res);
         this.setState({
-          popularMovie: res[0].data.results,
-          popularShow: res[1].data.results
+          popularMovies: res[0].data.results,
+          popularShows: res[1].data.results
         });
       })
       .catch(err => console.log(err));
@@ -40,7 +43,17 @@ class App extends React.Component {
     return (
       <>
         <div className='App'>
-          <h1>Project TVMV</h1>
+          <Route
+            exact
+            path='/'
+            render={props => (
+              <Home
+                {...props}
+                popularMovies={this.state.popularMovies}
+                popularShows={this.state.popularShows}
+              />
+            )}
+          />
         </div>
       </>
     );
