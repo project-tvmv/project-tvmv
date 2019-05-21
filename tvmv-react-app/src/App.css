@@ -9,8 +9,8 @@
 }
 
 .posters {
-  width: 265px;
-  height: 397px;
+  width: 27vh;
+  height: 41vh;
   object-fit: cover;
   border-radius: 5px;
   cursor: pointer;
