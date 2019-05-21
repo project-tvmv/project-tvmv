@@ -2,18 +2,18 @@
 import React from 'react';
 //--------------STYLES-------------------//
 import './Home.css';
-
-const Home = ({ popularMovies, popularShows }) => {
+import HomeHero from './sections/HomeHero';
+import GenreButtons from './sections/GenreButtons';
+import NewMovies from './sections/NewMovies';
+import NewTV from './sections/NewTV';
+//--------------STATELESS COMPONENT-------------------//
+const Home = ({ popularMovies, popularShows, newMovies, newShows }) => {
   return (
     <div className='home-container'>
-      <div className='home-hero'>
-        {popularMovies.slice(0, 1).map((popularMovie, index) => (
-          <h1> {popularMovie.title} </h1>
-        ))}
-        {popularShows.slice(0, 1).map((popularShow, index) => (
-          <h1> {popularShow.name} </h1>
-        ))}
-      </div>
+      <HomeHero popularMovies={popularMovies} popularShows={popularShows} />
+      <GenreButtons />
+      <NewMovies newMovies={newMovies} />
+      <NewTV newShows={newShows} />
     </div>
   );
 };
