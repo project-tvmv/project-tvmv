@@ -1,7 +1,6 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
 //--------------STYLES-------------------//
-import './NewMovies.css';
 import '../../App.css';
 //--------------STATELESS COMPONENT-------------------//
 const NewMovies = ({ newMovies }) => {
@@ -13,11 +12,13 @@ const NewMovies = ({ newMovies }) => {
       </div>
       <div className='six-poster-container'>
         {newMovies.slice(0, 6).map((newMovie, index) => (
-          <img
-            src={'http://image.tmdb.org/t/p/original' + newMovie.poster_path}
-            alt={newMovie.title}
-            className='posters'
-          />
+          <div key={newMovie.id}>
+            <img
+              src={'http://image.tmdb.org/t/p/original' + newMovie.poster_path}
+              alt={newMovie.title}
+              className='posters'
+            />
+          </div>
         ))}
       </div>
     </div>

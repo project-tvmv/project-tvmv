@@ -1,13 +1,16 @@
 //---------------Dependencies-------------//
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import React, { Component } from 'react';
 //---------------Syles-------------------//
-import "./Search.css";
-
+import './Search.css';
+//---------------Syles-------------------//
 class Search extends Component {
   state = {};
   render() {
-    return <div />;
+    return (
+      <div>
+        <h1>Welcome to Search</h1>
+      </div>
+    );
   }
 }
 
