@@ -8,9 +8,11 @@ const HomeHero = ({ popularMovies, popularShows }) => {
     <div className='home-hero'>
       <div className='home-hero-movie'>
         {popularMovies.slice(0, 1).map((popularMovie, index) => (
-          <>
+          <div key={popularMovie.id}>
             <h1 className='hero-movie-title'>{popularMovie.title}</h1>
-            <p className='hero-movie-desc'>{popularMovie.overview}</p>
+            <p className='hero-movie-desc'>
+              {popularMovie.overview.slice(0, 300)}...
+            </p>
             <img
               src={
                 'http://image.tmdb.org/t/p/original' +
@@ -19,14 +21,16 @@ const HomeHero = ({ popularMovies, popularShows }) => {
               alt={popularMovie.title}
               className='hero-image'
             />
-          </>
+          </div>
         ))}
       </div>
       <div className='home-hero-tv'>
         {popularShows.slice(0, 1).map((popularShow, index) => (
-          <>
+          <div key={popularShow.id}>
             <h1 className='hero-show-title'>{popularShow.name}</h1>
-            <p className='hero-show-desc'>{popularShow.overview}</p>
+            <p className='hero-show-desc'>
+              {popularShow.overview.slice(0, 300)}...
+            </p>
             <img
               src={
                 popularShow.name === 'Game of Thrones'
@@ -37,7 +41,7 @@ const HomeHero = ({ popularMovies, popularShows }) => {
               alt={popularShow.name}
               className='hero-image'
             />
-          </>
+          </div>
         ))}
       </div>
     </div>

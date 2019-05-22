@@ -13,11 +13,13 @@ const NewTV = ({ newShows }) => {
       </div>
       <div className='six-poster-container'>
         {newShows.slice(0, 6).map((newShow, index) => (
-          <img
-            src={'http://image.tmdb.org/t/p/original' + newShow.poster_path}
-            alt={newShow.name}
-            className='posters'
-          />
+          <div key={newShow.id}>
+            <img
+              src={'http://image.tmdb.org/t/p/original' + newShow.poster_path}
+              alt={newShow.name}
+              className='posters'
+            />
+          </div>
         ))}
       </div>
     </div>
