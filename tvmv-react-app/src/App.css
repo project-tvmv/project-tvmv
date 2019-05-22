@@ -2,6 +2,24 @@
   text-align: center;
 }
 
+.section {
+  display: flex;
+  align-items: baseline;
+}
+
+.seemore {
+  margin-left: 1%;
+  cursor: pointer;
+}
+
+.section-header {
+  text-align: left;
+}
+
+.popular-movies-container {
+  margin-top: 30%;
+}
+
 .six-poster-container {
   width: 100%;
   display: flex;

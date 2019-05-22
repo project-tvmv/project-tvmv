@@ -41,11 +41,13 @@
   width: 54%;
   position: absolute;
   left: 4vh;
+  cursor: pointer;
 }
 .subhero-image-right {
   width: 54%;
   position: absolute;
   right: 4vh;
+  cursor: pointer;
 }
 
 .subhero-image-left {
