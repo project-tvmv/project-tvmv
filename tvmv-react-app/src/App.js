@@ -29,7 +29,7 @@ class App extends React.Component {
     }
     function getNewMovies() {
       return axios.get(
-        'https://api.themoviedb.org/3/movie/now_playing?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1'
+        "https://api.themoviedb.org/3/movie/now_playing?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1"
       );
     }
     function getPopularShows() {
@@ -39,7 +39,7 @@ class App extends React.Component {
     }
     function getNewShows() {
       return axios.get(
-        'https://api.themoviedb.org/3/tv/airing_today?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1'
+        "https://api.themoviedb.org/3/tv/airing_today?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1"
       );
     }
     axios
@@ -97,7 +97,6 @@ class App extends React.Component {
               <Television {...props} popularShows={this.state.popularShows} />
             )}
           />
-          )}
         </div>
       </>
     );
