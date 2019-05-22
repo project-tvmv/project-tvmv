@@ -1,15 +1,14 @@
 //--------------DEPENDANCIES-------------------//
-import React from "react";
-import axios from "axios";
-import { Route } from "react-router-dom";
+import React from 'react';
+import axios from 'axios';
+import { Route } from 'react-router-dom';
 //--------------STYLES-------------------//
-import "./App.css";
+import './App.css';
 //--------------IMPORTS-------------------//
-import Home from "./components/Home";
-import Search from "./components/Search";
-import Movies from "./components/Movies";
-import Television from "./components/Television";
 import Home from './components/Home';
+import Search from './components/Search';
+import Movies from './components/Movies';
+import Television from './components/Television';
 require('dotenv').config();
 //--------------CLASS COMPONENT-------------------//
 class App extends React.Component {
@@ -74,13 +73,13 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <div className="App">
+        <div className='App'>
           {/* //------------------------Search Route---------------// */}
-          <Route exact path="/search" render={props => <Search />} />
+          <Route exact path='/search' render={props => <Search />} />
           {/* //--------------------Home Route-----------------// */}
           <Route
             exact
-            path="/"
+            path='/'
             render={props => (
               <Home
                 {...props}
@@ -94,7 +93,7 @@ class App extends React.Component {
           {/* //---------------------------Movies Route-------------//           */}
           <Route
             exact
-            path="/movies/:id"
+            path='/movies/:id'
             render={props => (
               <Movies {...props} popularMovies={this.state.popularMovies} />
             )}
@@ -102,7 +101,7 @@ class App extends React.Component {
           {/* //--------------------------TV Shows Route-------------// */}
           <Route
             exact
-            path="/television/:id"
+            path='/television/:id'
             render={props => (
               <Television {...props} popularShows={this.state.popularShows} />
             )}
