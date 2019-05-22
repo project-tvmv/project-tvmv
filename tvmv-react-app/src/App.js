@@ -1,17 +1,17 @@
 //--------------DEPENDANCIES-------------------//
-import React from 'react';
-import axios from 'axios';
-import { Route } from 'react-router-dom';
+import React from "react";
+import axios from "axios";
+import { Route } from "react-router-dom";
 //--------------STYLES-------------------//
-import './App.css';
+import "./App.css";
 //--------------IMPORTS-------------------//
-import Home from './components/Home';
-import Search from './components/Search';
-import SingleMovie from './components/SingleMovie';
-import SingleShow from './components/SingleShow';
-import Navigation from './components/Navigation';
-import Loading from './components/Loading';
-require('dotenv').config();
+import Home from "./components/Home";
+import Search from "./components/Search";
+import SingleMovie from "./components/SingleMovie";
+import SingleShow from "./components/SingleShow";
+import Navigation from "./components/Navigation";
+import Loading from "./components/Loading";
+require("dotenv").config();
 //--------------CLASS COMPONENT-------------------//
 class App extends React.Component {
   constructor() {
@@ -77,17 +77,17 @@ class App extends React.Component {
       this.state.popularMovies.length &&
       this.state.popularShows.length &&
       this.state.newMovies.length &&
-      this.state.newShows.length > 19
+      this.state.newShows.length > 1
     ) {
       return (
         <>
-          <div className='App'>
+          <div className="App">
             {/*------------------------Side Navigation---------------*/}
             <Navigation />
             {/*--------------------Home Route-----------------*/}
             <Route
               exact
-              path='/'
+              path="/"
               render={props => (
                 <Home
                   {...props}
@@ -99,10 +99,10 @@ class App extends React.Component {
               )}
             />
             {/*------------------------Search Route---------------*/}
-            <Route path='/search' render={props => <Search />} />
+            <Route path="/search" render={props => <Search />} />
             {/*---------------------------Movies Route-------------*/}
             <Route
-              path='/movies/:id'
+              path="/movies/:id"
               render={props => (
                 <SingleMovie
                   {...props}
@@ -112,7 +112,7 @@ class App extends React.Component {
             />
             {/*--------------------------TV Shows Route-------------*/}
             <Route
-              path='/television/:id'
+              path="/television/:id"
               render={props => <SingleShow {...props} />}
             />
           </div>
