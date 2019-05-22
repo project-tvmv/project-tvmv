@@ -1,5 +1,6 @@
 //--------------DEPENDANCIES-------------------//
-import { Component, React } from 'react';
+import React from 'react';
+import { Component } from 'react';
 //--------------CLASS COMPONENT-------------------//
 class SingleMovie extends Component {
   constructor(props) {
