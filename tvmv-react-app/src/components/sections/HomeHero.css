@@ -24,6 +24,7 @@
   z-index: 500;
   top: 50vh;
   left: 10vh;
+  font-size: 3vh;
 }
 
 .hero-movie-desc {
@@ -31,6 +32,9 @@
   width: 40%;
   text-align: left;
   font-weight: 500;
+  font-size: 0.7vw;
+  letter-spacing: 0.3vh;
+  line-height: 25px;
   z-index: 500;
   top: 56vh;
   left: 10vh;
@@ -41,6 +45,7 @@
   z-index: 500;
   top: 50vh;
   right: 10vh;
+  font-size: 3vh;
 }
 
 .hero-show-desc {
@@ -48,6 +53,9 @@
   width: 40%;
   text-align: right;
   font-weight: 500;
+  font-size: 0.7vw;
+  letter-spacing: 0.3vh;
+  line-height: 25px;
   z-index: 500;
   top: 56vh;
   right: 10vh;

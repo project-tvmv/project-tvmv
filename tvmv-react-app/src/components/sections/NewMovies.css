@@ -2,17 +2,3 @@
   margin-top: 1%;
   width: 100%;
 }
-
-.section {
-  display: flex;
-  align-items: baseline;
-}
-
-.seemore {
-  margin-left: 1%;
-  cursor: pointer;
-}
-
-.section-header {
-  text-align: left;
-}
