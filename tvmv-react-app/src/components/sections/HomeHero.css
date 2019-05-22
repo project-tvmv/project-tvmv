@@ -22,17 +22,18 @@
 .hero-movie-title {
   position: absolute;
   z-index: 500;
-  top: 50vh;
+  top: 46vh;
   left: 10vh;
-  font-size: 3vh;
+  font-weight: 600;
+  font-size: 3rem;
 }
 
 .hero-movie-desc {
   position: absolute;
   width: 40%;
   text-align: left;
-  font-weight: 500;
-  font-size: 0.9vw;
+  font-weight: 400;
+  font-size: 1rem;
   letter-spacing: 0.3vh;
   line-height: 25px;
   z-index: 500;
@@ -43,17 +44,18 @@
 .hero-show-title {
   position: absolute;
   z-index: 500;
-  top: 50vh;
+  top: 46vh;
   right: 10vh;
-  font-size: 3vh;
+  font-weight: 600;
+  font-size: 3rem;
 }
 
 .hero-show-desc {
   position: absolute;
   width: 40%;
   text-align: right;
-  font-weight: 500;
-  font-size: 0.9vw;
+  font-weight: 400;
+  font-size: 1rem;
   letter-spacing: 0.3vh;
   line-height: 25px;
   z-index: 500;

@@ -1,5 +1,6 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
+import { Link } from 'react-router-dom';
 //--------------STYLES-------------------//
 import './SubHero.css';
 //--------------STATELESS COMPONENT-------------------//
@@ -13,14 +14,16 @@ const SubHero = ({ popularMovies, popularShows }) => {
             <p className='subhero-movie-desc'>
               {popularMovie.overview.slice(0, 300)}...
             </p>
-            <img
-              src={
-                'http://image.tmdb.org/t/p/original' +
-                popularMovie.backdrop_path
-              }
-              alt={popularMovie.title}
-              className='subhero-image-left'
-            />
+            <Link to={`/movies/${popularMovie.id}`}>
+              <img
+                src={
+                  'http://image.tmdb.org/t/p/original' +
+                  popularMovie.backdrop_path
+                }
+                alt={popularMovie.title}
+                className='subhero-image-left'
+              />
+            </Link>
           </div>
         ))}
         {popularShows.splice(3, 1).map((popularShow, index) => (
@@ -29,13 +32,16 @@ const SubHero = ({ popularMovies, popularShows }) => {
             <p className='subhero-show-desc'>
               {popularShow.overview.slice(0, 300)}...
             </p>
-            <img
-              src={
-                'http://image.tmdb.org/t/p/original' + popularShow.backdrop_path
-              }
-              alt={popularShow.name}
-              className='subhero-image-right'
-            />
+            <Link to={`/television/${popularShow.id}`}>
+              <img
+                src={
+                  'http://image.tmdb.org/t/p/original' +
+                  popularShow.backdrop_path
+                }
+                alt={popularShow.name}
+                className='subhero-image-right'
+              />
+            </Link>
           </div>
         ))}
       </>

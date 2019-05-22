@@ -1,5 +1,6 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
+import { Link } from 'react-router-dom';
 //--------------STYLES-------------------//
 import './HomeHero.css';
 //--------------STATELESS COMPONENT-------------------//
@@ -13,14 +14,16 @@ const HomeHero = ({ popularMovies, popularShows }) => {
             <p className='hero-movie-desc'>
               {popularMovie.overview.slice(0, 300)}...
             </p>
-            <img
-              src={
-                'http://image.tmdb.org/t/p/original' +
-                popularMovie.backdrop_path
-              }
-              alt={popularMovie.title}
-              className='hero-image'
-            />
+            <Link to={`/movies/${popularMovie.id}`}>
+              <img
+                src={
+                  'http://image.tmdb.org/t/p/original' +
+                  popularMovie.backdrop_path
+                }
+                alt={popularMovie.title}
+                className='hero-image'
+              />
+            </Link>
           </div>
         ))}
       </div>
@@ -31,16 +34,18 @@ const HomeHero = ({ popularMovies, popularShows }) => {
             <p className='hero-show-desc'>
               {popularShow.overview.slice(0, 300)}...
             </p>
-            <img
-              src={
-                popularShow.name === 'Game of Thrones'
-                  ? 'https://i.ibb.co/GHMp88p/cq5dam-web-1200-675.jpg'
-                  : 'http://image.tmdb.org/t/p/original' +
-                    popularShow.backdrop_path
-              }
-              alt={popularShow.name}
-              className='hero-image'
-            />
+            <Link to={`/television/${popularShow.id}`}>
+              <img
+                src={
+                  popularShow.name === 'Game of Thrones'
+                    ? 'https://i.ibb.co/GHMp88p/cq5dam-web-1200-675.jpg'
+                    : 'http://image.tmdb.org/t/p/original' +
+                      popularShow.backdrop_path
+                }
+                alt={popularShow.name}
+                className='hero-image'
+              />
+            </Link>
           </div>
         ))}
       </div>

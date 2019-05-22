@@ -1,5 +1,7 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Tilt from 'react-tilt';
 //--------------STYLES-------------------//
 import './NewTV.css';
 import '../../App.css';
@@ -14,11 +16,20 @@ const NewTV = ({ newShows }) => {
       <div className='six-poster-container'>
         {newShows.slice(0, 6).map((newShow, index) => (
           <div key={newShow.id}>
-            <img
-              src={'http://image.tmdb.org/t/p/original' + newShow.poster_path}
-              alt={newShow.name}
-              className='posters'
-            />
+            <Link to={`/television/${newShow.id}`}>
+              <Tilt
+                className='Tilt'
+                options={{ max: 10, scale: 1.05, perspective: 500 }}
+              >
+                <img
+                  src={
+                    'http://image.tmdb.org/t/p/original' + newShow.poster_path
+                  }
+                  alt={newShow.name}
+                  className='posters'
+                />
+              </Tilt>
+            </Link>
           </div>
         ))}
       </div>

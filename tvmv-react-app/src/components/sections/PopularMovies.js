@@ -1,5 +1,6 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
+import Tilt from 'react-tilt';
 //--------------STYLES-------------------//
 import '../../App.css';
 //--------------STATELESS COMPONENT-------------------//
@@ -14,14 +15,19 @@ const PopularMovies = ({ popularMovies }) => {
         <>
           {popularMovies.splice(0, 6).map((popularMovie, index) => (
             <div key={popularMovie.id}>
-              <img
-                src={
-                  'http://image.tmdb.org/t/p/original' +
-                  popularMovie.poster_path
-                }
-                alt={popularMovie.title}
-                className='posters'
-              />
+              <Tilt
+                className='Tilt'
+                options={{ max: 10, scale: 1.05, perspective: 500 }}
+              >
+                <img
+                  src={
+                    'http://image.tmdb.org/t/p/original' +
+                    popularMovie.poster_path
+                  }
+                  alt={popularMovie.title}
+                  className='posters'
+                />
+              </Tilt>
             </div>
           ))}
         </>

@@ -7,8 +7,8 @@ import './App.css';
 //--------------IMPORTS-------------------//
 import Home from './components/Home';
 import Search from './components/Search';
-import Movies from './components/Movies';
-import Television from './components/Television';
+import SingleMovie from './components/SingleMovie';
+import SingleShow from './components/SingleShow';
 import Navigation from './components/Navigation';
 import Loading from './components/Loading';
 require('dotenv').config();
@@ -61,6 +61,7 @@ class App extends React.Component {
         getNewShows()
       ])
       .then(res => {
+        console.log(res);
         this.setState({
           popularMovies: res[0].data.results,
           popularShows: res[1].data.results,
@@ -83,8 +84,6 @@ class App extends React.Component {
           <div className='App'>
             {/*------------------------Side Navigation---------------*/}
             <Navigation />
-            {/*------------------------Search Route---------------*/}
-            <Route exact path='/search' render={props => <Search />} />
             {/*--------------------Home Route-----------------*/}
             <Route
               exact
@@ -99,21 +98,22 @@ class App extends React.Component {
                 />
               )}
             />
+            {/*------------------------Search Route---------------*/}
+            <Route path='/search' render={props => <Search />} />
             {/*---------------------------Movies Route-------------*/}
             <Route
-              exact
               path='/movies/:id'
               render={props => (
-                <Movies {...props} popularMovies={this.state.popularMovies} />
+                <SingleMovie
+                  {...props}
+                  popularMovies={this.state.popularMovies}
+                />
               )}
             />
             {/*--------------------------TV Shows Route-------------*/}
             <Route
-              exact
               path='/television/:id'
-              render={props => (
-                <Television {...props} popularShows={this.state.popularShows} />
-              )}
+              render={props => <SingleShow {...props} />}
             />
           </div>
         </>
