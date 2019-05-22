@@ -3,6 +3,57 @@
   width: 100%;
 }
 
+.sub-hero-movie-title {
+  position: absolute;
+  z-index: 500;
+  top: 215vh;
+  left: 10vh;
+}
+
+.sub-hero-show-title {
+  position: absolute;
+  z-index: 500;
+  top: 215vh;
+  right: 10vh;
+}
+
+.subhero-movie-desc {
+  position: absolute;
+  z-index: 500;
+  top: 220vh;
+  left: 10vh;
+  width: 35%;
+  font-size: 2vh;
+  text-align: left;
+}
+
+.subhero-show-desc {
+  position: absolute;
+  z-index: 500;
+  top: 220vh;
+  right: 10vh;
+  width: 35%;
+  font-size: 2vh;
+  text-align: right;
+}
+
 .subhero-image-left {
-  width: 50%;
+  width: 54%;
+  position: absolute;
+  left: 4vh;
+}
+.subhero-image-right {
+  width: 54%;
+  position: absolute;
+  right: 4vh;
+}
+
+.subhero-image-left {
+  mask-image: url('../../assets/sub-hero-left.svg');
+  mask-repeat: no-repeat;
+}
+
+.subhero-image-right {
+  mask-image: url('../../assets/sub-hero-right.svg');
+  mask-repeat: no-repeat;
 }
