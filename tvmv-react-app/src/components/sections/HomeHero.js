@@ -1,6 +1,6 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 //--------------STYLES-------------------//
 import './HomeHero.css';
 //--------------STATELESS COMPONENT-------------------//
@@ -14,7 +14,7 @@ const HomeHero = ({ popularMovies, popularShows }) => {
             <p className='hero-movie-desc'>
               {popularMovie.overview.slice(0, 300)}...
             </p>
-            <Link to={`/movies/${popularMovie.id}`}>
+            <NavLink to={`/movies/${popularMovie.id}`}>
               <img
                 src={
                   'http://image.tmdb.org/t/p/original' +
@@ -23,7 +23,7 @@ const HomeHero = ({ popularMovies, popularShows }) => {
                 alt={popularMovie.title}
                 className='hero-image'
               />
-            </Link>
+            </NavLink>
           </div>
         ))}
       </div>
@@ -34,7 +34,7 @@ const HomeHero = ({ popularMovies, popularShows }) => {
             <p className='hero-show-desc'>
               {popularShow.overview.slice(0, 300)}...
             </p>
-            <Link to={`/television/${popularShow.id}`}>
+            <NavLink to={`/television/${popularShow.id}`}>
               <img
                 src={
                   popularShow.name === 'Game of Thrones'
@@ -45,7 +45,7 @@ const HomeHero = ({ popularMovies, popularShows }) => {
                 alt={popularShow.name}
                 className='hero-image'
               />
-            </Link>
+            </NavLink>
           </div>
         ))}
       </div>
