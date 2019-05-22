@@ -1,6 +1,6 @@
 .genre-buttons-container {
-  margin-top: 2%;
-  max-width: 180vh;
+  max-width: 176vh;
+  margin: 2% auto;
   display: flex;
   justify-content: space-between;
 }

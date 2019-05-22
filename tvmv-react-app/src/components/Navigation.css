@@ -1,0 +1,15 @@
+.navigation-container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  justify-content: space-between;
+  top: 27vh;
+  left: 1%;
+  height: 50vh;
+}
+
+.nav-icons {
+  stroke: white;
+  width: 90%;
+  cursor: pointer;
+}

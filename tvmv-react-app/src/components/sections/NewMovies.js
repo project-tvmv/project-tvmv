@@ -1,7 +1,8 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Tilt from 'react-tilt';
 //--------------STYLES-------------------//
-import './NewMovies.css';
 import '../../App.css';
 //--------------STATELESS COMPONENT-------------------//
 const NewMovies = ({ newMovies }) => {
@@ -13,11 +14,22 @@ const NewMovies = ({ newMovies }) => {
       </div>
       <div className='six-poster-container'>
         {newMovies.slice(0, 6).map((newMovie, index) => (
-          <img
-            src={'http://image.tmdb.org/t/p/original' + newMovie.poster_path}
-            alt={newMovie.title}
-            className='posters'
-          />
+          <div key={newMovie.id}>
+            <Link to={`/movies/${newMovie.id}`}>
+              <Tilt
+                className='Tilt'
+                options={{ max: 10, scale: 1.05, perspective: 500 }}
+              >
+                <img
+                  src={
+                    'http://image.tmdb.org/t/p/original' + newMovie.poster_path
+                  }
+                  alt={newMovie.title}
+                  className='posters'
+                />
+              </Tilt>
+            </Link>
+          </div>
         ))}
       </div>
     </div>

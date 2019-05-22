@@ -1,16 +1,17 @@
 //--------------DEPENDANCIES-------------------//
-import React from "react";
-import axios from "axios";
-import { Route } from "react-router-dom";
+import React from 'react';
+import axios from 'axios';
+import { Route } from 'react-router-dom';
 //--------------STYLES-------------------//
-import "./App.css";
+import './App.css';
 //--------------IMPORTS-------------------//
-import Home from "./components/Home";
-import Search from "./components/Search";
-import Movies from "./components/Movies";
-import Television from "./components/Television";
-
-require("dotenv").config();
+import Home from './components/Home';
+import Search from './components/Search';
+import SingleMovie from './components/SingleMovie';
+import SingleShow from './components/SingleShow';
+import Navigation from './components/Navigation';
+import Loading from './components/Loading';
+require('dotenv').config();
 //--------------CLASS COMPONENT-------------------//
 class App extends React.Component {
   constructor() {
@@ -72,44 +73,52 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <>
-        <div className="App">
-          {/* //------------------------Search Route---------------// */}
-          <Route exact path="/search" render={props => <Search />} />
-          {/* //--------------------Home Route-----------------// */}
-          <Route
-            exact
-            path="/"
-            render={props => (
-              <Home
-                {...props}
-                popularMovies={this.state.popularMovies}
-                popularShows={this.state.popularShows}
-                newMovies={this.state.newMovies}
-                newShows={this.state.newShows}
-              />
-            )}
-          />
-          {/* //---------------------------Movies Route-------------//           */}
-          <Route
-            exact
-            path="/movies/:id"
-            render={props => (
-              <Movies {...props} popularMovies={this.state.popularMovies} />
-            )}
-          />
-          {/* //--------------------------TV Shows Route-------------// */}
-          <Route
-            exact
-            path="/television/:id"
-            render={props => (
-              <Television {...props} popularShows={this.state.popularShows} />
-            )}
-          />
-        </div>
-      </>
-    );
+    if (
+      this.state.popularMovies.length &&
+      this.state.popularShows.length &&
+      this.state.newMovies.length &&
+      this.state.newShows.length > 19
+    ) {
+      return (
+        <>
+          <div className='App'>
+            {/*------------------------Side Navigation---------------*/}
+            <Navigation />
+            {/*--------------------Home Route-----------------*/}
+            <Route
+              exact
+              path='/'
+              render={props => (
+                <Home
+                  {...props}
+                  popularMovies={this.state.popularMovies}
+                  popularShows={this.state.popularShows}
+                  newMovies={this.state.newMovies}
+                  newShows={this.state.newShows}
+                />
+              )}
+            />
+            {/*------------------------Search Route---------------*/}
+            <Route path='/search' render={props => <Search />} />
+            {/*---------------------------Movies Route-------------*/}
+            <Route
+              path='/movies/:id'
+              render={props => (
+                <SingleMovie
+                  {...props}
+                  popularMovies={this.state.popularMovies}
+                />
+              )}
+            />
+            {/*--------------------------TV Shows Route-------------*/}
+            <Route
+              path='/television/:id'
+              render={props => <SingleShow {...props} />}
+            />
+          </div>
+        </>
+      );
+    } else return <Loading />;
   }
 }
 
