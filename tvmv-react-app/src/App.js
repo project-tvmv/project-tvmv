@@ -27,30 +27,22 @@ class App extends React.Component {
   componentDidMount() {
     function getPopularMovies() {
       return axios.get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${
-          process.env.REACT_APP_KEY
-        }&language=en-US&page=1`
+        "https://api.themoviedb.org/3/movie/popular?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1"
       );
     }
     function getNewMovies() {
       return axios.get(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=${
-          process.env.REACT_APP_KEY
-        }&language=en-US&page=1`
+        "https://api.themoviedb.org/3/movie/now_playing?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1"
       );
     }
     function getPopularShows() {
       return axios.get(
-        `https://api.themoviedb.org/3/tv/popular?api_key=${
-          process.env.REACT_APP_KEY
-        }&language=en-US&page=1`
+        "https://api.themoviedb.org/3/tv/popular?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1"
       );
     }
     function getNewShows() {
       return axios.get(
-        `https://api.themoviedb.org/3/tv/airing_today?api_key=${
-          process.env.REACT_APP_KEY
-        }&language=en-US&page=1`
+        "https://api.themoviedb.org/3/tv/airing_today?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1"
       );
     }
     axios
@@ -107,7 +99,6 @@ class App extends React.Component {
                 <SingleMovie
                   {...props}
                   popularMovies={this.state.popularMovies}
-                  newMovies={this.state.newMovies}
                 />
               )}
             />
