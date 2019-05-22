@@ -5,7 +5,9 @@ class SingleMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: this.props.match.params.id
+      id: this.props.match.params.id,
+      popularMovies: this.props.popularMovies,
+      newMovies: this.props.newMovies
     };
   }
   render() {

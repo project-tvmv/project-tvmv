@@ -107,6 +107,7 @@ class App extends React.Component {
                 <SingleMovie
                   {...props}
                   popularMovies={this.state.popularMovies}
+                  newMovies={this.state.newMovies}
                 />
               )}
             />
