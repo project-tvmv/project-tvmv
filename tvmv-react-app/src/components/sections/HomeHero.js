@@ -29,7 +29,10 @@ const HomeHero = ({ popularMovies, popularShows }) => {
             <p className='hero-show-desc'>{popularShow.overview}</p>
             <img
               src={
-                'http://image.tmdb.org/t/p/original' + popularShow.backdrop_path
+                popularShow.name === 'Game of Thrones'
+                  ? 'https://i.ibb.co/GHMp88p/cq5dam-web-1200-675.jpg'
+                  : 'http://image.tmdb.org/t/p/original' +
+                    popularShow.backdrop_path
               }
               alt={popularShow.name}
               className='hero-image'
