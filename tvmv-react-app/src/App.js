@@ -18,7 +18,7 @@ class App extends React.Component {
       newShows: []
     };
   }
-  //--------------GET MOST POPULAR MOVIE-------------------//
+  //--------------GET MOST POPULAR MOVIE------------------//
   componentDidMount() {
     function getPopularMovies() {
       return axios.get(
