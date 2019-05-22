@@ -1,3 +1,40 @@
 .App {
   text-align: center;
 }
+
+.section {
+  display: flex;
+  align-items: baseline;
+}
+
+.seemore {
+  margin-left: 1%;
+  cursor: pointer;
+}
+
+.section-header {
+  text-align: left;
+}
+
+.popular-movies-container {
+  margin-top: 30%;
+}
+
+.six-poster-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.posters {
+  width: 27vh;
+  height: 41vh;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.posters:hover {
+  transform: scale(1.05);
+}
