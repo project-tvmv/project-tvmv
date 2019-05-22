@@ -23,7 +23,7 @@
   position: absolute;
   z-index: 500;
   top: 46vh;
-  left: 10vh;
+  left: 5vw;
   font-weight: 600;
   font-size: 3rem;
 }
@@ -38,14 +38,14 @@
   line-height: 25px;
   z-index: 500;
   top: 55vh;
-  left: 10vh;
+  left: 5vw;
 }
 
 .hero-show-title {
   position: absolute;
   z-index: 500;
   top: 46vh;
-  right: 10vh;
+  right: 5vw;
   font-weight: 600;
   font-size: 3rem;
 }
@@ -60,5 +60,5 @@
   line-height: 25px;
   z-index: 500;
   top: 55vh;
-  right: 10vh;
+  right: 5vw;
 }
