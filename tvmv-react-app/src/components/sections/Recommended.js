@@ -19,7 +19,7 @@ class Recommended extends Component {
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${
-          this.props.id
+          this.state.id
         }/recommendations?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1`
       )
       .then(res => this.setState({ recommended: res.data.results }))
@@ -30,7 +30,7 @@ class Recommended extends Component {
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${
-          this.state.id
+          this.props.id
         }/recommendations?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1`
       )
       .then(res => {
