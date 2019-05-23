@@ -1,22 +1,33 @@
 .genre-buttons-container {
   max-width: 176vh;
-  margin: 2% auto;
+  margin: 2% auto -1%;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.genre-buttons {
+.genre-links {
   background: #232323;
   border: 3px solid #232323;
-  color: white;
-  font-size: 1rem;
   border-radius: 10px;
-  width: 15%;
-  padding: 1.8% 0 1.8% 0;
+  width: 8%;
+  padding: 0.6% 0 0.6% 0;
+  margin-right: 1%;
+  margin-bottom: 1%;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
-.genre-buttons:hover {
+.genre-buttons {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 0.8rem;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  outline: none;
+}
+
+.genre-links:hover {
   border: 3px solid #2757ff;
 }

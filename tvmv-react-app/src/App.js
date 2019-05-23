@@ -12,6 +12,7 @@ import SingleShow from './components/SingleShow';
 import Navigation from './components/Navigation';
 import Loading from './components/Loading';
 import ActorsPage from './components/ActorsPage';
+import GenrePage from './components/GenrePage';
 require('dotenv').config();
 //--------------CLASS COMPONENT-------------------//
 class App extends React.Component {
@@ -65,6 +66,12 @@ class App extends React.Component {
       .catch(err => console.log(err));
   }
 
+  // Adds default image for null poster_paths //
+  addDefaultSrc(ev) {
+    ev.target.src =
+      'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9e16ed49631881.58b9ed7bbcf26.jpg';
+  }
+
   render() {
     if (
       this.state.popularMovies.length &&
@@ -108,8 +115,20 @@ class App extends React.Component {
               path='/television/:id'
               render={props => <SingleShow {...props} />}
             />
+            {/*--------------------------Genre Page Route-------------*/}
+            <Route
+              path='/genres/:id'
+              render={props => (
+                <GenrePage {...props} addDefaultSrc={this.addDefaultSrc} />
+              )}
+            />
             {/*--------------------------Actors Page Route-------------*/}
-            <Route path='/actor/:id' component={ActorsPage} />
+            <Route
+              path='/actor/:id'
+              render={props => (
+                <ActorsPage {...props} addDefaultSrc={this.addDefaultSrc} />
+              )}
+            />
           </div>
         </>
       );

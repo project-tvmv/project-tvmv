@@ -43,6 +43,7 @@ class ActorsPage extends Component {
   render() {
     const filmography = this.state.filmography;
     const name = this.state.name;
+    const addDefaultSrc = this.props.addDefaultSrc;
     return (
       <>
         <div className='actors-content'>
@@ -70,8 +71,8 @@ class ActorsPage extends Component {
             />
           </div>
         ))}
-        <div className='actors-page-container'>
-          {filmography.slice(0, 24).map((work, index) => (
+        <div className='full-page-container'>
+          {filmography.map((work, index) => (
             <div key={work.id}>
               <Tilt
                 className='Tilt'
@@ -79,11 +80,10 @@ class ActorsPage extends Component {
               >
                 <Link to={`/movies/${work.id}`}>
                   <img
-                    src={
-                      'http://image.tmdb.org/t/p/original' + work.poster_path
-                    }
+                    src={'http://image.tmdb.org/t/p/w500' + work.poster_path}
                     className='posters actors-page-posters'
                     alt={work.title}
+                    onError={addDefaultSrc}
                   />
                 </Link>
               </Tilt>

@@ -58,8 +58,7 @@ class Recommended extends Component {
                 >
                   <img
                     src={
-                      'http://image.tmdb.org/t/p/original' +
-                      recommend.poster_path
+                      'http://image.tmdb.org/t/p/w500' + recommend.poster_path
                     }
                     alt={recommend.name}
                     className='posters'

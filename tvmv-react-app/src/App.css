@@ -14,7 +14,7 @@
   margin-top: 5%;
 }
 
-.actors-page-container {
+.full-page-container {
   width: 178vh;
   margin: 2.5% auto;
   display: flex;
@@ -46,6 +46,12 @@
   text-align: left;
   font-size: 1.2rem;
   filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.377));
+}
+
+.genre-header {
+  position: absolute;
+  z-index: 500;
+  margin-top: 10%;
 }
 
 .links {
@@ -93,7 +99,7 @@
 }
 
 .single-page-containter {
-  width: 178vh;
+  width: 95%;
   margin: 2.5% auto;
 }
 
@@ -135,6 +141,14 @@
 /* Images */
 
 .actors-page-posters {
+  margin-bottom: 8%;
+}
+
+.genre-page-posters {
+  margin-bottom: 1.5%;
+}
+
+.genre-page-poster {
   margin-bottom: 8%;
 }
 

@@ -60,3 +60,5 @@ class SingleMovie extends Component {
 }
 
 export default SingleMovie;
+
+// Alex's Display: 2560 x 1440
