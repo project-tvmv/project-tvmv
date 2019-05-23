@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
+/* Global Styles  */
 
+/* Sections */
 .section {
   display: flex;
   align-items: baseline;
@@ -12,15 +14,37 @@
   margin-top: 5%;
 }
 
+/* Titles / Texts */
+.section-header {
+  text-align: left;
+}
+
+.single-page-hero-info {
+  position: absolute;
+  z-index: 500;
+  width: 50%;
+  margin-top: 18%;
+  margin-left: 3%;
+}
+
+.single-page-hero-title {
+  text-align: left;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.377));
+}
+
+.single-page-hero-desc {
+  width: 100%;
+  text-align: left;
+  font-size: 1.2rem;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.377));
+}
+
 .seemore {
   margin-left: 1%;
   cursor: pointer;
 }
 
-.section-header {
-  text-align: left;
-}
-
+/* Containers */
 .popular-movies-container {
   margin-top: -4%;
 }
@@ -32,10 +56,51 @@
   justify-content: space-between;
 }
 
+.single-page-containter {
+  width: 178vh;
+  margin: 2.5% auto;
+}
+
+.section-flex {
+  width: 27vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.poster-info {
+  text-align: left;
+  width: 100%;
+}
+
+/* Images */
 .posters {
   width: 27vh;
   height: 41vh;
   object-fit: cover;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.full-hero {
+  width: 98%;
+  height: 60vh;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0.8;
+  border-radius: 6px;
+}
+
+.video {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* icons */
+.hero-back {
+  position: absolute;
+  top: 7%;
+  left: 5.5%;
+  z-index: 500;
+  width: 2%;
   cursor: pointer;
 }

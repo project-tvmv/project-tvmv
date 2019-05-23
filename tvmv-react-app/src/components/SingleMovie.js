@@ -2,13 +2,22 @@
 import React from 'react';
 import { Component } from 'react';
 import axios from 'axios';
+//--------------STYLES-------------------//
+import '../App.css';
+import Cast from './sections/Cast';
+import Extras from './sections/Extras';
+import Recommended from './sections/Recommended';
+import { Link } from 'react-router-dom';
+//--------------IMPORTS-------------------//
+import back from '../assets/icons/arrow-left.svg';
 //--------------CLASS COMPONENT-------------------//
 class SingleMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
       id: this.props.match.params.id,
-      movie: []
+      movie: [],
+      extras: []
     };
   }
 
@@ -26,8 +35,23 @@ class SingleMovie extends Component {
   render() {
     const movie = this.state.movie;
     return (
-      <div className='single-movie-containter'>
-        <h1>{movie.title}</h1>
+      <div className='single-page-containter'>
+        {/* //--------------HERO SECTION-------------------// */}
+        <Link to='/'>
+          <img src={back} className='hero-back' alt='back' />
+        </Link>
+        <div className='single-page-hero-info'>
+          <h1 className='single-page-hero-title'>{movie.title}</h1>
+          <p className='single-page-hero-desc'>{movie.overview}</p>
+        </div>
+        <img
+          src={'http://image.tmdb.org/t/p/original' + movie.backdrop_path}
+          className='full-hero'
+          alt={movie.title}
+        />
+        <Cast id={this.state.id} />
+        <Extras id={this.state.id} />
+        <Recommended id={this.state.id} />
       </div>
     );
   }
