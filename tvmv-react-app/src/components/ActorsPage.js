@@ -49,6 +49,7 @@ class ActorsPage extends Component {
           <img
             src={'http://image.tmdb.org/t/p/original' + name.profile_path}
             className='posters'
+            alt={name.name}
           />
           <div className='actor-info'>
             <h1 className='actor-name'>{name.name}</h1>
@@ -61,24 +62,32 @@ class ActorsPage extends Component {
         </div>
         <h1 className='image-section-header'>FILMOGRAPHY</h1>
         {filmography.slice(0, 1).map((work, index) => (
-          <img
-            src={'http://image.tmdb.org/t/p/original' + work.backdrop_path}
-            className='title-image-section'
-          />
+          <div key={work.id}>
+            <img
+              src={'http://image.tmdb.org/t/p/original' + work.backdrop_path}
+              className='title-image-section'
+              alt={work.title}
+            />
+          </div>
         ))}
         <div className='actors-page-container'>
           {filmography.slice(0, 24).map((work, index) => (
-            <Tilt
-              className='Tilt'
-              options={{ max: 10, scale: 1.05, perspective: 500 }}
-            >
-              <Link to={`/movies/${work.id}`}>
-                <img
-                  src={'http://image.tmdb.org/t/p/original' + work.poster_path}
-                  className='posters actors-page-posters'
-                />
-              </Link>
-            </Tilt>
+            <div key={work.id}>
+              <Tilt
+                className='Tilt'
+                options={{ max: 10, scale: 1.05, perspective: 500 }}
+              >
+                <Link to={`/movies/${work.id}`}>
+                  <img
+                    src={
+                      'http://image.tmdb.org/t/p/original' + work.poster_path
+                    }
+                    className='posters actors-page-posters'
+                    alt={work.title}
+                  />
+                </Link>
+              </Tilt>
+            </div>
           ))}
         </div>
       </>
