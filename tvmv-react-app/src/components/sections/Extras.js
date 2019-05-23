@@ -32,10 +32,10 @@ class Extras extends Component {
         <div className='section'>
           <h1 className='section-header'>Extras</h1>
         </div>
-        <div className='six-poster-container'>
+        <div className='extras-container'>
           {extras.slice(0, 3).map((extra, index) => (
-            <>
-              <div className='extras-flex' key={extra.id}>
+            <div key={extra.id}>
+              <div className='extras-flex'>
                 <ReactPlayer
                   url={`https://www.youtube.com/embed/${extra.key}`}
                   width='56.5vh'
@@ -44,9 +44,10 @@ class Extras extends Component {
                   controls={true}
                   light={true}
                   className='video'
+                  playing={true}
                 />
               </div>
-            </>
+            </div>
           ))}
         </div>
       </div>

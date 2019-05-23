@@ -10,7 +10,6 @@ const NewMovies = ({ newMovies }) => {
     <div className='new-movies-container'>
       <div className='section'>
         <h1 className='section-header'>New to Movies</h1>
-        <p className='seemore'>see more</p>
       </div>
       <div className='six-poster-container'>
         {newMovies.slice(0, 6).map((newMovie, index) => (

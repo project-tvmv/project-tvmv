@@ -1,6 +1,8 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Tilt from 'react-tilt';
 import axios from 'axios';
 //--------------STYLES-------------------//
 import '../../App.css';
@@ -31,18 +33,27 @@ class Cast extends Component {
         </div>
         <div className='six-poster-container'>
           {credits.slice(0, 6).map((cast, index) => (
-            <>
-              <div className='section-flex' key={cast.id}>
-                <img
-                  src={'http://image.tmdb.org/t/p/original' + cast.profile_path}
-                  alt={cast.character}
-                  className='posters'
-                />
-                <p className='poster-info'>
-                  {cast.name} as {cast.character}
-                </p>
+            <div key={cast.id}>
+              <div className='section-flex'>
+                <Tilt
+                  className='Tilt'
+                  options={{ max: 10, scale: 1.05, perspective: 500 }}
+                >
+                  <Link to={`/actor/${cast.id}`} className='links'>
+                    <img
+                      src={
+                        'http://image.tmdb.org/t/p/original' + cast.profile_path
+                      }
+                      alt={cast.character}
+                      className='posters'
+                    />
+                    <p className='poster-info'>
+                      {cast.name} as {cast.character}
+                    </p>
+                  </Link>
+                </Tilt>
               </div>
-            </>
+            </div>
           ))}
         </div>
       </div>

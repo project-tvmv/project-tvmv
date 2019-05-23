@@ -10,7 +10,6 @@ const PopularMovies = ({ popularMovies }) => {
     <div className='popular-movies-container'>
       <div className='section'>
         <h1 className='section-header'>Popular Movies</h1>
-        <p className='seemore'>see more</p>
       </div>
       <div className='six-poster-container'>
         <>

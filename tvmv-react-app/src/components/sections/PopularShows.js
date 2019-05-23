@@ -9,11 +9,10 @@ const PopularShows = ({ popularShows }) => {
     <div className='popular-movies-container'>
       <div className='section second-section'>
         <h1 className='section-header'>Popular Shows</h1>
-        <p className='seemore'>see more</p>
       </div>
       <div className='six-poster-container'>
         <>
-          {popularShows.splice(0, 6).map((popularShow, index) => (
+          {popularShows.slice(0, 6).map((popularShow, index) => (
             <div key={popularShow.id}>
               <Tilt
                 className='Tilt'

@@ -1,0 +1,19 @@
+.actors-content {
+  display: flex;
+  width: 174vh;
+  margin: 2.5% auto;
+}
+
+.actor-info {
+  margin-top: 2%;
+  width: 100%;
+  text-align: left;
+  margin-left: 2%;
+}
+
+.actor-bio {
+  line-height: 30px;
+  font-size: 1.2rem;
+  height: 21.5vh;
+  overflow: hidden;
+}

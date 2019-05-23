@@ -10,14 +10,14 @@ import Recommended from './sections/Recommended';
 import { Link } from 'react-router-dom';
 //--------------IMPORTS-------------------//
 import back from '../assets/icons/arrow-left.svg';
+import star from '../assets/icons/star.svg';
 //--------------CLASS COMPONENT-------------------//
 class SingleMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
       id: this.props.match.params.id,
-      movie: [],
-      extras: []
+      movie: []
     };
   }
 
@@ -40,7 +40,9 @@ class SingleMovie extends Component {
         <Link to='/'>
           <img src={back} className='hero-back' alt='back' />
         </Link>
+        <img src={star} className='hero-star' alt='star' />
         <div className='single-page-hero-info'>
+          <p className='rating'>{movie.vote_average}</p>
           <h1 className='single-page-hero-title'>{movie.title}</h1>
           <p className='single-page-hero-desc'>{movie.overview}</p>
         </div>
