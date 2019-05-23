@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import Tilt from "react-tilt";
 import axios from "axios";
 //--------------STYLES-------------------//
-import "../../";
+import "../../App.css";
 //--------------CLASS COMPONENT-------------------//
-class Cast extends Component {
+class ShowCast extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +17,7 @@ class Cast extends Component {
   componentDidMount() {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${
+        ` https://api.themoviedb.org/3/tv/${
           this.props.id
         }/credits?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
       )
@@ -61,4 +61,4 @@ class Cast extends Component {
   }
 }
 
-export default Cast;
+export default ShowCast;
