@@ -19,46 +19,48 @@
   opacity: 0.9;
 }
 
-.hero-movie-title {
+.hero-movie-info {
   position: absolute;
   z-index: 500;
-  top: 46vh;
-  left: 5vw;
+  top: 45vh;
+  width: 40%;
+  margin-left: 1.2%;
+}
+
+.hero-movie-title {
+  text-align: left;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .hero-movie-desc {
-  position: absolute;
-  width: 40%;
+  width: 100%;
   text-align: left;
   font-weight: 400;
   font-size: 1rem;
   letter-spacing: 0.3vh;
   line-height: 25px;
+}
+
+.hero-show-info {
+  position: absolute;
   z-index: 500;
-  top: 55vh;
-  left: 5vw;
+  top: 45vh;
+  width: 40%;
+  margin-left: 1.2%;
 }
 
 .hero-show-title {
-  position: absolute;
-  z-index: 500;
-  top: 46vh;
-  right: 5vw;
+  text-align: left;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .hero-show-desc {
-  position: absolute;
-  width: 40%;
-  text-align: right;
+  width: 100%;
+  text-align: left;
   font-weight: 400;
   font-size: 1rem;
   letter-spacing: 0.3vh;
   line-height: 25px;
-  z-index: 500;
-  top: 55vh;
-  right: 5vw;
 }
