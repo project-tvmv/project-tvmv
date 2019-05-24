@@ -14,6 +14,7 @@ import Loading from './components/Loading';
 import ActorsPage from './components/ActorsPage';
 import GenrePage from './components/GenrePage';
 import Movies from './components/Movies';
+import MovieResults from './components/MovieResults';
 require('dotenv').config();
 //--------------CLASS COMPONENT-------------------//
 class App extends React.Component {
@@ -107,7 +108,7 @@ class App extends React.Component {
   // Adds default image for null poster_paths //
   addDefaultSrc(ev) {
     ev.target.src =
-      'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9e16ed49631881.58b9ed7bbcf26.jpg';
+      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/61dd0774136783.5c27c9751f292.jpg';
   }
 
   render() {
@@ -182,6 +183,8 @@ class App extends React.Component {
                 <ActorsPage {...props} addDefaultSrc={this.addDefaultSrc} />
               )}
             />
+            {/*--------------------------Movie Results Route-------------*/}
+            <Route path='/movies/results/:query' component={MovieResults} />
           </div>
         </>
       );

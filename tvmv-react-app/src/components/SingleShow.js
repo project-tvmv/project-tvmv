@@ -49,7 +49,11 @@ class SingleShow extends Component {
           <p className='single-page-hero-desc'>{show.overview}</p>
         </div>
         <img
-          src={'http://image.tmdb.org/t/p/original' + show.backdrop_path}
+          src={
+            show.name === 'Game of Thrones'
+              ? 'https://www.sheknows.com/wp-content/uploads/2019/02/game-of-thrones-character-posters-FI.jpg'
+              : 'http://image.tmdb.org/t/p/original' + show.backdrop_path
+          }
           className='full-hero'
           alt={show.title}
         />

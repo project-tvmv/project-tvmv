@@ -33,7 +33,9 @@ class GenreButtons extends Component {
             to={`/genres/${genre.id}/${genre.name}`}
             className='genre-links'
           >
-            <button className='genre-buttons'>{genre.name}</button>
+            <button className='genre-buttons'>
+              {genre.name === 'Science Fiction' ? 'Sci Fi' : genre.name}
+            </button>
           </NavLink>
         ))}
       </div>

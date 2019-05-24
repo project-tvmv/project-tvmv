@@ -41,6 +41,7 @@ class GenrePage extends Component {
               src={'http://image.tmdb.org/t/p/original' + content.backdrop_path}
               className='title-image-section genre-page-posters'
               alt={content.title}
+              onError={addDefaultSrc}
             />
           </div>
         ))}
