@@ -27,13 +27,18 @@
 /* Titles / Texts */
 .section-header {
   text-align: left;
+  margin-bottom: 10px;
 }
 
 .single-page-hero-info {
   position: absolute;
   z-index: 500;
   width: 60%;
-  margin-top: 10%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 11%;
   margin-left: 3%;
   text-align: left;
 }
@@ -54,7 +59,10 @@
 .genre-header {
   position: absolute;
   z-index: 500;
-  margin-top: 10%;
+  font-size: 100px;
+  margin-top: 8%;
+  text-transform: uppercase;
+  user-select: none;
 }
 
 .links {
@@ -89,13 +97,16 @@
 
 .six-poster-container {
   width: 98%;
+  height: 44vh;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .extras-container {
-  width: 98%;
+  width: 64.7%;
   margin-left: 1%;
   display: flex;
   justify-content: space-between;
@@ -177,6 +188,12 @@
 .video {
   border-radius: 10px;
   overflow: hidden;
+  opacity: 0.8;
+  transition: 0.2s ease-in-out;
+}
+
+.video:hover {
+  opacity: 1;
 }
 
 /* icons */
@@ -201,7 +218,8 @@
 
 /* Buttons */
 .watch-movie {
-  padding: 1% 8%;
+  padding: 1% 2%;
+  width: 22%;
   border-radius: 5px;
   background: #2757ff;
   border: none;

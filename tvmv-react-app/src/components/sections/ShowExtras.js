@@ -1,9 +1,9 @@
 //---------------DEPENDENCIES--------------//
-import React, { Component } from "react";
-import axios from "axios";
-import ReactPlayer from "react-player";
+import React, { Component } from 'react';
+import axios from 'axios';
+import ReactPlayer from 'react-player';
 //--------------STYLES--------------------//
-import "../../App.css";
+import '../../App.css';
 
 //-------------CLASS COMPONENT-----------//
 class ShowExtras extends Component {
@@ -29,21 +29,21 @@ class ShowExtras extends Component {
     const extras = this.state.extras;
     return (
       <div>
-        <div className="section">
-          <h1 className="section-header">Extras</h1>
+        <div className='section'>
+          <h1 className='section-header'>Extras</h1>
         </div>
-        <div className="extras-container">
-          {extras.slice(0, 3).map((extra, index) => (
+        <div className='extras-container'>
+          {extras.slice(0, 2).map((extra, index) => (
             <div key={extra.id}>
-              <div className="extra-flex">
+              <div className='extra-flex'>
                 <ReactPlayer
                   url={`https://www.youtube.com/embed/${extra.key}`}
-                  width="56.5vh"
-                  height="30vh"
+                  width='56.5vh'
+                  height='30vh'
                   pip={true}
                   controls={true}
                   light={true}
-                  className="video"
+                  className='video'
                   playing={true}
                 />
               </div>

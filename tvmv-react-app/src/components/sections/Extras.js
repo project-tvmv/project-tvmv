@@ -33,7 +33,7 @@ class Extras extends Component {
           <h1 className='section-header'>Extras</h1>
         </div>
         <div className='extras-container'>
-          {extras.slice(0, 3).map((extra, index) => (
+          {extras.slice(0, 2).map((extra, index) => (
             <div key={extra.id}>
               <div className='extras-flex'>
                 <ReactPlayer

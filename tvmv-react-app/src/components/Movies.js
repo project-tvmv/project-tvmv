@@ -15,31 +15,9 @@ class Movies extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: '',
-      results: []
+      query: ''
     };
   }
-
-  getInfo = e => {
-    e.preventDefault();
-    this.props.history.push(`movies/results/${this.state.query}`);
-  };
-
-  handleInputChange = e => {
-    this.setState(
-      {
-        query: this.search.value
-      },
-      () => {
-        if (this.state.query && this.state.query.length > 1) {
-          if (this.state.query.length % 1 === 0) {
-            this.getInfo(e);
-          }
-        } else if (!this.state.query) {
-        }
-      }
-    );
-  };
 
   render() {
     window.scroll(0, 0);
@@ -71,7 +49,8 @@ class Movies extends Component {
           <p className='section-break-desc'>{familyMovies[7].overview}</p>
           <img
             src={
-              'http://image.tmdb.org/t/p/original' + familyMovies[7].poster_path
+              'http://image.tmdb.org/t/p/original' +
+              familyMovies[7].backdrop_path
             }
             alt={familyMovies[7].title}
             className='section-break-image'

@@ -42,7 +42,7 @@ const HomeHero = ({ popularMovies, popularShows }) => {
               <img
                 src={
                   popularShow.name === 'Game of Thrones'
-                    ? 'https://i.ibb.co/GHMp88p/cq5dam-web-1200-675.jpg'
+                    ? 'https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/21/1495474029-game-of-thrones2.jpg'
                     : 'http://image.tmdb.org/t/p/original' +
                       popularShow.backdrop_path
                 }

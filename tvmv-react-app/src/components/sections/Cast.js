@@ -1,11 +1,11 @@
 //--------------DEPENDANCIES-------------------//
-import React from "react";
-import { Component } from "react";
-import { Link } from "react-router-dom";
-import Tilt from "react-tilt";
-import axios from "axios";
+import React from 'react';
+import { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Tilt from 'react-tilt';
+import axios from 'axios';
 //--------------STYLES-------------------//
-import "../../";
+import '../../';
 //--------------CLASS COMPONENT-------------------//
 class Cast extends Component {
   constructor(props) {
@@ -28,30 +28,30 @@ class Cast extends Component {
     const credits = this.state.credits;
     return (
       <div>
-        <div className="section">
-          <h1 className="section-header">Starring</h1>
+        <div className='section'>
+          <h1 className='section-header'>Starring</h1>
         </div>
-        <div className="six-poster-container">
+        <div className='six-poster-container'>
           {credits.slice(0, 6).map((cast, index) => (
             <div key={cast.id}>
-              <div className="section-flex">
+              <div className='section-flex'>
                 <Tilt
-                  className="Tilt"
+                  className='Tilt'
                   options={{ max: 10, scale: 1.05, perspective: 500 }}
                 >
-                  <Link to={`/actor/${cast.id}`} className="links">
+                  <Link to={`/actor/${cast.id}`} className='links'>
                     <img
                       src={
-                        "http://image.tmdb.org/t/p/original" + cast.profile_path
+                        'http://image.tmdb.org/t/p/original' + cast.profile_path
                       }
                       alt={cast.character}
-                      className="posters"
+                      className='posters'
                     />
-                    <p className="poster-info">
-                      {cast.name} as {cast.character}
-                    </p>
                   </Link>
                 </Tilt>
+                <p className='poster-info'>
+                  {cast.name} as {cast.character}
+                </p>
               </div>
             </div>
           ))}
