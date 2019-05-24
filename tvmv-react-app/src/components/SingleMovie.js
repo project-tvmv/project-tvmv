@@ -33,6 +33,7 @@ class SingleMovie extends Component {
   }
 
   render() {
+    window.scroll(0, 0);
     const movie = this.state.movie;
     return (
       <div className='single-page-containter'>
@@ -41,10 +42,12 @@ class SingleMovie extends Component {
           <img src={back} className='hero-back' alt='back' />
         </Link>
         <img src={star} className='hero-star' alt='star' />
+
         <div className='single-page-hero-info'>
           <p className='rating'>{movie.vote_average}</p>
           <h1 className='single-page-hero-title'>{movie.title}</h1>
           <p className='single-page-hero-desc'>{movie.overview}</p>
+          <button className='watch-movie'>Watch movie</button>
         </div>
         <img
           src={'http://image.tmdb.org/t/p/original' + movie.backdrop_path}

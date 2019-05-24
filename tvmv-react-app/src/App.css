@@ -33,8 +33,9 @@
   position: absolute;
   z-index: 500;
   width: 60%;
-  margin-top: 12%;
+  margin-top: 10%;
   margin-left: 3%;
+  text-align: left;
 }
 
 .single-page-hero-title {
@@ -103,6 +104,7 @@
 .single-page-containter {
   width: 95%;
   margin: 2.5% auto;
+  text-align: center;
 }
 
 .section-flex {
@@ -166,9 +168,10 @@
   width: 98%;
   height: 60vh;
   object-fit: cover;
-  object-position: top;
+  object-position: 0 50%;
   opacity: 0.8;
   border-radius: 6px;
+  margin: 0 auto;
 }
 
 .video {
@@ -177,6 +180,7 @@
 }
 
 /* icons */
+
 .hero-back {
   position: absolute;
   top: 7%;
@@ -193,4 +197,20 @@
   z-index: 500;
   width: 2%;
   cursor: pointer;
+}
+
+/* Buttons */
+.watch-movie {
+  padding: 1% 8%;
+  border-radius: 5px;
+  background: #2757ff;
+  border: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.watch-movie:hover {
+  background: #277aff;
 }

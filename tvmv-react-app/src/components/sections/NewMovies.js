@@ -14,7 +14,7 @@ const NewMovies = ({ newMovies }) => {
       <div className='six-poster-container'>
         {newMovies.slice(0, 6).map((newMovie, index) => (
           <div key={newMovie.id}>
-            <Link to={`/movies/${newMovie.id}`}>
+            <Link to={`/movie/${newMovie.id}`}>
               <Tilt
                 className='Tilt'
                 options={{ max: 10, scale: 1.05, perspective: 500 }}

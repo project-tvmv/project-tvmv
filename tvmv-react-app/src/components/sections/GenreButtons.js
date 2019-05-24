@@ -30,7 +30,7 @@ class GenreButtons extends Component {
         {genres.map((genre, index) => (
           <NavLink
             key={genre.name}
-            to={`/genres/${genre.id}`}
+            to={`/genres/${genre.id}/${genre.name}`}
             className='genre-links'
           >
             <button className='genre-buttons'>{genre.name}</button>

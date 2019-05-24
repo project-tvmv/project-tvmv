@@ -78,7 +78,7 @@ class ActorsPage extends Component {
                 className='Tilt'
                 options={{ max: 10, scale: 1.05, perspective: 500 }}
               >
-                <Link to={`/movies/${work.id}`}>
+                <Link to={`/movie/${work.id}`}>
                   <img
                     src={'http://image.tmdb.org/t/p/w500' + work.poster_path}
                     className='posters actors-page-posters'

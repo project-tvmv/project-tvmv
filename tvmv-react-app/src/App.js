@@ -13,6 +13,7 @@ import Navigation from './components/Navigation';
 import Loading from './components/Loading';
 import ActorsPage from './components/ActorsPage';
 import GenrePage from './components/GenrePage';
+import Movies from './components/Movies';
 require('dotenv').config();
 //--------------CLASS COMPONENT-------------------//
 class App extends React.Component {
@@ -22,7 +23,11 @@ class App extends React.Component {
       popularMovies: [],
       popularShows: [],
       newMovies: [],
-      newShows: []
+      newShows: [],
+      trendingMovies: [],
+      familyMovies: [],
+      horrorMovies: [],
+      romanticComedies: []
     };
   }
   //--------------GET MOST POPULAR MOVIE------------------//
@@ -37,6 +42,31 @@ class App extends React.Component {
         'https://api.themoviedb.org/3/movie/now_playing?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1'
       );
     }
+
+    function getTrendingMovies() {
+      return axios.get(
+        'https://api.themoviedb.org/3/trending/movie/day?api_key=6d9a91a4158b0a021d546ccd83d3f52e'
+      );
+    }
+
+    function getFamilyMovies() {
+      return axios.get(
+        'https://api.themoviedb.org/3/discover/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&sort_by=popularity.desc&certification=G&include_adult=false&include_video=false&page=1&with_genres=10751&with_original_language=en'
+      );
+    }
+
+    function getHorrorMovies() {
+      return axios.get(
+        'https://api.themoviedb.org/3/discover/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&sort_by=vote_count.desc&certification=MA&include_adult=true&include_video=false&page=1&with_genres=27&with_original_language=en'
+      );
+    }
+
+    function getRomanticComedyMovies() {
+      return axios.get(
+        'https://api.themoviedb.org/3/discover/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_genres=10749%2C%2035&without_genres=16&with_original_language=en'
+      );
+    }
+
     function getPopularShows() {
       return axios.get(
         'https://api.themoviedb.org/3/tv/popular?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1'
@@ -52,7 +82,11 @@ class App extends React.Component {
         getPopularMovies(),
         getPopularShows(),
         getNewMovies(),
-        getNewShows()
+        getNewShows(),
+        getTrendingMovies(),
+        getFamilyMovies(),
+        getHorrorMovies(),
+        getRomanticComedyMovies()
       ])
       .then(res => {
         console.log(res);
@@ -60,7 +94,11 @@ class App extends React.Component {
           popularMovies: res[0].data.results,
           popularShows: res[1].data.results,
           newMovies: res[2].data.results,
-          newShows: res[3].data.results
+          newShows: res[3].data.results,
+          trendingMovies: res[4].data.results,
+          familyMovies: res[5].data.results,
+          horrorMovies: res[6].data.results,
+          romanticComedies: res[7].data.results
         });
       })
       .catch(err => console.log(err));
@@ -77,7 +115,7 @@ class App extends React.Component {
       this.state.popularMovies.length &&
       this.state.popularShows.length &&
       this.state.newMovies.length &&
-      this.state.newShows.length > 1
+      this.state.newShows.length > 18
     ) {
       return (
         <>
@@ -102,11 +140,26 @@ class App extends React.Component {
             <Route path='/search' render={props => <Search />} />
             {/*---------------------------Movies Route-------------*/}
             <Route
-              path='/movies/:id'
+              path='/movie/:id'
               render={props => (
                 <SingleMovie
                   {...props}
                   popularMovies={this.state.popularMovies}
+                />
+              )}
+            />
+            {/*--------------------------Movies Page Route-------------*/}
+            <Route
+              path='/movies'
+              render={props => (
+                <Movies
+                  {...props}
+                  popularMovies={this.state.popularMovies}
+                  newMovies={this.state.newMovies}
+                  trendingMovies={this.state.trendingMovies}
+                  familyMovies={this.state.familyMovies}
+                  horrorMovies={this.state.horrorMovies}
+                  romanticComedies={this.state.romanticComedies}
                 />
               )}
             />
@@ -117,7 +170,7 @@ class App extends React.Component {
             />
             {/*--------------------------Genre Page Route-------------*/}
             <Route
-              path='/genres/:id'
+              path='/genres/:id/:name'
               render={props => (
                 <GenrePage {...props} addDefaultSrc={this.addDefaultSrc} />
               )}

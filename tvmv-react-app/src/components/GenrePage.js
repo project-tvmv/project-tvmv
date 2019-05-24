@@ -12,7 +12,7 @@ class GenrePage extends Component {
     super(props);
     this.state = {
       genre: this.props.match.params.id,
-      genreName: 'Null',
+      genreName: this.props.match.params.name,
       pageNumber: 1,
       content: []
     };
@@ -36,26 +36,30 @@ class GenrePage extends Component {
       <div className='full-page-container'>
         <h1 className='genre-header'>{this.state.genreName}</h1>
         {content.slice(0, 1).map(content => (
-          <img
-            src={'http://image.tmdb.org/t/p/w500' + content.backdrop_path}
-            className='title-image-section genre-page-posters'
-            alt={content.title}
-          />
+          <div key={content.id}>
+            <img
+              src={'http://image.tmdb.org/t/p/original' + content.backdrop_path}
+              className='title-image-section genre-page-posters'
+              alt={content.title}
+            />
+          </div>
         ))}
-        {content.splice(0, 18).map((content, index) => (
-          <Tilt
-            className='Tilt'
-            options={{ max: 10, scale: 1.05, perspective: 500 }}
-          >
-            <Link to={`/movies/${content.id}`}>
-              <img
-                src={'http://image.tmdb.org/t/p/w500' + content.poster_path}
-                className='posters genre-page-poster'
-                onError={addDefaultSrc}
-                alt={content.title}
-              />
-            </Link>
-          </Tilt>
+        {content.slice(0, 18).map((content, index) => (
+          <div key={content.id}>
+            <Tilt
+              className='Tilt'
+              options={{ max: 10, scale: 1.05, perspective: 500 }}
+            >
+              <Link to={`/movie/${content.id}`}>
+                <img
+                  src={'http://image.tmdb.org/t/p/w500' + content.poster_path}
+                  className='posters genre-page-poster'
+                  onError={addDefaultSrc}
+                  alt={content.title}
+                />
+              </Link>
+            </Tilt>
+          </div>
         ))}
       </div>
     );
