@@ -52,7 +52,7 @@ class Recommended extends Component {
         <div className='six-poster-container'>
           {recommended.slice(0, 6).map((recommend, index) => (
             <div key={recommend.id}>
-              <Link to={`/movies/${recommend.id}`} onClick={this.fetchData}>
+              <Link to={`/movie/${recommend.id}`} onClick={this.fetchData}>
                 <Tilt
                   className='Tilt'
                   options={{ max: 10, scale: 1.05, perspective: 500 }}

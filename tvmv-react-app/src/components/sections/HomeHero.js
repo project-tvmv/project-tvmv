@@ -16,7 +16,7 @@ const HomeHero = ({ popularMovies, popularShows }) => {
                 {popularMovie.overview.slice(0, 300)}...
               </p>
             </div>
-            <NavLink to={`/movies/${popularMovie.id}`}>
+            <NavLink to={`/movie/${popularMovie.id}`}>
               <img
                 src={
                   'http://image.tmdb.org/t/p/original' +

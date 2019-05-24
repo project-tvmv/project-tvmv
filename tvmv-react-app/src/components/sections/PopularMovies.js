@@ -15,7 +15,7 @@ const PopularMovies = ({ popularMovies }) => {
         <>
           {popularMovies.splice(0, 6).map((popularMovie, index) => (
             <div key={popularMovie.id}>
-              <Link to={`/movies/${popularMovie.id}`}>
+              <Link to={`/movie/${popularMovie.id}`}>
                 <Tilt
                   className='Tilt'
                   options={{ max: 10, scale: 1.05, perspective: 500 }}
