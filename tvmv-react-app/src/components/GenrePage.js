@@ -39,6 +39,7 @@ class GenrePage extends Component {
           <img
             src={'http://image.tmdb.org/t/p/w500' + content.backdrop_path}
             className='title-image-section genre-page-posters'
+            alt={content.title}
           />
         ))}
         {content.splice(0, 18).map((content, index) => (
@@ -51,6 +52,7 @@ class GenrePage extends Component {
                 src={'http://image.tmdb.org/t/p/w500' + content.poster_path}
                 className='posters genre-page-poster'
                 onError={addDefaultSrc}
+                alt={content.title}
               />
             </Link>
           </Tilt>

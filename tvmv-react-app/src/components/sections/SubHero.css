@@ -1,6 +1,6 @@
 .subhero-container {
   margin: 3% auto;
-  margin-bottom: 0;
+  margin-bottom: 5%;
   width: 98%;
   display: flex;
   justify-content: space-between;
@@ -45,7 +45,7 @@
   mask-image: url('../../assets/sub-hero-left.svg');
   mask-repeat: no-repeat;
   width: 100vh;
-  height: 55vh;
+  height: 46vh;
   object-fit: cover;
   position: relative;
   cursor: pointer;
@@ -56,7 +56,7 @@
   mask-image: url('../../assets/sub-hero-right.svg');
   mask-repeat: no-repeat;
   width: 100vh;
-  height: 55vh;
+  height: 46vh;
   object-fit: cover;
   position: relative;
   right: 23.5vh;

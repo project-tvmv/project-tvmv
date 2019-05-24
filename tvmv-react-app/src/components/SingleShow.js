@@ -1,18 +1,18 @@
 //--------------DEPENDANCIES-------------------//
-import React from "react";
-import { Component } from "react";
-import axios from "axios";
+import React from 'react';
+import { Component } from 'react';
+import axios from 'axios';
 
 //--------------STYLES-------------------------//
-import "../App.css";
-import ShowCast from "./sections/ShowCast";
-import ShowExtras from "./sections/ShowExtras";
-import ShowRecommended from "./sections/ShowRecommended";
-import { Link } from "react-router-dom";
+import '../App.css';
+import ShowCast from './sections/ShowCast';
+import ShowExtras from './sections/ShowExtras';
+import ShowRecommended from './sections/ShowRecommended';
+import { Link } from 'react-router-dom';
 
 //--------------IMPORTS------------------------//
-import back from "../assets/icons/arrow-left.svg";
-import star from "../assets/icons/star.svg";
+import back from '../assets/icons/arrow-left.svg';
+import star from '../assets/icons/star.svg';
 //--------------CLASS COMPONENT-------------------//
 class SingleShow extends Component {
   constructor(props) {
@@ -37,20 +37,20 @@ class SingleShow extends Component {
   render() {
     const show = this.state.show;
     return (
-      <div className="single-page-containter">
+      <div className='single-page-containter'>
         {/* //--------------HERO SECTION-------------------// */}
-        <Link to="/">
-          <img src={back} className="hero-back" alt="back" />
+        <Link to='/'>
+          <img src={back} className='hero-back' alt='back' />
         </Link>
-        <img src={star} className="hero-star" alt="star" />
-        <div className="single-page-hero-info">
-          <p className="rating">{show.vote_average}</p>
-          <h1 className="single-page-hero-title">{show.name}</h1>
-          <p className="single-page-hero-desc">{show.overview}</p>
+        <img src={star} className='hero-star' alt='star' />
+        <div className='single-page-hero-info'>
+          <p className='rating'>{show.vote_average}</p>
+          <h1 className='single-page-hero-title'>{show.name}</h1>
+          <p className='single-page-hero-desc'>{show.overview}</p>
         </div>
         <img
-          src={"http://image.tmdb.org/t/p/original" + show.backdrop_path}
-          className="full-hero"
+          src={'http://image.tmdb.org/t/p/original' + show.backdrop_path}
+          className='full-hero'
           alt={show.title}
         />
         <ShowCast id={this.state.id} />

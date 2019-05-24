@@ -12,7 +12,8 @@ class Recommended extends Component {
     super(props);
     this.state = {
       recommended: [],
-      id: this.props.id
+      id: this.props.id,
+      recommendId: this.props.id
     };
   }
   componentDidMount() {
@@ -30,7 +31,7 @@ class Recommended extends Component {
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${
-          this.props.id
+          this.state.recommendId
         }/recommendations?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1`
       )
       .then(res => {

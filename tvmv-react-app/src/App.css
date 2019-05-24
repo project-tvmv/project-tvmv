@@ -8,6 +8,7 @@
   display: flex;
   align-items: baseline;
   margin-left: 1%;
+  margin-top: 2%;
 }
 
 .second-section {
@@ -15,7 +16,7 @@
 }
 
 .full-page-container {
-  width: 178vh;
+  width: 95%;
   margin: 2.5% auto;
   display: flex;
   flex-wrap: wrap;
@@ -31,20 +32,21 @@
 .single-page-hero-info {
   position: absolute;
   z-index: 500;
-  width: 50%;
-  margin-top: 15%;
+  width: 60%;
+  margin-top: 12%;
   margin-left: 3%;
 }
 
 .single-page-hero-title {
   text-align: left;
   filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.377));
+  font-size: 35px;
 }
 
 .single-page-hero-desc {
   width: 100%;
   text-align: left;
-  font-size: 1.2rem;
+  font-size: 20px;
   filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.377));
 }
 

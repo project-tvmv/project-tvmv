@@ -30,14 +30,14 @@
 .hero-movie-title {
   text-align: left;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 30px;
 }
 
 .hero-movie-desc {
   width: 100%;
   text-align: left;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 16px;
   letter-spacing: 0.3vh;
   line-height: 25px;
 }
@@ -53,14 +53,14 @@
 .hero-show-title {
   text-align: left;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 30px;
 }
 
 .hero-show-desc {
   width: 100%;
   text-align: left;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 16px;
   letter-spacing: 0.3vh;
   line-height: 25px;
 }

@@ -96,35 +96,3 @@ class ActorsPage extends Component {
 }
 
 export default ActorsPage;
-
-// Example DATA:
-// name: [
-//     adult:
-//     false
-//     also_known_as:
-//     Array[1]
-//     biography:
-//     "​From Wikipedia, the free encyclopedia.\n\nThomas John Guiry  (born October 12, 1981) is an American actor. Guiry was born in Trenton, New Jersey and attended St. Gregory the Great school in Hamilton To…"
-//     birthday:
-//     "1981-10-12"
-//     deathday:
-//     null
-//     gender:
-//     2
-//     homepage:
-//     null
-//     id:
-//     4729
-//     imdb_id:
-//     "nm0347509"
-//     known_for_department:
-//     "Acting"
-//     name:
-//     "Tom Guiry"
-//     place_of_birth:
-//     "North Trenton - New Jersey - USA"
-//     popularity:
-//     0.728
-//     profile_path:
-//     "/3LcbdkpjePcQk8q4QbRg7uhNMgN.jpg"
-// ]
