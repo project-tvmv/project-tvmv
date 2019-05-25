@@ -6,7 +6,8 @@ import Axios from 'axios';
 //---------------Syles-------------------//
 class Search extends Component {
   state = {
-    search: ""
+    search: "",
+    searchData: []
   };
 
   fetchSearch(search) {
@@ -14,6 +15,9 @@ class Search extends Component {
     .get(`https://api.themoviedb.org/3/search/multi?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&language=en-US&query=${search}&page=1&include_adult=false`)
     .then(res => {
       console.log("response:", res)
+      this.setState({ 
+        searchData: res.data.results
+      })
     })
     .catch(err => {
       console.log(err)
@@ -30,10 +34,14 @@ class Search extends Component {
     e.preventDefault();
     console.log(this.state.search)
     this.fetchSearch(this.state.search);
+    this.setState({
+      search: ''
+    })
   }
 
 
   render() {
+    console.log("results", this.state.searchData)
     return (
       <div className="search-page">
         <h1>Welcome to Search</h1>
@@ -48,6 +56,14 @@ class Search extends Component {
           onChange={this.changeHandler}
           />
         </form>
+
+        <div className="search-results">
+           {this.state.searchData.map( item => {
+             return (
+               <p>{item.vote_average}</p>
+             )
+           } )}
+        </div>
       </div>
     );
   }
