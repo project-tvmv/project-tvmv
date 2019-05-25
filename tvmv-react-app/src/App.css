@@ -8,7 +8,13 @@
   display: flex;
   align-items: baseline;
   margin-left: 1%;
-  margin-top: 2%;
+  margin-top: 1%;
+}
+
+.section-extras {
+  margin-top: 12%;
+
+  margin-left: 1%;
 }
 
 .second-section {
@@ -28,6 +34,8 @@
 .section-header {
   text-align: left;
   margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 500;
 }
 
 .single-page-hero-info {
@@ -97,16 +105,14 @@
 
 .six-poster-container {
   width: 98%;
-  height: 44vh;
+  height: 30vh;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 10px;
-  padding-top: 10px;
 }
 
 .extras-container {
-  width: 64.7%;
+  width: max-content;
   margin-left: 1%;
   display: flex;
   justify-content: space-between;
@@ -165,9 +171,22 @@
 
 .genre-page-poster {
   margin-bottom: 8%;
+  width: 33vh;
+  height: 50vh;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .posters {
+  width: 20vh;
+  height: 30vh;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cast-posters {
   width: 27vh;
   height: 41vh;
   object-fit: cover;
@@ -179,21 +198,14 @@
   width: 98%;
   height: 60vh;
   object-fit: cover;
-  object-position: 0 50%;
+  object-position: 0 20%;
   opacity: 0.8;
   border-radius: 6px;
   margin: 0 auto;
 }
 
 .video {
-  border-radius: 10px;
-  overflow: hidden;
-  opacity: 0.8;
-  transition: 0.2s ease-in-out;
-}
-
-.video:hover {
-  opacity: 1;
+  padding-right: 25px;
 }
 
 /* icons */

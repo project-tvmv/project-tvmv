@@ -7,24 +7,28 @@
   overflow: hidden;
 }
 
+.movies-subhero {
+  width: 100%;
+}
+
 .sub-hero-movie-title {
   position: absolute;
   z-index: 500;
-  top: 218vh;
+  top: 195vh;
   left: 10vh;
 }
 
 .sub-hero-show-title {
   position: absolute;
   z-index: 500;
-  top: 218vh;
+  top: 195vh;
   right: 10vh;
 }
 
 .subhero-movie-desc {
   position: absolute;
   z-index: 500;
-  top: 223vh;
+  top: 200vh;
   left: 10vh;
   width: 35%;
   font-size: 2vh;
@@ -34,7 +38,7 @@
 .subhero-show-desc {
   position: absolute;
   z-index: 500;
-  top: 223vh;
+  top: 200vh;
   right: 10vh;
   width: 35%;
   font-size: 2vh;

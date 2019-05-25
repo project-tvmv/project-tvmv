@@ -2,12 +2,12 @@
 import React from 'react';
 import { Component } from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 //--------------STYLES-------------------//
 import '../App.css';
 import Cast from './sections/Cast';
 import Extras from './sections/Extras';
 import Recommended from './sections/Recommended';
-import { Link } from 'react-router-dom';
 //--------------IMPORTS-------------------//
 import back from '../assets/icons/arrow-left.svg';
 import star from '../assets/icons/star.svg';
@@ -38,9 +38,12 @@ class SingleMovie extends Component {
     return (
       <div className='single-page-containter'>
         {/* //--------------HERO SECTION-------------------// */}
-        <Link to='/'>
-          <img src={back} className='hero-back' alt='back' />
-        </Link>
+        <img
+          src={back}
+          className='hero-back'
+          alt='back'
+          onClick={this.props.history.goBack}
+        />
         <img src={star} className='hero-star' alt='star' />
         <div className='single-page-hero-info'>
           <p className='rating'>{movie.vote_average}</p>
@@ -61,4 +64,4 @@ class SingleMovie extends Component {
   }
 }
 
-export default SingleMovie;
+export default withRouter(SingleMovie);

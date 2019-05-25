@@ -45,7 +45,7 @@ class Cast extends Component {
                         'http://image.tmdb.org/t/p/original' + cast.profile_path
                       }
                       alt={cast.character}
-                      className='posters'
+                      className='cast-posters'
                     />
                   </Link>
                 </Tilt>

@@ -50,7 +50,7 @@ class Recommended extends Component {
           <h1 className='section-header'>Recommended</h1>
         </div>
         <div className='six-poster-container'>
-          {recommended.slice(0, 6).map((recommend, index) => (
+          {recommended.slice(0, 8).map((recommend, index) => (
             <div key={recommend.id}>
               <Link to={`/movie/${recommend.id}`} onClick={this.fetchData}>
                 <Tilt

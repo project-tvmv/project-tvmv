@@ -13,7 +13,7 @@ const PopularMovies = ({ popularMovies }) => {
       </div>
       <div className='six-poster-container'>
         <>
-          {popularMovies.splice(0, 6).map((popularMovie, index) => (
+          {popularMovies.splice(0, 8).map((popularMovie, index) => (
             <div key={popularMovie.id}>
               <Link to={`/movie/${popularMovie.id}`}>
                 <Tilt

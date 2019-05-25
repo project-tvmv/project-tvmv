@@ -12,7 +12,7 @@ const NewMovies = ({ newMovies }) => {
         <h1 className='section-header'>New to Movies</h1>
       </div>
       <div className='six-poster-container'>
-        {newMovies.slice(0, 6).map((newMovie, index) => (
+        {newMovies.slice(0, 8).map((newMovie, index) => (
           <div key={newMovie.id}>
             <Link to={`/movie/${newMovie.id}`}>
               <Tilt

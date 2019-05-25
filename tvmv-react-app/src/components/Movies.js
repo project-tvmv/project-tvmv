@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import TrendingMovies from './moviesSection/TrendingMovies';
 import NewMovies from './moviesSection/NewMovies';
 
@@ -44,21 +45,36 @@ class Movies extends Component {
         </div>
         <TrendingMovies trendingMovies={trendingMovies} />
         <NewMovies newMovies={newMovies} />
-        <div className='section-break'>
-          <h1 className='section-break-tite'>{familyMovies[7].title}</h1>
-          <p className='section-break-desc'>{familyMovies[7].overview}</p>
-          <img
-            src={
-              'http://image.tmdb.org/t/p/original' +
-              familyMovies[7].backdrop_path
-            }
-            alt={familyMovies[7].title}
-            className='section-break-image'
-          />
-        </div>
-
+        <Link to={`/movie/${familyMovies[8].id}`} className='links'>
+          <div className='section-break'>
+            <h1 className='section-break-tite'>{familyMovies[8].title}</h1>
+            <p className='section-break-desc'>{familyMovies[8].overview}</p>
+            <img
+              src={
+                'http://image.tmdb.org/t/p/original' +
+                familyMovies[8].backdrop_path
+              }
+              alt={familyMovies[8].title}
+              className='section-break-image'
+            />
+          </div>
+        </Link>
         <PopularMovies popularMovies={popularMovies} />
         <FamilyMovies familyMovies={familyMovies} />
+        <Link to={`/movie/${horrorMovies[8].id}`} className='links'>
+          <div className='section-break'>
+            <h1 className='section-break-tite'>{horrorMovies[8].title}</h1>
+            <p className='section-break-desc'>{horrorMovies[8].overview}</p>
+            <img
+              src={
+                'http://image.tmdb.org/t/p/original' +
+                horrorMovies[8].backdrop_path
+              }
+              alt={horrorMovies[8].title}
+              className='section-break-image'
+            />
+          </div>
+        </Link>
         <HorrorMovies horrorMovies={horrorMovies} />
         <RomCom romanticComedy={romanticComedies} />
       </div>
