@@ -29,17 +29,17 @@ class Extras extends Component {
     const extras = this.state.extras;
     return (
       <div>
-        <div className='section'>
+        <div className='section-extras'>
           <h1 className='section-header'>Extras</h1>
         </div>
         <div className='extras-container'>
-          {extras.slice(0, 2).map((extra, index) => (
+          {extras.slice(0, 3).map((extra, index) => (
             <div key={extra.id}>
               <div className='extras-flex'>
                 <ReactPlayer
                   url={`https://www.youtube.com/embed/${extra.key}`}
-                  width='56.5vh'
-                  height='30vh'
+                  width='45vh'
+                  height='25vh'
                   pip={true}
                   controls={true}
                   light={true}

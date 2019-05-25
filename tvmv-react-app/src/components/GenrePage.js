@@ -2,6 +2,8 @@
 import React from 'react';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import back from '../assets/icons/arrow-left.svg';
 import Tilt from 'react-tilt';
 import axios from 'axios';
 //--------------STYLES-------------------//
@@ -34,6 +36,12 @@ class GenrePage extends Component {
     const addDefaultSrc = this.props.addDefaultSrc;
     return (
       <div className='full-page-container'>
+        <img
+          src={back}
+          className='hero-back'
+          alt='back'
+          onClick={this.props.history.goBack}
+        />
         <h1 className='genre-header'>{this.state.genreName}</h1>
         {content.slice(0, 1).map(content => (
           <div key={content.id}>
@@ -45,7 +53,7 @@ class GenrePage extends Component {
             />
           </div>
         ))}
-        {content.slice(0, 18).map((content, index) => (
+        {content.slice(0, 20).map((content, index) => (
           <div key={content.id}>
             <Tilt
               className='Tilt'
@@ -54,7 +62,7 @@ class GenrePage extends Component {
               <Link to={`/movie/${content.id}`}>
                 <img
                   src={'http://image.tmdb.org/t/p/w500' + content.poster_path}
-                  className='posters genre-page-poster'
+                  className='genre-page-poster'
                   onError={addDefaultSrc}
                   alt={content.title}
                 />
@@ -67,4 +75,4 @@ class GenrePage extends Component {
   }
 }
 
-export default GenrePage;
+export default withRouter(GenrePage);
