@@ -56,7 +56,7 @@ class MovieResults extends Component {
           <div key={results.id}>
             <Tilt
               className='Tilt'
-              options={{ max: 10, scale: 1.08, perspective: 500 }}
+              options={{ max: 12, scale: 1.04, perspective: 500 }}
             >
               <Link to={`/movie/${results.id}`}>
                 <img

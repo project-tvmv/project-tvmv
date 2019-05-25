@@ -8,7 +8,7 @@
 
 .genre-links {
   background: #232323;
-  border-radius: 10px;
+  border-radius: 5px;
   width: 8%;
   padding: 1vh 0 1vh 0;
   margin-right: 1%;
@@ -31,5 +31,5 @@
 .genre-links:hover {
   background: #1861ff;
   filter: drop-shadow(0px 0px 10px #2756ff42);
-  transform: scale(1.1);
+  transform: scale(1.15);
 }

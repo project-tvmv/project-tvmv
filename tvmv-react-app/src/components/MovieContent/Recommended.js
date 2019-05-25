@@ -55,7 +55,7 @@ class Recommended extends Component {
               <Link to={`/movie/${recommend.id}`} onClick={this.fetchData}>
                 <Tilt
                   className='Tilt'
-                  options={{ max: 10, scale: 1.08, perspective: 500 }}
+                  options={{ max: 12, scale: 1.04, perspective: 500 }}
                 >
                   <img
                     src={
