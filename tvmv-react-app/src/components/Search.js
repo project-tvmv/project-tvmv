@@ -50,9 +50,14 @@ class Search extends Component {
   render() {
     return (
       <div className='search-page'>
-        <img src={search} alt='search-icon' className='search-page-icon' />
+        
         {/* ---------------SEARCH FIELD------------------- */}
+<<<<<<< HEAD
         <form onSubmit={this.onSubmit} className='search-form'>
+=======
+        <form className='search-form' onSubmit={this.onSubmit}>
+        <img src={search} alt='search-icon' className='search-page-icon' />
+>>>>>>> dad430597c07ef5fd452fa00754be83bdf094051
           <input
             className='search'
             placeholder='What can we help you find today?'
