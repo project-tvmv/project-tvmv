@@ -5,9 +5,9 @@ import Tilt from 'react-tilt';
 const HorrorMovies = ({ horrorMovies }) => {
   return (
     <div className='movie-sections'>
-      <h1 className='movie-section-header'>Sleep is for the weak</h1>
-      <div className='movie-posters-container'>
-        {horrorMovies.slice(0, 8).map((horror, index) => (
+      <h1 className='movie-section-header'>Sleep is for the Weak</h1>
+      <div className='movie-posters-container twelve-movies'>
+        {horrorMovies.slice(0, 16).map((horror, index) => (
           <div key={horror.id}>
             <Link to={`/movie/${horror.id}`}>
               <Tilt
@@ -19,7 +19,7 @@ const HorrorMovies = ({ horrorMovies }) => {
                     'http://image.tmdb.org/t/p/original' + horror.poster_path
                   }
                   alt={horror.title}
-                  className='posters'
+                  className='posters twelve-posters'
                 />
               </Tilt>
             </Link>

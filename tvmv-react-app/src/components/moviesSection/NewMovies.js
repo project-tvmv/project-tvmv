@@ -6,8 +6,8 @@ const NewMovies = ({ newMovies }) => {
   return (
     <div className='movie-sections'>
       <h1 className='movie-section-header'>What's new?</h1>
-      <div className='movie-posters-container'>
-        {newMovies.slice(0, 8).map((newMovies, index) => (
+      <div className='movie-posters-container twelve-movies'>
+        {newMovies.slice(0, 16).map((newMovies, index) => (
           <div key={newMovies.id}>
             <Link to={`/movie/${newMovies.id}`}>
               <Tilt
@@ -19,7 +19,7 @@ const NewMovies = ({ newMovies }) => {
                     'http://image.tmdb.org/t/p/original' + newMovies.poster_path
                   }
                   alt={newMovies.title}
-                  className='posters'
+                  className='posters twelve-posters'
                 />
               </Tilt>
             </Link>

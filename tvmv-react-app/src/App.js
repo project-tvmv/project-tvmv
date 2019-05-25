@@ -28,7 +28,8 @@ class App extends React.Component {
       trendingMovies: [],
       familyMovies: [],
       horrorMovies: [],
-      romanticComedies: []
+      romanticComedies: [],
+      comedyMovies: []
     };
   }
   //--------------GET MOST POPULAR MOVIE------------------//
@@ -78,6 +79,11 @@ class App extends React.Component {
         'https://api.themoviedb.org/3/tv/airing_today?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1'
       );
     }
+    function getComedies() {
+      return axios.get(
+        'https://api.themoviedb.org/3/discover/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=35&without_genres=16%2C%2010751%2C28%2C27%2C12'
+      );
+    }
     axios
       .all([
         getPopularMovies(),
@@ -87,21 +93,24 @@ class App extends React.Component {
         getTrendingMovies(),
         getFamilyMovies(),
         getHorrorMovies(),
-        getRomanticComedyMovies()
+        getRomanticComedyMovies(),
+        getComedies()
       ])
-      .then(res => {
-        console.log(res);
-        this.setState({
-          popularMovies: res[0].data.results,
-          popularShows: res[1].data.results,
-          newMovies: res[2].data.results,
-          newShows: res[3].data.results,
-          trendingMovies: res[4].data.results,
-          familyMovies: res[5].data.results,
-          horrorMovies: res[6].data.results,
-          romanticComedies: res[7].data.results
-        });
-      })
+      .then(
+        axios.spread((a, b, c, d, e, f, g, h, i) => {
+          this.setState({
+            popularMovies: a.data.results,
+            popularShows: b.data.results,
+            newMovies: c.data.results,
+            newShows: d.data.results,
+            trendingMovies: e.data.results,
+            familyMovies: f.data.results,
+            horrorMovies: g.data.results,
+            romanticComedies: h.data.results,
+            comedyMovies: i.data.results
+          });
+        })
+      )
       .catch(err => console.log(err));
   }
 
@@ -161,6 +170,7 @@ class App extends React.Component {
                   familyMovies={this.state.familyMovies}
                   horrorMovies={this.state.horrorMovies}
                   romanticComedies={this.state.romanticComedies}
+                  comedyMovies={this.state.comedyMovies}
                 />
               )}
             />

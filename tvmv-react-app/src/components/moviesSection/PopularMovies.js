@@ -5,9 +5,9 @@ import Tilt from 'react-tilt';
 const PopularMovies = ({ popularMovies }) => {
   return (
     <div className='movie-sections'>
-      <h1 className='movie-section-header'>Popular movies</h1>
-      <div className='movie-posters-container'>
-        {popularMovies.slice(0, 8).map((popular, index) => (
+      <h1 className='movie-section-header'>Popular Movies</h1>
+      <div className='movie-posters-container twelve-movies'>
+        {popularMovies.slice(0, 16).map((popular, index) => (
           <div key={popular.id}>
             <Link to={`/movie/${popular.id}`}>
               <Tilt
@@ -19,7 +19,7 @@ const PopularMovies = ({ popularMovies }) => {
                     'http://image.tmdb.org/t/p/original' + popular.poster_path
                   }
                   alt={popular.title}
-                  className='posters'
+                  className='posters twelve-posters'
                 />
               </Tilt>
             </Link>
