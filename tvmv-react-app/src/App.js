@@ -35,7 +35,8 @@ class App extends React.Component {
       disney: []
     };
   }
-  //--------------GET MOST POPULAR MOVIE------------------//
+  //--------------MAJOR API CALLS------------------//
+  /* There is a bug where if you repeatly click the Home icon in the nav, data starts to get lost... Trying to figure out a fix. */
   componentDidMount() {
     function getPopularMovies() {
       return axios.get(
@@ -102,7 +103,7 @@ class App extends React.Component {
         'https://api.themoviedb.org/3/discover/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&region=US&sort_by=popularity.desc&certification=G&include_adult=false&page=1&with_companies=2&with_genres=16'
       );
     }
-
+    //--------------AXIOS.ALL Functions------------------//
     axios
       .all([
         getPopularMovies(),
@@ -139,7 +140,7 @@ class App extends React.Component {
       .catch(err => console.log(err));
   }
 
-  // Adds default image for null poster_paths //
+  //-Adds default image for null poster_paths-//
   addDefaultSrc(ev) {
     ev.target.src =
       'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/61dd0774136783.5c27c9751f292.jpg';
@@ -147,6 +148,7 @@ class App extends React.Component {
 
   render() {
     if (
+      /* This checks to see if there is movies and shows, otherwise return the Loading animation to wait. */
       this.state.popularMovies.length &&
       this.state.popularShows.length &&
       this.state.newMovies.length &&
@@ -173,7 +175,7 @@ class App extends React.Component {
             />
             {/*------------------------Search Route---------------*/}
             <Route path='/search' render={props => <Search />} />
-            {/*---------------------------Movies Route-------------*/}
+            {/*---------------------------Single Movies Route-------------*/}
             <Route
               path='/movie/:id'
               render={props => (
@@ -183,7 +185,7 @@ class App extends React.Component {
                 />
               )}
             />
-            {/*--------------------------Movies Page Route-------------*/}
+            {/*--------------------------Main Movies Page Route-------------*/}
             <Route
               path='/movies'
               render={props => (
@@ -202,7 +204,7 @@ class App extends React.Component {
                 />
               )}
             />
-            {/*--------------------------TV Shows Route-------------*/}
+            {/*--------------------------Single TV Shows Route-------------*/}
             <Route
               path='/television/:id'
               render={props => <SingleShow {...props} />}
@@ -221,7 +223,7 @@ class App extends React.Component {
                 <ActorsPage {...props} addDefaultSrc={this.addDefaultSrc} />
               )}
             />
-            {/*--------------------------Movie Results Route-------------*/}
+            {/*--------------------------Movie Search Results Route-------------*/}
             <Route path='/results/:search' component={MovieResults} />
           </div>
         </>

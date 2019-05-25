@@ -14,6 +14,7 @@ class Extras extends Component {
     };
   }
 
+  //--------------GETING MOVIE EXTRAS-------------------//
   componentDidMount() {
     axios
       .get(
@@ -26,7 +27,9 @@ class Extras extends Component {
   }
 
   render() {
+    //--------------DECONSTRUCTING-------------------//
     const extras = this.state.extras;
+    //--------------END DECONSTRUCTING-------------------//
     return (
       <div>
         <div className='section-extras'>

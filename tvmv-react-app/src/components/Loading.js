@@ -1,7 +1,11 @@
+/* Loading Ping Pong Animation */
+
+//--------------DEPENDANCIES-------------------//
 import React from 'react';
 import { PongSpinner } from 'react-spinners-kit';
+//--------------STYLES-------------------//
 import './Loading.css';
-
+//--------------STATELESS COMPONENT-------------------//
 const Loading = () => {
   return (
     <div className='loading'>

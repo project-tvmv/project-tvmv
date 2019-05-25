@@ -1,7 +1,7 @@
+/* This is the Homepage for the app!  */
+
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
-//--------------STYLES-------------------//
-import './Home.css';
 import HomeHero from './sections/HomeHero';
 import GenreButtons from './sections/GenreButtons';
 import NewMovies from './sections/NewMovies';
@@ -9,6 +9,8 @@ import NewTV from './sections/NewTV';
 import SubHero from './sections/SubHero';
 import PopularMovies from './sections/PopularMovies';
 import PopularShows from './sections/PopularShows';
+//--------------STYLES-------------------//
+import './Home.css';
 //--------------STATELESS COMPONENT-------------------//
 const Home = ({ popularMovies, popularShows, newMovies, newShows }) => {
   return (

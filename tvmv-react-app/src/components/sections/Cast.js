@@ -4,8 +4,6 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-tilt';
 import axios from 'axios';
-//--------------STYLES-------------------//
-import '../../';
 //--------------CLASS COMPONENT-------------------//
 class Cast extends Component {
   constructor(props) {
@@ -14,6 +12,7 @@ class Cast extends Component {
       credits: []
     };
   }
+  //--------------GETING MOVIE CREDITS-------------------//
   componentDidMount() {
     axios
       .get(
@@ -25,7 +24,9 @@ class Cast extends Component {
       .catch(err => console.log(err));
   }
   render() {
+    //--------------DECONSTRUCTING-------------------//
     const credits = this.state.credits;
+    //--------------END OF DECONSTRUCTING-------------------//
     return (
       <div>
         <div className='section'>

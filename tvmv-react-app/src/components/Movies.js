@@ -1,7 +1,9 @@
+//--------------DEPENDANCIES-------------------//
 import React from 'react';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+//--------------COMPONENTS-------------------//
 import TrendingMovies from './moviesSection/TrendingMovies';
 import NewMovies from './moviesSection/NewMovies';
 import PopularMovies from './moviesSection/PopularMovies';
@@ -9,12 +11,13 @@ import FamilyMovies from './moviesSection/FamilyMovies';
 import HorrorMovies from './moviesSection/HorrorMovies';
 import RomCom from './moviesSection/RomCom';
 import ComedyMovies from './moviesSection/ComedyMovies';
-//--------------STYLES-------------------//
-import './Movies.css';
-import search from '../assets/icons/search.svg';
 import AdamSandler from './moviesSection/AdamSandler';
 import Kids from './moviesSection/Kids';
 import DisneyMovies from './moviesSection/DisneyMovies';
+//--------------STYLES-------------------//
+import './Movies.css';
+//--------------ASSETS-------------------//
+import search from '../assets/icons/search.svg';
 //--------------CLASS COMPONENT-------------------//
 class Movies extends Component {
   constructor(props) {
@@ -25,6 +28,7 @@ class Movies extends Component {
     };
   }
 
+  //--------------SEARCH MOVIES-------------------//
   fetchSearch(search) {
     axios
       .get(
@@ -53,11 +57,13 @@ class Movies extends Component {
     this.setState({
       search: ''
     });
+    //--------------PUSHES USERS TO MOVIERESULTS.JS PAGE-------------------//
     this.props.history.push(`/results/${this.state.search}`);
   };
 
   render() {
     window.scroll(0, 0);
+    //--------------DECONSTRUCTING-------------------//
     const familyMovies = this.props.familyMovies;
     const horrorMovies = this.props.horrorMovies;
     const newMovies = this.props.newMovies;
@@ -68,9 +74,11 @@ class Movies extends Component {
     const kids = this.props.kids;
     const disney = this.props.disney;
     const adamSandler = this.props.adamSandler;
+    //--------------END OF DECONSTRUCTING-------------------//
     return (
       <div className='movies-container'>
         <div className='hero-container'>
+          {/* --------------SEARCH FIELD------------------- */}
           <img src={search} alt='search-icon' className='search-movie-icon' />
           <form onSubmit={this.onSubmit} className='search-form'>
             <input
@@ -83,6 +91,7 @@ class Movies extends Component {
             />
           </form>
         </div>
+        {/* --------------END SEARCH FIELD------------------- */}
         <TrendingMovies trendingMovies={trendingMovies} />
         <NewMovies newMovies={newMovies} />
         <Link to={`/movie/${familyMovies[19].id}`} className='links'>

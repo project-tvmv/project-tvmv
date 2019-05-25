@@ -1,3 +1,5 @@
+/* This is the Movie Results pages that the user is brought to when they've hit submit on the Main Movies (Movie.js) page */
+
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
 import axios from 'axios';
@@ -5,6 +7,7 @@ import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-tilt';
+//--------------ASSETS-------------------//
 import back from '../assets/icons/arrow-left.svg';
 //--------------CLASS COMPONENT-------------------//
 class MovieResults extends Component {
@@ -15,7 +18,7 @@ class MovieResults extends Component {
       resultsData: []
     };
   }
-
+  //-------------- MAIN MOVIE SEARCH RESULTS------------------//
   componentDidMount() {
     axios
       .get(
@@ -28,6 +31,7 @@ class MovieResults extends Component {
   }
 
   render() {
+    /* DECONSTRUCTING */
     const results = this.state.results;
     const resultsData = this.state.resultsData;
     return (
