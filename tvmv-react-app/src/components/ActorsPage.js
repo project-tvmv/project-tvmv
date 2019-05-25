@@ -49,7 +49,7 @@ class ActorsPage extends Component {
         <div className='actors-content'>
           <img
             src={'http://image.tmdb.org/t/p/original' + name.profile_path}
-            className='posters'
+            className='actors-posters'
             alt={name.name}
           />
           <div className='actor-info'>

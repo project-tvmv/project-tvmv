@@ -29,7 +29,10 @@ class App extends React.Component {
       familyMovies: [],
       horrorMovies: [],
       romanticComedies: [],
-      comedyMovies: []
+      comedyMovies: [],
+      adamSandler: [],
+      kids: [],
+      disney: []
     };
   }
   //--------------GET MOST POPULAR MOVIE------------------//
@@ -84,6 +87,22 @@ class App extends React.Component {
         'https://api.themoviedb.org/3/discover/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=35&without_genres=16%2C%2010751%2C28%2C27%2C12'
       );
     }
+    function getAdamSandler() {
+      return axios.get(
+        'https://api.themoviedb.org/3/discover/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&region=US&sort_by=popularity.desc&page=1&with_cast=19292'
+      );
+    }
+    function getKids() {
+      return axios.get(
+        'https://api.themoviedb.org/3/discover/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&region=US&sort_by=popularity.desc&certification=G&include_adult=false&page=1&with_genres=16'
+      );
+    }
+    function getDisney() {
+      return axios.get(
+        'https://api.themoviedb.org/3/discover/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&region=US&sort_by=popularity.desc&certification=G&include_adult=false&page=1&with_companies=2&with_genres=16'
+      );
+    }
+
     axios
       .all([
         getPopularMovies(),
@@ -94,10 +113,13 @@ class App extends React.Component {
         getFamilyMovies(),
         getHorrorMovies(),
         getRomanticComedyMovies(),
-        getComedies()
+        getComedies(),
+        getAdamSandler(),
+        getKids(),
+        getDisney()
       ])
       .then(
-        axios.spread((a, b, c, d, e, f, g, h, i) => {
+        axios.spread((a, b, c, d, e, f, g, h, i, j, k, l) => {
           this.setState({
             popularMovies: a.data.results,
             popularShows: b.data.results,
@@ -107,7 +129,10 @@ class App extends React.Component {
             familyMovies: f.data.results,
             horrorMovies: g.data.results,
             romanticComedies: h.data.results,
-            comedyMovies: i.data.results
+            comedyMovies: i.data.results,
+            adamSandler: j.data.results,
+            kids: k.data.results,
+            disney: l.data.results
           });
         })
       )
@@ -171,6 +196,9 @@ class App extends React.Component {
                   horrorMovies={this.state.horrorMovies}
                   romanticComedies={this.state.romanticComedies}
                   comedyMovies={this.state.comedyMovies}
+                  adamSandler={this.state.adamSandler}
+                  kids={this.state.kids}
+                  disney={this.state.disney}
                 />
               )}
             />
@@ -194,7 +222,7 @@ class App extends React.Component {
               )}
             />
             {/*--------------------------Movie Results Route-------------*/}
-            <Route path='/movies/results/:query' component={MovieResults} />
+            <Route path='/results/:search' component={MovieResults} />
           </div>
         </>
       );

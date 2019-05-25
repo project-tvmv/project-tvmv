@@ -17,3 +17,10 @@
   height: 21.5vh;
   overflow: hidden;
 }
+
+.actors-posters {
+  width: 30vh;
+  height: 40vh;
+  object-fit: cover;
+  border-radius: 5px;
+}
