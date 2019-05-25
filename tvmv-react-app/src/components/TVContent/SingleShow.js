@@ -81,12 +81,9 @@ class SingleShow extends Component {
           className='full-hero'
           alt={show.title}
         />
-        <ShowCast id={this.state.id} addDefaultSrc={this.addDefaultSrc} />
-        <ShowExtras id={this.state.id} addDefaultSrc={this.addDefaultSrc} />
-        <ShowRecommended
-          id={this.state.id}
-          addDefaultSrc={this.addDefaultSrc}
-        />
+        <ShowCast id={this.state.id} addDefaultSrc={addDefaultSrc} />
+        <ShowExtras id={this.state.id} addDefaultSrc={addDefaultSrc} />
+        <ShowRecommended id={this.state.id} addDefaultSrc={addDefaultSrc} />
       </div>
     );
   }
