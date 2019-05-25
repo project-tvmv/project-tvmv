@@ -1,8 +1,10 @@
 //---------------Dependencies-------------//
 import React, { Component } from 'react';
+import SearchResults from './SearchResults';
+
 //---------------Syles-------------------//
 import './Search.css';
-import Axios from 'axios';
+import axios from 'axios';
 //---------------Syles-------------------//
 class Search extends Component {
   state = {
@@ -11,7 +13,7 @@ class Search extends Component {
   };
 
   fetchSearch(search) {
-    Axios
+    axios
     .get(`https://api.themoviedb.org/3/search/multi?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&language=en-US&query=${search}&page=1&include_adult=false`)
     .then(res => {
       console.log("response:", res)
@@ -20,7 +22,7 @@ class Search extends Component {
       })
     })
     .catch(err => {
-      console.log(err)
+      console.log("errors:", err)
     })
   }
 
@@ -60,7 +62,7 @@ class Search extends Component {
         <div className="search-results">
            {this.state.searchData.map( item => {
              return (
-               <p>{item.vote_average}</p>
+               <SearchResults item={item} key={item.id} />
              )
            } )}
         </div>
