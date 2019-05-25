@@ -3,7 +3,9 @@
   margin: 0 auto;
   margin-top: 25%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .search-page-icon {
@@ -31,4 +33,20 @@
   text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
   text-align: center;
+}
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+} 
+
+.search-item {
+  margin: 2%;
+}
+
+.search-poster {
+  width: 20vw;
+  height: 55vh;
+  object-fit: cover;
 }
