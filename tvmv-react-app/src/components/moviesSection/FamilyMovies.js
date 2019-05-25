@@ -5,9 +5,9 @@ import Tilt from 'react-tilt';
 const FamilyMovies = ({ familyMovies }) => {
   return (
     <div className='movie-sections'>
-      <h1 className='movie-section-header'>Movies for the family</h1>
-      <div className='movie-posters-container'>
-        {familyMovies.slice(0, 8).map((family, index) => (
+      <h1 className='movie-section-header'>Movies for the Family</h1>
+      <div className='movie-posters-container twelve-movies'>
+        {familyMovies.slice(0, 16).map((family, index) => (
           <div key={family.id}>
             <Link to={`/movie/${family.id}`}>
               <Tilt
@@ -19,7 +19,7 @@ const FamilyMovies = ({ familyMovies }) => {
                     'http://image.tmdb.org/t/p/original' + family.poster_path
                   }
                   alt={family.title}
-                  className='posters'
+                  className='posters twelve-posters'
                 />
               </Tilt>
             </Link>

@@ -10,6 +10,7 @@ import PopularMovies from './moviesSection/PopularMovies';
 import FamilyMovies from './moviesSection/FamilyMovies';
 import HorrorMovies from './moviesSection/HorrorMovies';
 import RomCom from './moviesSection/RomCom';
+import ComedyMovies from './moviesSection/ComedyMovies';
 import search from '../assets/icons/search.svg';
 //--------------CLASS COMPONENT-------------------//
 class Movies extends Component {
@@ -28,6 +29,7 @@ class Movies extends Component {
     const popularMovies = this.props.popularMovies;
     const romanticComedies = this.props.romanticComedies;
     const trendingMovies = this.props.trendingMovies;
+    const comedyMovies = this.props.comedyMovies;
     return (
       <div className='movies-container'>
         <div className='hero-container'>
@@ -45,38 +47,55 @@ class Movies extends Component {
         </div>
         <TrendingMovies trendingMovies={trendingMovies} />
         <NewMovies newMovies={newMovies} />
-        <Link to={`/movie/${familyMovies[8].id}`} className='links'>
+        <Link to={`/movie/${familyMovies[19].id}`} className='links'>
           <div className='section-break'>
-            <h1 className='section-break-tite'>{familyMovies[8].title}</h1>
-            <p className='section-break-desc'>{familyMovies[8].overview}</p>
+            <h1 className='section-break-tite'>{familyMovies[19].title}</h1>
+            <p className='section-break-desc'>{familyMovies[19].overview}</p>
             <img
               src={
                 'http://image.tmdb.org/t/p/original' +
-                familyMovies[8].backdrop_path
+                familyMovies[19].backdrop_path
               }
-              alt={familyMovies[8].title}
+              alt={familyMovies[19].title}
               className='section-break-image'
             />
           </div>
         </Link>
         <PopularMovies popularMovies={popularMovies} />
         <FamilyMovies familyMovies={familyMovies} />
-        <Link to={`/movie/${horrorMovies[8].id}`} className='links'>
+        <Link to={`/movie/${horrorMovies[19].id}`} className='links'>
           <div className='section-break'>
-            <h1 className='section-break-tite'>{horrorMovies[8].title}</h1>
-            <p className='section-break-desc'>{horrorMovies[8].overview}</p>
+            <h1 className='section-break-tite'>{horrorMovies[19].title}</h1>
+            <p className='section-break-desc'>{horrorMovies[19].overview}</p>
             <img
               src={
                 'http://image.tmdb.org/t/p/original' +
-                horrorMovies[8].backdrop_path
+                horrorMovies[19].backdrop_path
               }
-              alt={horrorMovies[8].title}
+              alt={horrorMovies[19].title}
               className='section-break-image'
             />
           </div>
         </Link>
         <HorrorMovies horrorMovies={horrorMovies} />
+        <Link to={`/movie/${romanticComedies[19].id}`} className='links'>
+          <div className='section-break'>
+            <h1 className='section-break-tite'>{romanticComedies[19].title}</h1>
+            <p className='section-break-desc'>
+              {romanticComedies[19].overview}
+            </p>
+            <img
+              src={
+                'http://image.tmdb.org/t/p/original' +
+                romanticComedies[19].backdrop_path
+              }
+              alt={romanticComedies[19].title}
+              className='section-break-image'
+            />
+          </div>
+        </Link>
         <RomCom romanticComedy={romanticComedies} />
+        <ComedyMovies comedyMovies={comedyMovies} />
       </div>
     );
   }
