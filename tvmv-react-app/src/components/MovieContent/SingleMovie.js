@@ -1,6 +1,7 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
 import { withRouter } from 'react-router-dom';
@@ -65,7 +66,9 @@ class SingleMovie extends Component {
           <p className='single-page-hero-desc'>{movie.overview}</p>
           <div className='single-page-button-flex'>
             <button className='watch-movie'>Watch movie</button>
-            <button className='watch-trailer'>Watch trailer</button>
+            <Link to={`/trailer/${this.state.id}`} className='links black'>
+              <button className='watch-trailer'> Watch trailer </button>
+            </Link>
           </div>
         </div>
         <img

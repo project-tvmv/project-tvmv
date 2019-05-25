@@ -1,4 +1,6 @@
 .navigation-container {
+  position: relative;
+  z-index: 500;
   display: flex;
   flex-direction: column;
   position: fixed;
