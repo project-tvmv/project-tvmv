@@ -64,32 +64,3 @@
 .twelve-posters {
   margin-top: 18px;
 }
-
-.section-break-tite {
-  position: absolute;
-  z-index: 500;
-  margin-top: 15%;
-  margin-left: 2%;
-  filter: drop-shadow(0px 7px 5px rgba(0, 0, 0, 0.329));
-}
-
-.section-break-desc {
-  width: 70%;
-  position: absolute;
-  z-index: 500;
-  margin-top: 18%;
-  margin-left: 2%;
-  font-size: 18px;
-  text-align: left;
-  filter: drop-shadow(0px 7px 5px rgba(0, 0, 0, 0.329));
-}
-
-.section-break-image {
-  margin-top: 3%;
-  width: 100%;
-  height: 40vh;
-  object-fit: cover;
-  object-position: top;
-  opacity: 0.5;
-  border-radius: 6px;
-}

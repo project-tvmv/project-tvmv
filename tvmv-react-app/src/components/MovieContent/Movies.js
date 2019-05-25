@@ -32,7 +32,7 @@ class Movies extends Component {
   fetchSearch(search) {
     axios
       .get(
-        `https://api.themoviedb.org/3/search/multi?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&language=en-US&query=${search}&page=1&include_adult=false`
+        `https://api.themoviedb.org/3/search/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&language=en-US&query=${search}&page=1&include_adult=false`
       )
       .then(res => {
         console.log('response:', res);

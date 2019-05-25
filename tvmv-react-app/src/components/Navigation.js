@@ -19,7 +19,7 @@ const Navigation = () => {
       <NavLink to='/'>
         <img src={home} className='nav-icons' alt='home' />
       </NavLink>
-      <NavLink to='/television'>
+      <NavLink to='/TV'>
         <img src={tv} className='nav-icons' alt='television' />
       </NavLink>
       <NavLink to='/movies'>

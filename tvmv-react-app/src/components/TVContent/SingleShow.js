@@ -70,7 +70,7 @@ class SingleShow extends Component {
           </div>
           <p className='single-page-hero-desc'>{show.overview}</p>
           <Link to={`/playing/${this.state.id}`} className='button-links'>
-            <button className='watch-movie'>Watch latest episode</button>
+            <button className='watch-movie'>Watch last episode</button>
           </Link>
         </div>
         <img
