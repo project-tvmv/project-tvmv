@@ -12,28 +12,27 @@
 }
 
 .search-page-icon {
-  width: 6%;
+  width: 4%;
 }
 
 .search-page-form {
-  width: 100%;
+  width: 32vw;
   padding: 1% 0;
   background: none;
   border: none;
   font-size: 30px;
   font-weight: 900;
-  text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
   text-align: center;
   color: white;
   outline: none;
+  text-align: left;
 }
 
 .search-page-form::placeholder {
   width: 100%;
   font-size: 30px;
   font-weight: 900;
-  text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
   text-align: center;
 }

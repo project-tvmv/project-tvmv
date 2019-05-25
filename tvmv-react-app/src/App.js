@@ -174,6 +174,8 @@ class App extends React.Component {
                   disney={this.state.disney}
                   horrorMovies={this.state.horrorMovies}
                   addDefaultSrc={this.addDefaultSrc}
+                  trendingMovies={this.state.trendingMovies}
+                  romanticComedies={this.state.romanticComedies}
                 />
               )}
             />

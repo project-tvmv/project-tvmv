@@ -6,7 +6,6 @@ import Tilt from 'react-tilt';
 import '../../App.css';
 //--------------STATELESS COMPONENT-------------------//
 const PopularMovies = ({ popularMovies }) => {
-  console.log('Hello', popularMovies);
   return (
     <div className='popular-movies-container'>
       <div className='section'>

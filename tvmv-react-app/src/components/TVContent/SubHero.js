@@ -4,40 +4,35 @@ import { Link } from 'react-router-dom';
 //--------------STYLES-------------------//
 import './SubHero.css';
 //--------------STATELESS COMPONENT-------------------//
-const SubHero = ({ disney, popularShows }) => {
+const SubHero = ({ movie, show }) => {
   return (
     <div className='subhero-container'>
       <>
-        {disney.slice(0, 1).map((disney, index) => (
-          <div key={disney.id}>
-            <h1 className='sub-hero-movie-title'>{disney.title}</h1>
-            <p className='subhero-movie-desc'>
-              {disney.overview.slice(0, 300)}...
-            </p>
-            <Link to={`/movie/${disney.id}`}>
+        {movie.slice(0, 1).map((movie, index) => (
+          <div key={movie.id} className='subhero-movie-container'>
+            <h1 className='sub-hero-title'>{movie.title}</h1>
+            <p className='subhero-desc'>{movie.overview.slice(0, 300)}...</p>
+            <Link to={`/movie/${movie.id}`}>
               <img
-                src={
-                  'http://image.tmdb.org/t/p/original' + disney.backdrop_path
-                }
-                alt={disney.title}
+                src={'http://image.tmdb.org/t/p/original' + movie.backdrop_path}
+                alt={movie.title}
                 className='subhero-image-left'
               />
             </Link>
           </div>
         ))}
-        {popularShows.slice(0, 1).map((popularShow, index) => (
-          <div key={popularShow.id} className='subhero-show-container'>
-            <h1 className='sub-hero-show-title'>{popularShow.name}</h1>
-            <p className='subhero-show-desc'>
-              {popularShow.overview.slice(0, 300)}...
+        {show.slice(0, 1).map((show, index) => (
+          <div key={show.id} className='subhero-show-container'>
+            <h1 className='sub-hero-title show-nudge align-right'>
+              {show.name}
+            </h1>
+            <p className='subhero-desc show-nudge align-right'>
+              {show.overview.slice(0, 300)}...
             </p>
-            <Link to={`/television/${popularShow.id}`}>
+            <Link to={`/television/${show.id}`}>
               <img
-                src={
-                  'http://image.tmdb.org/t/p/original' +
-                  popularShow.backdrop_path
-                }
-                alt={popularShow.name}
+                src={'http://image.tmdb.org/t/p/original' + show.backdrop_path}
+                alt={show.name}
                 className='subhero-image-right'
               />
             </Link>

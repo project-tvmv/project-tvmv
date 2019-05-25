@@ -26,6 +26,7 @@ class ShowCast extends Component {
   }
   render() {
     const credits = this.state.credits;
+    const addDefaultSrc = this.props.addDefaultSrc;
     return (
       <div>
         <div className='section'>
@@ -37,7 +38,7 @@ class ShowCast extends Component {
               <div className='section-flex'>
                 <Tilt
                   className='Tilt'
-                  options={{ max: 10, scale: 1.05, perspective: 500 }}
+                  options={{ max: 10, scale: 1.08, perspective: 500 }}
                 >
                   <Link to={`/actor/${cast.id}`} className='links'>
                     <img
@@ -46,6 +47,7 @@ class ShowCast extends Component {
                       }
                       alt={cast.character}
                       className='cast-posters'
+                      onError={addDefaultSrc}
                     />
                   </Link>
                 </Tilt>

@@ -6,13 +6,13 @@ const AdamSandler = ({ adamSandler }) => {
   return (
     <div className='movie-sections'>
       <h1 className='movie-section-header'>Top Adam Sandler Movies</h1>
-      <div className='movie-posters-container twelve-movies'>
+      <div className='movie-six-poster-container twelve-movies'>
         {adamSandler.slice(0, 16).map((adam, index) => (
           <div key={adam.id}>
             <Link to={`/movie/${adam.id}`}>
               <Tilt
                 className='Tilt'
-                options={{ max: 10, scale: 1.05, perspective: 500 }}
+                options={{ max: 10, scale: 1.08, perspective: 500 }}
               >
                 <img
                   src={'http://image.tmdb.org/t/p/original' + adam.poster_path}

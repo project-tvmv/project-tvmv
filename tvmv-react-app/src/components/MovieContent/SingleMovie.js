@@ -2,6 +2,7 @@
 import React from 'react';
 import { Component } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 import { withRouter } from 'react-router-dom';
 //--------------STYLES-------------------//
 import '../../App.css';
@@ -51,10 +52,21 @@ class SingleMovie extends Component {
         />
         <img src={star} className='hero-star' alt='star' />
         <div className='single-page-hero-info'>
-          <p className='rating'>{movie.vote_average}</p>
           <h1 className='single-page-hero-title'>{movie.title}</h1>
+          <div className='movie-details'>
+            <p className='movie-details-text'>
+              {moment(movie.release_date, 'YYYY-MM-DD').format('MMMM Do YYYY')}
+            </p>
+            <p>|</p>
+            <p className='movie-details-text'>{movie.vote_average}</p>
+            <p>|</p>
+            <p className='movie-details-text'>Runtime: {movie.runtime} mins</p>
+          </div>
           <p className='single-page-hero-desc'>{movie.overview}</p>
-          <button className='watch-movie'>Watch movie</button>
+          <div className='single-page-button-flex'>
+            <button className='watch-movie'>Watch movie</button>
+            <button className='watch-trailer'>Watch trailer</button>
+          </div>
         </div>
         <img
           src={'http://image.tmdb.org/t/p/original' + movie.backdrop_path}

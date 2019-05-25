@@ -6,13 +6,13 @@ const TrendingMovies = ({ trendingMovies }) => {
   return (
     <div className='movie-sections'>
       <h1 className='movie-section-header'>What's Trending</h1>
-      <div className='movie-posters-container twelve-movies'>
+      <div className='movie-six-poster-container twelve-movies'>
         {trendingMovies.slice(0, 16).map((trending, index) => (
           <div key={trending.id}>
             <Link to={`/movie/${trending.id}`}>
               <Tilt
                 className='Tilt'
-                options={{ max: 10, scale: 1.05, perspective: 500 }}
+                options={{ max: 10, scale: 1.08, perspective: 500 }}
               >
                 <img
                   src={

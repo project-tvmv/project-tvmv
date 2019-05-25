@@ -7,46 +7,45 @@
   overflow: hidden;
 }
 
+.subhero-movie-container {
+  position: relative;
+}
+
+.subhero-show-container {
+  position: relative;
+}
+
 .movies-subhero {
   width: 100%;
 }
 
-.sub-hero-movie-title {
+.sub-hero-title {
   position: absolute;
+  text-align: left;
+  top: 55%;
   z-index: 500;
-  top: 190vh;
-  left: 10vh;
+  left: 2vh;
   pointer-events: none;
+  width: 75%;
 }
 
-.sub-hero-show-title {
+.subhero-desc {
   position: absolute;
+  top: 65%;
+  width: 74%;
   z-index: 500;
-  top: 190vh;
-  right: 10vh;
-  pointer-events: none;
-}
-
-.subhero-movie-desc {
-  position: absolute;
-  z-index: 500;
-  top: 195vh;
-  left: 10vh;
-  width: 35%;
+  left: 2vh;
   font-size: 2vh;
   text-align: left;
   pointer-events: none;
 }
 
-.subhero-show-desc {
-  position: absolute;
-  z-index: 500;
-  top: 195vh;
-  right: 10vh;
-  width: 35%;
-  font-size: 2vh;
+.show-nudge {
+  left: -2vh;
+}
+
+.align-right {
   text-align: right;
-  pointer-events: none;
 }
 
 .subhero-image-left {

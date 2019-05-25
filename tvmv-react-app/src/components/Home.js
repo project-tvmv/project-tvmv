@@ -12,17 +12,26 @@ import PopularShows from './TVContent/PopularShows';
 //--------------STYLES-------------------//
 import './Home.css';
 //--------------STATELESS COMPONENT-------------------//
-const Home = ({ popularMovies, popularShows, newMovies, newShows, disney }) => {
-  console.log('popularMovies', popularMovies);
+const Home = ({
+  popularMovies,
+  popularShows,
+  newMovies,
+  newShows,
+  disney,
+  horrorMovies,
+  trendingMovies,
+  romanticComedies
+}) => {
   return (
     <div className='home-container'>
       <HomeHero popularMovies={popularMovies} popularShows={popularShows} />
       <GenreButtons />
       <NewMovies newMovies={newMovies} />
       <NewTV newShows={newShows} />
-      <SubHero disney={disney} popularShows={newShows} />
+      <SubHero movie={disney} show={newShows} />
       <PopularMovies popularMovies={popularMovies} />
       <PopularShows popularShows={popularShows} />
+      <SubHero movie={romanticComedies} show={popularShows} />
     </div>
   );
 };

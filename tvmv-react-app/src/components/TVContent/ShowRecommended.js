@@ -44,6 +44,7 @@ class ShowRecommended extends Component {
 
   render() {
     const recommended = this.state.recommended;
+    const addDefaultSrc = this.props.addDefaultSrc;
     return (
       <div>
         <div className='section'>
@@ -55,7 +56,7 @@ class ShowRecommended extends Component {
               <Link to={`/television/${recommend.id}`} onClick={this.fetchData}>
                 <Tilt
                   className='Tilt'
-                  options={{ max: 10, scale: 1.05, perspective: 500 }}
+                  options={{ max: 10, scale: 1.08, perspective: 500 }}
                 >
                   <img
                     src={
@@ -64,6 +65,7 @@ class ShowRecommended extends Component {
                     }
                     alt={recommend.name}
                     className='posters'
+                    onError={addDefaultSrc}
                   />
                 </Tilt>
               </Link>

@@ -1,6 +1,5 @@
 //---------------Dependencies-------------//
 import React, { Component } from 'react';
-import SearchResults from './SearchResults';
 import axios from 'axios';
 //---------------STYLES-------------------//
 import './Search.css';
@@ -51,7 +50,8 @@ class Search extends Component {
     return (
       <div className='search-page'>
         {/* ---------------SEARCH FIELD------------------- */}
-        <form onSubmit={this.onSubmit} className='search-form'>
+        <img src={search} alt='search-icon' className='search-page-icon' />
+        <form onSubmit={this.onSubmit} className='search-page-form'>
           <input
             className='search'
             placeholder='What can we help you find today?'

@@ -79,14 +79,26 @@
 .single-page-hero-info {
   position: absolute;
   z-index: 500;
-  width: 60%;
-  height: max-content;
+  width: 90%;
+  height: 35vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 8%;
+  justify-content: space-between;
+  margin-top: 11%;
   margin-left: 3%;
   text-align: left;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.199));
+}
+
+.movie-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.single-page-button-flex {
+  display: flex;
 }
 
 .section-extras {
@@ -115,17 +127,23 @@
   font-weight: 500;
 }
 
+.single-page-hero-title-flex {
+  display: flex;
+  align-items: center;
+}
+
 .single-page-hero-title {
   text-align: left;
-  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.377));
-  font-size: 35px;
+  font-size: 8vh;
+  margin: 0;
+  padding-right: 30px;
 }
 
 .single-page-hero-desc {
   width: 100%;
   text-align: left;
   font-size: 20px;
-  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.377));
+  margin: 0;
 }
 
 .genre-header {
@@ -137,20 +155,15 @@
   user-select: none;
 }
 
+.movie-details-text {
+  font-size: 20px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
 .links {
   color: white;
   text-decoration: none;
-}
-
-.rating {
-  text-align: center;
-  font-weight: 900;
-  width: 6vh;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-  border: 3px solid #ffe925;
-  border-radius: 50px;
-  background: rgba(255, 255, 0, 0.164);
 }
 
 .image-section-header {
@@ -202,7 +215,7 @@
   height: 60vh;
   object-fit: cover;
   object-position: 0 20%;
-  opacity: 0.8;
+  opacity: 0.7;
   border-radius: 6px;
   margin: 0 auto;
 }
@@ -234,16 +247,39 @@
 /* ============================== BUTTONS */
 .watch-movie {
   padding: 1% 2%;
-  width: 22%;
+  width: 15%;
   border-radius: 5px;
-  background: #2757ff;
-  border: none;
-  color: white;
+  background: white;
+  color: black;
+  border: 1.5px solid white;
   font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
 
 .watch-movie:hover {
-  background: #277aff;
+  background: black;
+  border: 1.5px solid black;
+  color: white;
+}
+
+.watch-trailer {
+  margin-left: 2%;
+  padding: 1% 2%;
+  width: 15%;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.11);
+  color: white;
+  border: 2px solid white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.watch-trailer:hover {
+  background: white;
+  border: 2px solid white;
+  color: black;
 }

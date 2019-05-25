@@ -24,13 +24,13 @@
 .search {
   width: 100%;
   padding: 1% 0;
+  padding-left: 30px;
   background: none;
   border: none;
   font-size: 30px;
   font-weight: 900;
-  text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
-  text-align: center;
+  text-align: left;
   color: white;
   outline: none;
 }
@@ -41,7 +41,7 @@
   font-weight: 900;
   text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
-  text-align: center;
+  text-align: left;
 }
 
 .movie-section-header {
@@ -49,7 +49,7 @@
   margin-top: 2%;
 }
 
-.movie-posters-container {
+.movie-six-poster-container {
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -70,6 +70,7 @@
   z-index: 500;
   margin-top: 15%;
   margin-left: 2%;
+  filter: drop-shadow(0px 7px 5px rgba(0, 0, 0, 0.329));
 }
 
 .section-break-desc {
@@ -80,6 +81,7 @@
   margin-left: 2%;
   font-size: 18px;
   text-align: left;
+  filter: drop-shadow(0px 7px 5px rgba(0, 0, 0, 0.329));
 }
 
 .section-break-image {

@@ -38,7 +38,7 @@ class Cast extends Component {
               <div className='section-flex'>
                 <Tilt
                   className='Tilt'
-                  options={{ max: 10, scale: 1.05, perspective: 500 }}
+                  options={{ max: 10, scale: 1.08, perspective: 500 }}
                 >
                   <Link to={`/actor/${cast.id}`} className='links'>
                     <img

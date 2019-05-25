@@ -1,8 +1,8 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
 import { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import moment from 'moment';
 import { withRouter } from 'react-router-dom';
 //--------------STYLES-------------------------//
 import '../../App.css';
@@ -36,8 +36,10 @@ class SingleShow extends Component {
   }
 
   render() {
+    window.scroll(0, 0);
     //--------------DECONSTRUCTING-------------------//
     const show = this.state.show;
+    const addDefaultSrc = this.props.addDefaultSrc;
     //--------------END OF DECONSTRUCTING-------------------//
     return (
       <div className='single-page-containter'>
@@ -50,9 +52,24 @@ class SingleShow extends Component {
         />
         <img src={star} className='hero-star' alt='star' />
         <div className='single-page-hero-info'>
-          <p className='rating'>{show.vote_average}</p>
           <h1 className='single-page-hero-title'>{show.name}</h1>
+          <div className='movie-details'>
+            <p className='movie-details-text'>
+              {moment(show.last_air_date, 'YYYY-MM-DD').format('MMMM Do YYYY')}
+            </p>
+            <p>|</p>
+            <p className='movie-details-text'>{show.vote_average}</p>
+            <p>|</p>
+            <p className='movie-details-text'>
+              {show.number_of_seasons} seasons
+            </p>
+            <p>|</p>
+            <p className='movie-details-text'>
+              {show.number_of_episodes} episodes
+            </p>
+          </div>
           <p className='single-page-hero-desc'>{show.overview}</p>
+          <button className='watch-movie'>Watch latest episode</button>
         </div>
         <img
           // If the show's name is Game of Thrones, this returns a custom image... I'm very OCD. :P
@@ -64,9 +81,12 @@ class SingleShow extends Component {
           className='full-hero'
           alt={show.title}
         />
-        <ShowCast id={this.state.id} />
-        <ShowExtras id={this.state.id} />
-        <ShowRecommended id={this.state.id} />
+        <ShowCast id={this.state.id} addDefaultSrc={this.addDefaultSrc} />
+        <ShowExtras id={this.state.id} addDefaultSrc={this.addDefaultSrc} />
+        <ShowRecommended
+          id={this.state.id}
+          addDefaultSrc={this.addDefaultSrc}
+        />
       </div>
     );
   }

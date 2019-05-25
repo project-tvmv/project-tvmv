@@ -27,6 +27,7 @@ class ShowExtras extends Component {
 
   render() {
     const extras = this.state.extras;
+    const addDefaultSrc = this.props.addDefaultSrc;
     return (
       <div>
         <div className='section-extras'>
