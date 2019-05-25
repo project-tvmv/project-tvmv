@@ -8,8 +8,12 @@
   align-items: center;
 }
 
+.search-form {
+  display: flex;
+}
+
 .search-page-icon {
-  width: 2.5%;
+  width: 6%;
 }
 
 .search-page-form {
@@ -33,6 +37,10 @@
   text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
   text-align: center;
+}
+
+.search-page-form:focus {
+  outline: none;
 }
 
 .search-results {
