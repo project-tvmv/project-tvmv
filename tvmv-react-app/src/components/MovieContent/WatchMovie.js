@@ -28,6 +28,7 @@ class MovieTrailer extends Component {
               this.state.id
             }&tmdb=1`}
             border='none'
+            className='movie'
           />
         </div>
       </div>
