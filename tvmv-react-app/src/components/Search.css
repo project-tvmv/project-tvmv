@@ -1,0 +1,26 @@
+.search-page .search-box {
+    width: 25%;
+    height: 5%;
+    margin: 0 auto;
+    border: 1px solid silver;
+}
+
+.search-page .search-box button {
+    border: none;
+    background: transparent;
+    color: white;
+    padding: 3%;
+}
+
+.search-page .search-box input {
+    background: black;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 2%;
+}
+
+input:focus,
+button:focus {
+    outline: none;
+}
