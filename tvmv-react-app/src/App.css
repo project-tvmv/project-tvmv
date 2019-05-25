@@ -164,6 +164,11 @@
 .links {
   color: white;
   text-decoration: none;
+  width: 100%;
+}
+
+.black:hover {
+  color: black;
 }
 
 .image-section-header {
@@ -224,6 +229,10 @@
   padding-right: 25px;
 }
 
+.trailer {
+  overflow: hidden;
+  opacity: 0.8;
+}
 /* ============================== ICONS / LOGOS */
 
 .hero-back {
@@ -232,6 +241,15 @@
   left: 5.5%;
   z-index: 500;
   width: 2%;
+  cursor: pointer;
+}
+
+.trailer-back {
+  position: absolute;
+  top: 15%;
+  left: 0.8%;
+  z-index: 500;
+  width: 1.5%;
   cursor: pointer;
 }
 

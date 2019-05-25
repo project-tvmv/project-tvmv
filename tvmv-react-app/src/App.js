@@ -16,6 +16,7 @@ import GenrePage from './components/GenrePage';
 import Movies from './components/MovieContent/Movies';
 import MovieResults from './components/MovieContent/MovieResults';
 import SearchResults from './components/SearchResults';
+import MovieTrailer from './components/MovieContent/MovieTrailer';
 require('dotenv').config();
 //--------------CLASS COMPONENT-------------------//
 class App extends React.Component {
@@ -246,6 +247,7 @@ class App extends React.Component {
                 <SearchResults {...props} addDefaultSrc={this.addDefaultSrc} />
               )}
             />
+            <Route path='/trailer/:id' component={MovieTrailer} />
           </div>
         </>
       );
