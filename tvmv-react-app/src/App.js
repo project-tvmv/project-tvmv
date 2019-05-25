@@ -170,6 +170,8 @@ class App extends React.Component {
                   popularShows={this.state.popularShows}
                   newMovies={this.state.newMovies}
                   newShows={this.state.newShows}
+                  disney={this.state.disney}
+                  horrorMovies={this.state.horrorMovies}
                 />
               )}
             />
