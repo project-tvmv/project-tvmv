@@ -1,9 +1,9 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
 import { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
-import { withRouter } from 'react-router-dom';
 //--------------STYLES-------------------------//
 import '../../App.css';
 //--------------COMPONENTS-------------------------//
@@ -69,7 +69,9 @@ class SingleShow extends Component {
             </p>
           </div>
           <p className='single-page-hero-desc'>{show.overview}</p>
-          <button className='watch-movie'>Watch latest episode</button>
+          <Link to={`/playing/${this.state.id}`} className='button-links'>
+            <button className='watch-movie'>Watch latest episode</button>
+          </Link>
         </div>
         <img
           // If the show's name is Game of Thrones, this returns a custom image... I'm very OCD. :P

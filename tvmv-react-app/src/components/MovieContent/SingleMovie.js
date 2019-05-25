@@ -1,10 +1,9 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
 import { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
-import { withRouter } from 'react-router-dom';
 //--------------STYLES-------------------//
 import '../../App.css';
 //--------------COMPONENTS-------------------//
