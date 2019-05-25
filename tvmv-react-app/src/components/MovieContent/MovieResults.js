@@ -63,6 +63,7 @@ class MovieResults extends Component {
                   src={'http://image.tmdb.org/t/p/w500' + results.poster_path}
                   className='genre-page-poster'
                   alt={results.title}
+                  onError={this.props.addDefaultSrc}
                 />
               </Link>
             </Tilt>

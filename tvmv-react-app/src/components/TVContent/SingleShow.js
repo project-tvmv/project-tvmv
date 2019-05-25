@@ -3,6 +3,7 @@ import React from 'react';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 //--------------STYLES-------------------------//
 import '../../App.css';
 //--------------COMPONENTS-------------------------//
@@ -41,9 +42,12 @@ class SingleShow extends Component {
     return (
       <div className='single-page-containter'>
         {/* //--------------HERO SECTION-------------------// */}
-        <Link to='/'>
-          <img src={back} className='hero-back' alt='back' />
-        </Link>
+        <img
+          src={back}
+          className='hero-back'
+          alt='back'
+          onClick={this.props.history.goBack}
+        />
         <img src={star} className='hero-star' alt='star' />
         <div className='single-page-hero-info'>
           <p className='rating'>{show.vote_average}</p>
@@ -68,4 +72,4 @@ class SingleShow extends Component {
   }
 }
 
-export default SingleShow;
+export default withRouter(SingleShow);

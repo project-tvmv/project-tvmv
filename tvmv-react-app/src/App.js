@@ -15,6 +15,7 @@ import ActorsPage from './components/ActorsPage';
 import GenrePage from './components/GenrePage';
 import Movies from './components/MovieContent/Movies';
 import MovieResults from './components/MovieContent/MovieResults';
+import SearchResults from './components/SearchResults';
 require('dotenv').config();
 //--------------CLASS COMPONENT-------------------//
 class App extends React.Component {
@@ -143,7 +144,7 @@ class App extends React.Component {
   //-Adds default image for null poster_paths-//
   addDefaultSrc(ev) {
     ev.target.src =
-      'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/61dd0774136783.5c27c9751f292.jpg';
+      'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/0a256a75954539.5c5b83fa34dae.jpg';
   }
 
   render() {
@@ -172,11 +173,10 @@ class App extends React.Component {
                   newShows={this.state.newShows}
                   disney={this.state.disney}
                   horrorMovies={this.state.horrorMovies}
+                  addDefaultSrc={this.addDefaultSrc}
                 />
               )}
             />
-            {/*------------------------Search Route---------------*/}
-            <Route path='/search' render={props => <Search />} />
             {/*---------------------------Single Movies Route-------------*/}
             <Route
               path='/movie/:id'
@@ -184,6 +184,7 @@ class App extends React.Component {
                 <SingleMovie
                   {...props}
                   popularMovies={this.state.popularMovies}
+                  addDefaultSrc={this.addDefaultSrc}
                 />
               )}
             />
@@ -203,13 +204,16 @@ class App extends React.Component {
                   adamSandler={this.state.adamSandler}
                   kids={this.state.kids}
                   disney={this.state.disney}
+                  addDefaultSrc={this.addDefaultSrc}
                 />
               )}
             />
             {/*--------------------------Single TV Shows Route-------------*/}
             <Route
               path='/television/:id'
-              render={props => <SingleShow {...props} />}
+              render={props => (
+                <SingleShow {...props} addDefaultSrc={this.addDefaultSrc} />
+              )}
             />
             {/*--------------------------Genre Page Route-------------*/}
             <Route
@@ -226,7 +230,20 @@ class App extends React.Component {
               )}
             />
             {/*--------------------------Movie Search Results Route-------------*/}
-            <Route path='/results/:search' component={MovieResults} />
+            {/*------------------------Search Route---------------*/}
+            <Route path='/search' component={Search} />
+            <Route
+              path='/results/:search'
+              render={props => (
+                <MovieResults {...props} addDefaultSrc={this.addDefaultSrc} />
+              )}
+            />
+            <Route
+              path='/TV-MOVIE/:search'
+              render={props => (
+                <SearchResults {...props} addDefaultSrc={this.addDefaultSrc} />
+              )}
+            />
           </div>
         </>
       );

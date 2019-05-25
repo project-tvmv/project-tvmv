@@ -2,7 +2,53 @@
   text-align: center;
 }
 
-/* Sections */
+/* ========================== SITE CONTAINERS */
+.home-container {
+  margin: 2.5% auto;
+  width: 95%;
+}
+
+.popular-movies-container {
+  margin-top: -4%;
+}
+
+.six-poster-container {
+  width: 98%;
+  height: 30vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.extras-container {
+  width: max-content;
+  margin-left: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.single-page-containter {
+  width: 95%;
+  margin: 2.5% auto;
+  text-align: center;
+}
+
+.reviews-container {
+  width: 98%;
+  margin: 0 auto;
+}
+
+.review-author {
+  text-align: left;
+}
+
+.review-content {
+  text-align: left;
+  padding-bottom: 2%;
+  border-bottom: 2px solid grey;
+}
+
+/* ========================== SECTIONS */
 .section {
   display: flex;
   align-items: baseline;
@@ -10,9 +56,41 @@
   margin-top: 1%;
 }
 
+.section-flex {
+  width: 27vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-image-section {
+  width: 174vh;
+  height: 40vh;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0.4;
+  border-radius: 6px;
+}
+
+.poster-info {
+  text-align: left;
+  width: 100%;
+}
+
+.single-page-hero-info {
+  position: absolute;
+  z-index: 500;
+  width: 60%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 8%;
+  margin-left: 3%;
+  text-align: left;
+}
+
 .section-extras {
   margin-top: 12%;
-
   margin-left: 1%;
 }
 
@@ -29,25 +107,12 @@
   align-content: space-between;
 }
 
-/* Titles / Texts */
+/* ========================== TITLES AND TEXTS */
 .section-header {
   text-align: left;
   margin-bottom: 10px;
-  font-size: 30px;
+  font-size: 4vh;
   font-weight: 500;
-}
-
-.single-page-hero-info {
-  position: absolute;
-  z-index: 500;
-  width: 60%;
-  height: max-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 11%;
-  margin-left: 3%;
-  text-align: left;
 }
 
 .single-page-hero-title {
@@ -97,68 +162,15 @@
   filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.616));
 }
 
-/* Containers */
-.popular-movies-container {
-  margin-top: -4%;
-}
-
-.six-poster-container {
-  width: 98%;
+/* ============================== POSTERS */
+/* ============== GENERAL POSTER */
+.posters {
+  width: 20vh;
   height: 30vh;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-}
-
-.extras-container {
-  width: max-content;
-  margin-left: 1%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.single-page-containter {
-  width: 95%;
-  margin: 2.5% auto;
-  text-align: center;
-}
-
-.section-flex {
-  width: 27vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.poster-info {
-  text-align: left;
-  width: 100%;
-}
-
-.reviews-container {
-  width: 98%;
-  margin: 0 auto;
-}
-
-.review-author {
-  text-align: left;
-}
-
-.review-content {
-  text-align: left;
-  padding-bottom: 2%;
-  border-bottom: 2px solid grey;
-}
-
-.title-image-section {
-  width: 174vh;
-  height: 40vh;
   object-fit: cover;
-  object-position: top;
-  opacity: 0.4;
-  border-radius: 6px;
+  border-radius: 5px;
+  cursor: pointer;
 }
-
-/* Images */
 
 .actors-page-posters {
   margin-bottom: 8%;
@@ -172,14 +184,6 @@
   margin-bottom: 8%;
   width: 33vh;
   height: 50vh;
-  object-fit: cover;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.posters {
-  width: 20vh;
-  height: 30vh;
   object-fit: cover;
   border-radius: 5px;
   cursor: pointer;
@@ -207,7 +211,7 @@
   padding-right: 25px;
 }
 
-/* icons */
+/* ============================== ICONS / LOGOS */
 
 .hero-back {
   position: absolute;
@@ -227,7 +231,7 @@
   cursor: pointer;
 }
 
-/* Buttons */
+/* ============================== BUTTONS */
 .watch-movie {
   padding: 1% 2%;
   width: 22%;

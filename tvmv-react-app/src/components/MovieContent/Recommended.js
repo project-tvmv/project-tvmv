@@ -63,6 +63,7 @@ class Recommended extends Component {
                     }
                     alt={recommend.name}
                     className='posters'
+                    addDefaultSrc={this.props.addDefaultSrc}
                   />
                 </Tilt>
               </Link>

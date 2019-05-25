@@ -60,10 +60,14 @@ class SingleMovie extends Component {
           src={'http://image.tmdb.org/t/p/original' + movie.backdrop_path}
           className='full-hero'
           alt={movie.title}
+          onError={this.props.addDefaultSrc}
         />
-        <Cast id={this.state.id} />
+        <Cast id={this.state.id} addDefaultSrc={this.props.addDefaultSrc} />
         <Extras id={this.state.id} />
-        <Recommended id={this.state.id} />
+        <Recommended
+          id={this.state.id}
+          addDefaultSrc={this.props.addDefaultSrc}
+        />
       </div>
     );
   }

@@ -23,7 +23,7 @@ class Search extends Component {
       .then(res => {
         console.log('response:', res);
         this.setState({
-          searchData: res.data.results
+          searchData: res.data
         });
       })
       .catch(err => {
@@ -43,6 +43,8 @@ class Search extends Component {
     this.setState({
       search: ''
     });
+    //--------------PUSHES USERS TO SEARCHRESULTS.JS PAGE-------------------//
+    this.props.history.push(`/TV-MOVIE/${this.state.search}`);
   };
 
   render() {
@@ -50,21 +52,17 @@ class Search extends Component {
       <div className='search-page'>
         <img src={search} alt='search-icon' className='search-page-icon' />
         {/* ---------------SEARCH FIELD------------------- */}
-        <form className='search-form' onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit} className='search-form'>
           <input
-            placeholder='WHAT CAN WE HELP YOU FIND TODAY?'
+            className='search'
+            placeholder='What can we help you find today?'
+            type='text'
             name='search'
             value={this.state.search}
             onChange={this.changeHandler}
-            className='search-page-form'
           />
         </form>
         {/* ---------------END SEARCH FIELD------------------- */}
-        <div className='search-results'>
-          {this.state.searchData.map(item => {
-            return <SearchResults item={item} key={item.id} />;
-          })}
-        </div>
       </div>
     );
   }

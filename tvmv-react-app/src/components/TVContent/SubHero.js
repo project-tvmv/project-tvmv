@@ -14,7 +14,7 @@ const SubHero = ({ disney, popularShows }) => {
             <p className='subhero-movie-desc'>
               {disney.overview.slice(0, 300)}...
             </p>
-            <Link to={`/movies/${disney.id}`}>
+            <Link to={`/movie/${disney.id}`}>
               <img
                 src={
                   'http://image.tmdb.org/t/p/original' + disney.backdrop_path

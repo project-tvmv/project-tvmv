@@ -16,6 +16,7 @@
   z-index: 500;
   top: 190vh;
   left: 10vh;
+  pointer-events: none;
 }
 
 .sub-hero-show-title {
@@ -23,6 +24,7 @@
   z-index: 500;
   top: 190vh;
   right: 10vh;
+  pointer-events: none;
 }
 
 .subhero-movie-desc {
@@ -33,6 +35,7 @@
   width: 35%;
   font-size: 2vh;
   text-align: left;
+  pointer-events: none;
 }
 
 .subhero-show-desc {
@@ -43,6 +46,7 @@
   width: 35%;
   font-size: 2vh;
   text-align: right;
+  pointer-events: none;
 }
 
 .subhero-image-left {

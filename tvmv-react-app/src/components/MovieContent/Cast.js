@@ -47,6 +47,7 @@ class Cast extends Component {
                       }
                       alt={cast.character}
                       className='cast-posters'
+                      onError={this.props.addDefaultSrc}
                     />
                   </Link>
                 </Tilt>
