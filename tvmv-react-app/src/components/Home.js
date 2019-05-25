@@ -13,6 +13,7 @@ import PopularShows from './sections/PopularShows';
 import './Home.css';
 //--------------STATELESS COMPONENT-------------------//
 const Home = ({ popularMovies, popularShows, newMovies, newShows, disney }) => {
+  console.log('popularMovies', popularMovies);
   return (
     <div className='home-container'>
       <HomeHero popularMovies={popularMovies} popularShows={popularShows} />
