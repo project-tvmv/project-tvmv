@@ -1,18 +1,20 @@
 //---------------Dependencies-------------//
 import React, { Component } from 'react';
 import SearchResults from './SearchResults';
-
-//---------------Syles-------------------//
-import './Search.css';
 import axios from 'axios';
+//---------------STYLES-------------------//
+import './Search.css';
+//---------------ASSETS-------------------//
 import search from '../assets/icons/search.svg';
-//---------------Syles-------------------//
+//---------------CLASS COMPONENTS-------------------//
 class Search extends Component {
   state = {
     search: '',
     searchData: []
   };
 
+  //---------------MAIN SEARCH PAGE-------------------//
+  /* Searches for both TV Shows and Movies */
   fetchSearch(search) {
     axios
       .get(
@@ -37,7 +39,6 @@ class Search extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    console.log(this.state.search);
     this.fetchSearch(this.state.search);
     this.setState({
       search: ''
@@ -45,10 +46,10 @@ class Search extends Component {
   };
 
   render() {
-    console.log('results', this.state.searchData);
     return (
       <div className='search-page'>
         <img src={search} alt='search-icon' className='search-page-icon' />
+        {/* ---------------SEARCH FIELD------------------- */}
         <form className='search-form' onSubmit={this.onSubmit}>
           <input
             placeholder='WHAT CAN WE HELP YOU FIND TODAY?'
@@ -58,7 +59,7 @@ class Search extends Component {
             className='search-page-form'
           />
         </form>
-
+        {/* ---------------END SEARCH FIELD------------------- */}
         <div className='search-results'>
           {this.state.searchData.map(item => {
             return <SearchResults item={item} key={item.id} />;

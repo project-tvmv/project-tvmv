@@ -34,6 +34,7 @@ class GenreButtons extends Component {
             className='genre-links'
           >
             <button className='genre-buttons'>
+              {/* Changes Science Fiction to Sci-Fi! Again OCD :P */}
               {genre.name === 'Science Fiction' ? 'Sci Fi' : genre.name}
             </button>
           </NavLink>

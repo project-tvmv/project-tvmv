@@ -1,16 +1,15 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-
 //--------------STYLES-------------------------//
 import '../App.css';
+//--------------COMPONENTS-------------------------//
 import ShowCast from './sections/ShowCast';
 import ShowExtras from './sections/ShowExtras';
 import ShowRecommended from './sections/ShowRecommended';
-import { Link } from 'react-router-dom';
-
-//--------------IMPORTS------------------------//
+//--------------ASSETS------------------------//
 import back from '../assets/icons/arrow-left.svg';
 import star from '../assets/icons/star.svg';
 //--------------CLASS COMPONENT-------------------//
@@ -18,11 +17,12 @@ class SingleShow extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: this.props.match.params.id,
+      id: this.props.match.params.id, // MATCHES THE ID IN THE URL (PARAMS)
       show: []
     };
   }
 
+  //--------------RETREIVING DATA FROM MOVIE IN STATE ID-------------------//
   componentDidMount() {
     axios
       .get(
@@ -35,7 +35,9 @@ class SingleShow extends Component {
   }
 
   render() {
+    //--------------DECONSTRUCTING-------------------//
     const show = this.state.show;
+    //--------------END OF DECONSTRUCTING-------------------//
     return (
       <div className='single-page-containter'>
         {/* //--------------HERO SECTION-------------------// */}
@@ -49,6 +51,7 @@ class SingleShow extends Component {
           <p className='single-page-hero-desc'>{show.overview}</p>
         </div>
         <img
+          // If the show's name is Game of Thrones, this returns a custom image... I'm very OCD. :P
           src={
             show.name === 'Game of Thrones'
               ? 'https://www.sheknows.com/wp-content/uploads/2019/02/game-of-thrones-character-posters-FI.jpg'

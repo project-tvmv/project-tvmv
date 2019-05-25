@@ -5,22 +5,25 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 //--------------STYLES-------------------//
 import '../App.css';
+//--------------COMPONENTS-------------------//
 import Cast from './sections/Cast';
 import Extras from './sections/Extras';
 import Recommended from './sections/Recommended';
-//--------------IMPORTS-------------------//
+//--------------ASSETS-------------------//
 import back from '../assets/icons/arrow-left.svg';
 import star from '../assets/icons/star.svg';
+
 //--------------CLASS COMPONENT-------------------//
 class SingleMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: this.props.match.params.id,
+      id: this.props.match.params.id, // MATCHES THE ID IN THE URL (PARAMS)
       movie: []
     };
   }
 
+  //--------------RETREIVING DATA FROM MOVIE IN STATE ID-------------------//
   componentDidMount() {
     axios
       .get(
@@ -34,7 +37,9 @@ class SingleMovie extends Component {
 
   render() {
     window.scroll(0, 0);
+    //--------------DECONSTRUCTING-------------------//
     const movie = this.state.movie;
+    //--------------END OF DECONSTRUCTING-------------------//
     return (
       <div className='single-page-containter'>
         {/* //--------------HERO SECTION-------------------// */}
