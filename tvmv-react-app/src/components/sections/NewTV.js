@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-tilt';
 //--------------STYLES-------------------//
-import './NewTV.css';
 import '../../App.css';
 //--------------STATELESS COMPONENT-------------------//
 const NewTV = ({ newShows }) => {
