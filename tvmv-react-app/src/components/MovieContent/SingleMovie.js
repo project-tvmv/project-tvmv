@@ -4,14 +4,14 @@ import { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 //--------------STYLES-------------------//
-import '../App.css';
+import '../../App.css';
 //--------------COMPONENTS-------------------//
-import Cast from './sections/Cast';
-import Extras from './sections/Extras';
-import Recommended from './sections/Recommended';
+import Cast from './Cast';
+import Extras from './Extras';
+import Recommended from './Recommended';
 //--------------ASSETS-------------------//
-import back from '../assets/icons/arrow-left.svg';
-import star from '../assets/icons/star.svg';
+import back from '../../assets/icons/arrow-left.svg';
+import star from '../../assets/icons/star.svg';
 
 //--------------CLASS COMPONENT-------------------//
 class SingleMovie extends Component {

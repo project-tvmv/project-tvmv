@@ -4,14 +4,14 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 //--------------STYLES-------------------------//
-import '../App.css';
+import '../../App.css';
 //--------------COMPONENTS-------------------------//
-import ShowCast from './sections/ShowCast';
-import ShowExtras from './sections/ShowExtras';
-import ShowRecommended from './sections/ShowRecommended';
+import ShowCast from './ShowCast';
+import ShowExtras from './ShowExtras';
+import ShowRecommended from './ShowRecommended';
 //--------------ASSETS------------------------//
-import back from '../assets/icons/arrow-left.svg';
-import star from '../assets/icons/star.svg';
+import back from '../../assets/icons/arrow-left.svg';
+import star from '../../assets/icons/star.svg';
 //--------------CLASS COMPONENT-------------------//
 class SingleShow extends Component {
   constructor(props) {

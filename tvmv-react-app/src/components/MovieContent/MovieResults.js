@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-tilt';
 //--------------ASSETS-------------------//
-import back from '../assets/icons/arrow-left.svg';
+import back from '../../assets/icons/arrow-left.svg';
 //--------------CLASS COMPONENT-------------------//
 class MovieResults extends Component {
   constructor(props) {

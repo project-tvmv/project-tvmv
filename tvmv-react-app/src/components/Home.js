@@ -4,11 +4,11 @@
 import React from 'react';
 import HomeHero from './sections/HomeHero';
 import GenreButtons from './sections/GenreButtons';
-import NewMovies from './sections/NewMovies';
-import NewTV from './sections/NewTV';
-import SubHero from './sections/SubHero';
-import PopularMovies from './sections/PopularMovies';
-import PopularShows from './sections/PopularShows';
+import NewMovies from './MovieContent/NewMovies';
+import NewTV from './TVContent/NewTV';
+import SubHero from './TVContent/SubHero';
+import PopularMovies from './MovieContent/PopularMovies';
+import PopularShows from './TVContent/PopularShows';
 //--------------STYLES-------------------//
 import './Home.css';
 //--------------STATELESS COMPONENT-------------------//

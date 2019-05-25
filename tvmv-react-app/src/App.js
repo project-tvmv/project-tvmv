@@ -7,14 +7,14 @@ import './App.css';
 //--------------IMPORTS-------------------//
 import Home from './components/Home';
 import Search from './components/Search';
-import SingleMovie from './components/SingleMovie';
-import SingleShow from './components/SingleShow';
+import SingleMovie from './components/MovieContent/SingleMovie';
+import SingleShow from './components/TVContent/SingleShow';
 import Navigation from './components/Navigation';
 import Loading from './components/Loading';
 import ActorsPage from './components/ActorsPage';
 import GenrePage from './components/GenrePage';
-import Movies from './components/Movies';
-import MovieResults from './components/MovieResults';
+import Movies from './components/MovieContent/Movies';
+import MovieResults from './components/MovieContent/MovieResults';
 require('dotenv').config();
 //--------------CLASS COMPONENT-------------------//
 class App extends React.Component {

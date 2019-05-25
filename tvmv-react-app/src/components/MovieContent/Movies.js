@@ -17,7 +17,7 @@ import DisneyMovies from './moviesSection/DisneyMovies';
 //--------------STYLES-------------------//
 import './Movies.css';
 //--------------ASSETS-------------------//
-import search from '../assets/icons/search.svg';
+import search from '../../assets/icons/search.svg';
 //--------------CLASS COMPONENT-------------------//
 class Movies extends Component {
   constructor(props) {
