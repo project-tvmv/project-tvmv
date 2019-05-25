@@ -1,4 +1,4 @@
-.home-hero {
+.home-hero-container {
   width: 98%;
   margin: 0 auto;
   display: flex;
@@ -6,7 +6,7 @@
   text-align: left;
 }
 
-.home-hero-movie {
+.home-hero {
   width: 49%;
   height: 68vh;
 }
@@ -52,7 +52,7 @@
   font-weight: 400;
   font-size: 1.8vh;
   letter-spacing: 0.3vh;
-  line-height: 25px;
+  line-height: 3vh;
 }
 
 .hero-show-info {
@@ -77,5 +77,5 @@
   font-weight: 400;
   font-size: 1.8vh;
   letter-spacing: 0.3vh;
-  line-height: 25px;
+  line-height: 3vh;
 }

@@ -6,8 +6,8 @@ import './HomeHero.css';
 //--------------STATELESS COMPONENT-------------------//
 const HomeHero = ({ popularMovies, popularShows }) => {
   return (
-    <div className='home-hero'>
-      <div className='home-hero-movie'>
+    <div className='home-hero-container'>
+      <div className='home-hero'>
         {popularMovies.slice(0, 1).map((popularMovie, index) => (
           <div key={popularMovie.id}>
             <div className='hero-movie-info'>
@@ -29,7 +29,7 @@ const HomeHero = ({ popularMovies, popularShows }) => {
           </div>
         ))}
       </div>
-      <div className='home-hero-tv'>
+      <div className='home-hero'>
         {popularShows.slice(0, 1).map((popularShow, index) => (
           <div key={popularShow.id}>
             <div className='hero-show-info'>

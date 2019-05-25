@@ -17,6 +17,7 @@ import Movies from './components/MovieContent/Movies';
 import MovieResults from './components/MovieContent/MovieResults';
 import SearchResults from './components/SearchResults';
 import MovieTrailer from './components/MovieContent/MovieTrailer';
+import WatchMovie from './components/MovieContent/WatchMovie';
 require('dotenv').config();
 //--------------CLASS COMPONENT-------------------//
 class App extends React.Component {
@@ -248,6 +249,7 @@ class App extends React.Component {
               )}
             />
             <Route path='/trailer/:id' component={MovieTrailer} />
+            <Route path='/playing/:id' component={WatchMovie} />
           </div>
         </>
       );

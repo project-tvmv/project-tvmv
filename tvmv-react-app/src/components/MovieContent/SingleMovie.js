@@ -58,15 +58,17 @@ class SingleMovie extends Component {
             <p className='movie-details-text'>
               {moment(movie.release_date, 'YYYY-MM-DD').format('MMMM Do YYYY')}
             </p>
-            <p>|</p>
+            <p className='line-breaks'>|</p>
             <p className='movie-details-text'>{movie.vote_average}</p>
-            <p>|</p>
+            <p className='line-breaks'>|</p>
             <p className='movie-details-text'>Runtime: {movie.runtime} mins</p>
           </div>
           <p className='single-page-hero-desc'>{movie.overview}</p>
           <div className='single-page-button-flex'>
-            <button className='watch-movie'>Watch movie</button>
-            <Link to={`/trailer/${this.state.id}`} className='links black'>
+            <Link to={`/playing/${this.state.id}`} className='button-links'>
+              <button className='watch-movie'>Watch movie</button>
+            </Link>
+            <Link to={`/trailer/${this.state.id}`} className='button-links'>
               <button className='watch-trailer'> Watch trailer </button>
             </Link>
           </div>
