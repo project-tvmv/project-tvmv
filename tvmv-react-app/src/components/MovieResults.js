@@ -2,38 +2,71 @@
 import React from 'react';
 import axios from 'axios';
 import { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Tilt from 'react-tilt';
+import back from '../assets/icons/arrow-left.svg';
 //--------------CLASS COMPONENT-------------------//
 class MovieResults extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      results: []
+      results: this.props.match.params.search,
+      resultsData: []
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.match.params.query !== nextProps.match.params.query) {
-      let query = this.props.match.params.query;
-      axios
-        .get(
-          `https://api.themoviedb.org/3/search/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&query=${query}&page=1`
-        )
-        .then(({ data }) => {
-          console.log(data);
-          this.setState({
-            results: data.results
-          });
-        });
-    }
+  componentDidMount() {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&query=${
+          this.state.results
+        }&page=1&include_adult=false`
+      )
+      .then(res => this.setState({ resultsData: res.data.results }))
+      .catch(err => console.log(err));
   }
 
   render() {
+    const results = this.state.results;
+    const resultsData = this.state.resultsData;
     return (
-      <div>
-        <h1>Hello from search!</h1>
+      <div className='full-page-container'>
+        <img
+          src={back}
+          className='hero-back'
+          alt='back'
+          onClick={this.props.history.goBack}
+        />
+        <h1 className='genre-header'>{results}</h1>
+        {resultsData.slice(0, 1).map(results => (
+          <div key={results.id}>
+            <img
+              src={'http://image.tmdb.org/t/p/original' + results.backdrop_path}
+              className='title-image-section genre-page-posters'
+              alt={results.title}
+            />
+          </div>
+        ))}
+        {resultsData.slice(0, 20).map((results, index) => (
+          <div key={results.id}>
+            <Tilt
+              className='Tilt'
+              options={{ max: 10, scale: 1.05, perspective: 500 }}
+            >
+              <Link to={`/movie/${results.id}`}>
+                <img
+                  src={'http://image.tmdb.org/t/p/w500' + results.poster_path}
+                  className='genre-page-poster'
+                  alt={results.title}
+                />
+              </Link>
+            </Tilt>
+          </div>
+        ))}
       </div>
     );
   }
 }
 
-export default MovieResults;
+export default withRouter(MovieResults);
