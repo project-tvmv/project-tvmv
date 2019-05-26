@@ -7,7 +7,7 @@ const DocShows = ({ documentaryShows }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>For the Intellectuals</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {documentaryShows.slice(0, 16).map((documentaryShows, index) => (
+        {documentaryShows.slice(0, 12).map((documentaryShows, index) => (
           <div key={documentaryShows.id}>
             <Link to={`/television/${documentaryShows.id}`}>
               <Tilt
@@ -16,7 +16,7 @@ const DocShows = ({ documentaryShows }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' +
+                    'http://image.tmdb.org/t/p/w500' +
                     documentaryShows.poster_path
                   }
                   alt={documentaryShows.name}

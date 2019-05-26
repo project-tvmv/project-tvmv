@@ -62,5 +62,11 @@
 }
 
 .twelve-posters {
-  margin-top: 18px;
+  margin-top: 1.8vh;
+  width: 28vh;
+  height: 45vh;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
 }

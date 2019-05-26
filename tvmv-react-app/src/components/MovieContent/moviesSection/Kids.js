@@ -7,7 +7,7 @@ const Kids = ({ kids }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>For Kids</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {kids.slice(0, 16).map((kid, index) => (
+        {kids.slice(0, 12).map((kid, index) => (
           <div key={kid.id}>
             <Link to={`/movie/${kid.id}`}>
               <Tilt
@@ -15,7 +15,7 @@ const Kids = ({ kids }) => {
                 options={{ max: 12, scale: 1.04, perspective: 500 }}
               >
                 <img
-                  src={'http://image.tmdb.org/t/p/original' + kid.poster_path}
+                  src={'http://image.tmdb.org/t/p/w500' + kid.poster_path}
                   alt={kid.title}
                   className='posters twelve-posters'
                 />

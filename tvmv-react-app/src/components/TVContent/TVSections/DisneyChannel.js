@@ -7,7 +7,7 @@ const DisneyChannel = ({ disneyChannel }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>You're Watching Disney Channel</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {disneyChannel.slice(0, 16).map((disneyChannel, index) => (
+        {disneyChannel.slice(0, 12).map((disneyChannel, index) => (
           <div key={disneyChannel.id}>
             <Link to={`/television/${disneyChannel.id}`}>
               <Tilt
@@ -16,7 +16,7 @@ const DisneyChannel = ({ disneyChannel }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' +
+                    'http://image.tmdb.org/t/p/w500' +
                     disneyChannel.poster_path
                   }
                   alt={disneyChannel.name}

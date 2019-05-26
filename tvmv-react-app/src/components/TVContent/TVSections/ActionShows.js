@@ -7,7 +7,7 @@ const ActionShows = ({ actionShows }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>For The Adrenaline Junkies</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {actionShows.slice(0, 16).map((actionShow, index) => (
+        {actionShows.slice(0, 12).map((actionShow, index) => (
           <div key={actionShow.id}>
             <Link to={`/television/${actionShow.id}`}>
               <Tilt
@@ -16,7 +16,7 @@ const ActionShows = ({ actionShows }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' +
+                    'http://image.tmdb.org/t/p/w500' +
                     actionShow.poster_path
                   }
                   alt={actionShow.name}

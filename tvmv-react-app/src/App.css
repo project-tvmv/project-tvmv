@@ -125,7 +125,7 @@ select:-webkit-autofill:focus {
 }
 
 .title-image-section {
-  width: 174vh;
+  width: 100%;
   height: 40vh;
   object-fit: cover;
   object-position: top;
@@ -175,11 +175,11 @@ select:-webkit-autofill:focus {
 }
 
 .full-page-container {
-  width: 95%;
+  width: 93.5%;
   margin: 2.5% auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-content: space-between;
 }
 
@@ -226,11 +226,17 @@ select:-webkit-autofill:focus {
   user-select: none;
 }
 
+.page-buttons-flex {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 /* ========================== TITLES AND TEXTS */
 .section-header {
   text-align: left;
-  margin-bottom: 10px;
-  font-size: 4vh;
+  margin-bottom: 20px;
+  font-size: 3vh;
   font-weight: 500;
 }
 
@@ -255,7 +261,10 @@ select:-webkit-autofill:focus {
 .genre-header {
   position: absolute;
   z-index: 500;
-  font-size: 100px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  font-size: 10vh;
   margin-top: 8%;
   text-transform: uppercase;
   user-select: none;
@@ -320,16 +329,22 @@ select:-webkit-autofill:focus {
 }
 
 .genre-page-posters {
-  margin-bottom: 1.5%;
+  margin-bottom: 1%;
 }
 
 .genre-page-poster {
-  margin-bottom: 8%;
-  width: 33vh;
-  height: 50vh;
+  margin-bottom: 1vh;
+  width: 28vh;
+  height: 45vh;
   object-fit: cover;
   border-radius: 5px;
   cursor: pointer;
+  opacity: 0.7;
+  transition: 0.2s ease-in-out;
+}
+
+.genre-page-poster:hover {
+  opacity: 1;
 }
 
 .cast-posters {
@@ -436,8 +451,8 @@ iframe > .movie {
 }
 
 .watch-movie:hover {
-  background: black;
-  border: 1.5px solid black;
+  background: rgb(0, 68, 255);
+  border: 1.5px solid rgb(0, 68, 255);
   color: white;
 }
 
@@ -456,7 +471,57 @@ iframe > .movie {
 }
 
 .watch-trailer:hover {
-  background: white;
-  border: 2px solid white;
-  color: black;
+  background: rgb(255, 233, 37);
+  border: 2px solid rgb(255, 233, 37);
+  color: rgb(24, 24, 24);
+}
+
+.prev-disabled {
+  padding: 1% 2%;
+  width: 16%;
+  background: none;
+  border: 4px solid rgb(22, 22, 22);
+  border-radius: 5px;
+  color: rgb(22, 22, 22);
+  font-size: 1.7vh;
+  font-weight: 500;
+  outline: none;
+  opacity: 0.5;
+}
+
+.prev {
+  padding: 1% 2%;
+  width: 16%;
+  background: rgb(22, 22, 22);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.7vh;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  outline: none;
+}
+
+.next {
+  padding: 1% 2%;
+  width: 16%;
+  background: rgb(22, 22, 22);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.7vh;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  outline: none;
+}
+
+.next:hover {
+  background: #1861ff;
+  color: white;
+}
+.prev:hover {
+  background: #1861ff;
+  color: whiet;
 }

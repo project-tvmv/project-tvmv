@@ -7,7 +7,7 @@ const ComedyMovies = ({ comedyMovies }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>Movies To Make You LOL</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {comedyMovies.slice(0, 16).map((comedy, index) => (
+        {comedyMovies.slice(0, 12).map((comedy, index) => (
           <div key={comedy.id}>
             <Link to={`/movie/${comedy.id}`}>
               <Tilt
@@ -16,7 +16,7 @@ const ComedyMovies = ({ comedyMovies }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' + comedy.poster_path
+                    'http://image.tmdb.org/t/p/w500' + comedy.poster_path
                   }
                   alt={comedy.title}
                   className='posters twelve-posters'

@@ -7,7 +7,7 @@ const MysteryShows = ({ mysteryShows }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>For The Sherlocks</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {mysteryShows.slice(0, 16).map((mysteryShows, index) => (
+        {mysteryShows.slice(0, 12).map((mysteryShows, index) => (
           <div key={mysteryShows.id}>
             <Link to={`/television/${mysteryShows.id}`}>
               <Tilt
@@ -16,7 +16,7 @@ const MysteryShows = ({ mysteryShows }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' +
+                    'http://image.tmdb.org/t/p/w500' +
                     mysteryShows.poster_path
                   }
                   alt={mysteryShows.name}
