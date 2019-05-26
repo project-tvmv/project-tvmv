@@ -38,17 +38,19 @@ class SingleMovie extends Component {
 
       //------FAVORITES----//
 
-      let favoriteMovies = []
-      favoriteMovies.push(JSON.parse(localStorage.getItem('favoriteMovies')));
-      localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+      if (!localStorage.favoriteMovies) {
+        let favoriteMovies = []
+        favoriteMovies.push(JSON.parse(localStorage.getItem('favoriteMovies')));
+        localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+      }
   }
 
     // -----------------------------FAVORITES---------------------------------- //
 
   addMovietoLocalFavorites = (id, poster_path) => {
     // grabs current items and spreads them to a new array. Add new item after it.
-    let currentMovies = JSON.parse(localStorage.getItem('favoriteMovies'));
-    let favoriteMovies = [...currentMovies, {id, poster_path}]
+    let favoriteMovies = JSON.parse(localStorage.getItem('favoriteMovies'));
+    favoriteMovies.push({id, poster_path})
     // removes any null in array
     const filteredMovies = favoriteMovies.filter(item => item !== null)
 
