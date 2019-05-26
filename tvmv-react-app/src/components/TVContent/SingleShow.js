@@ -14,6 +14,7 @@ import ShowRecommended from './ShowRecommended';
 import back from '../../assets/icons/arrow-left.svg';
 import star from '../../assets/icons/star.svg';
 import starFilled from '../../assets/icons/star-filled.svg';
+import Loading from '../Loading';
 //--------------CLASS COMPONENT-------------------//
 class SingleShow extends Component {
   constructor(props) {
@@ -63,6 +64,7 @@ class SingleShow extends Component {
       let favoriteShows = [];
       favoriteShows.push(JSON.parse(localStorage.getItem('favoriteShows')));
       localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
+    }
 
     } 
 
@@ -73,12 +75,11 @@ class SingleShow extends Component {
     }) ) {
       this.setState({
         isStarClicked: true
-      })
-      
+      });
     } else {
       this.setState({
-        isStarClicked:false
-      })
+        isStarClicked: false
+      });
     }
   }
 

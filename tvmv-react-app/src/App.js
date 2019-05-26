@@ -225,7 +225,23 @@ class App extends React.Component {
       this.state.popularMovies.length &&
       this.state.popularShows.length &&
       this.state.newMovies.length &&
-      this.state.newShows.length > 18
+      this.state.trendingMovies.length &&
+      this.state.familyMovies.length &&
+      this.state.horrorMovies.length &&
+      this.state.romanticComedies.length &&
+      this.state.comedyMovies.length &&
+      this.state.adamSandler.length &&
+      this.state.kids.length &&
+      this.state.disney.length &&
+      this.state.onAir.length &&
+      this.state.actionShows.length &&
+      this.state.realityTV.length &&
+      this.state.kidsShows.length &&
+      this.state.mysteryShows.length &&
+      this.state.documentaryShows.length &&
+      this.state.disneyChannel.length &&
+      this.state.cartoonNetwork.length &&
+      this.state.newShows.length > 19
     ) {
       return (
         <>
