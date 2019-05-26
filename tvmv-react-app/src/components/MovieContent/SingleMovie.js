@@ -29,14 +29,22 @@ class SingleMovie extends Component {
 
   //--------------RETREIVING DATA FROM MOVIE IN STATE ID-------------------//
   componentDidMount() {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${
-          this.state.id
-        }?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
-      )
-      .then(res => this.setState({ movie: res.data }))
-      .catch(err => console.log(err));
+    this.fetchData().then(() => {
+      if (JSON.parse(localStorage.getItem('favoriteMovies')).find(item => {
+        if (item !== null) {
+          return `${item.id}` === this.props.match.params.id
+        }
+      })) {
+        this.setState({
+          isStarClicked: true
+        })
+        
+      } else {
+        this.setState({
+          isStarClicked:false
+        })
+      }
+    })
 
     //------FAVORITES----//
 
@@ -49,22 +57,41 @@ class SingleMovie extends Component {
       })
     } 
 
-    if (JSON.parse(localStorage.getItem('favoriteMovies')).find(item => {
-      if (item !== null) {
-        return `${item.id}` === this.state.id
-      }
-    }) ) {
-      this.setState({
-        isStarClicked: true
-      })
-      
-    } else {
-      this.setState({
-        isStarClicked:false
-      })
-    }
+    
 
     
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.fetchData().then(() => {
+        if (JSON.parse(localStorage.getItem('favoriteMovies')).find(item => {
+          if (item !== null) {
+            return `${item.id}` === this.props.match.params.id
+          }
+        })) {
+          this.setState({
+            isStarClicked: true
+          })
+          
+        } else {
+          this.setState({
+            isStarClicked:false
+          })
+        }
+      })
+    }
+  }
+
+  fetchData = () => {
+    return axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${
+          this.props.match.params.id
+        }?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
+      )
+      .then(res => this.setState({ movie: res.data }))
+      .catch(err => console.log(err));
   }
 
   // -----------------------------FAVORITES---------------------------------- //

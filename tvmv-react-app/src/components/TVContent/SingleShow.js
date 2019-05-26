@@ -32,33 +32,22 @@ class SingleShow extends Component {
 
   //--------------RETREIVING DATA FROM MOVIE IN STATE ID-------------------//
   componentDidMount() {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/tv/${
-          this.state.id
-        }?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
-      )
-      .then(res => this.setState({ show: res.data }))
-      .catch(err => console.log(err));
-
-    axios
-      .get(
-        `https://api.themoviedb.org/3/tv/${
-          this.state.id
-        }?language=en-US&api_key=6d9a91a4158b0a021d546ccd83d3f52e`
-      )
-      .then(res => this.setState({ seasons: res.data.seasons }))
-      .catch(err => console.log(err));
-
-    axios
-      .get(
-        ` https://api.themoviedb.org/3/tv/${this.state.id}/season/${
-          this.state.selectedSeason
-        }?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
-      )
-      .then(res => this.setState({ episodes: res.data.episodes }))
-      .catch(err => console.log(err));
-
+    this.fetchData().then(() => {
+      if (JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
+        if (item !== null) {
+          return `${item.id}` === this.state.id
+        }
+      }) ) {
+        this.setState({
+          isStarClicked: true
+        })
+        
+      } else {
+        this.setState({
+          isStarClicked:false
+        })
+      }
+    })
     //---- FAVORITE SECTION -----//
     if (!localStorage.favoriteShows) {
       let favoriteShows = [];
@@ -66,21 +55,58 @@ class SingleShow extends Component {
       localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
     }
 
-    } 
-
-    if (JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
-      if (item !== null) {
-        return `${item.id}` === this.state.id
-      }
-    }) ) {
-      this.setState({
-        isStarClicked: true
-      });
-    } else {
-      this.setState({
-        isStarClicked: false
-      });
+  } 
+  
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.fetchData().then(() => {
+        if (JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
+          if (item !== null) {
+            return `${item.id}` === this.state.id
+          }
+        }) ) {
+          this.setState({
+            isStarClicked: true
+          })
+          
+        } else {
+          this.setState({
+            isStarClicked:false
+          })
+        }
+      })
     }
+  }
+  
+
+  fetchData = () => {
+    axios
+    .get(
+      `https://api.themoviedb.org/3/tv/${
+        this.props.match.params.id
+      }?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
+    )
+    .then(res => this.setState({ show: res.data }))
+    .catch(err => console.log(err));
+
+  axios
+    .get(
+      `https://api.themoviedb.org/3/tv/${
+        this.props.match.params.id
+      }?language=en-US&api_key=6d9a91a4158b0a021d546ccd83d3f52e`
+    )
+    .then(res => this.setState({ seasons: res.data.seasons }))
+    .catch(err => console.log(err));
+
+  return axios
+    .get(
+      ` https://api.themoviedb.org/3/tv/${this.props.match.params.id}/season/${
+        this.state.selectedSeason
+      }?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
+    )
+    .then(res => this.setState({ episodes: res.data.episodes }))
+    .catch(err => console.log(err));
+
   }
 
   selectSeason = number => {

@@ -3,6 +3,7 @@ import React from 'react';
 import { Component } from 'react';
 import axios from 'axios';
 import ReactPlayer from 'react-player';
+import {withRouter} from 'react-router-dom'
 //--------------STYLES-------------------//
 import '../../App.css';
 //--------------CLASS COMPONENT-------------------//
@@ -16,15 +17,27 @@ class Extras extends Component {
 
   //--------------GETING MOVIE EXTRAS-------------------//
   componentDidMount() {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${
-          this.props.id
-        }/videos?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
-      )
-      .then(res => this.setState({ extras: res.data.results }))
-      .catch(err => console.log(err));
+   this.fetchData()
+
+ 
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      this.fetchData()
+    }
+  } 
+
+  fetchData = () => {
+    axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${
+        this.props.match.params.id
+      }/videos?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
+    )
+    .then(res => this.setState({ extras: res.data.results }))
+    .catch(err => console.log(err));
+}
 
   render() {
     //--------------DECONSTRUCTING-------------------//
@@ -62,4 +75,4 @@ class Extras extends Component {
   }
 }
 
-export default Extras;
+export default withRouter(Extras);
