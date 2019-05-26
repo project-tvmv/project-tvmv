@@ -351,7 +351,12 @@ class App extends React.Component {
               component={WatchEpisode}
             />
             {/*------------------------Favorites Route---------------*/}
-            <Route path='/favorites' component={Favorites} />
+            <Route
+              path='/favorites'
+              render={props => (
+                <Favorites {...props} addDefaultSrc={this.addDefaultSrc} />
+              )}
+            />
           </div>
         </>
       );

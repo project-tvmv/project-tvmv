@@ -2,6 +2,8 @@ import React from 'react';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import up from '../assets/icons/arrow-up.svg';
+
 import './Favorites.css';
 
 class Favorites extends Component {
@@ -10,11 +12,16 @@ class Favorites extends Component {
     this.state = {};
   }
 
+  scrollTop = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  };
+
   render() {
     JSON.parse(localStorage.getItem('favoriteMovies'));
     JSON.parse(localStorage.getItem('favoriteShows'));
     const favoriteMovies = JSON.parse(localStorage.getItem('favoriteMovies'));
     const favoriteShows = JSON.parse(localStorage.getItem('favoriteShows'));
+    const addDefaultSrc = this.props.addDefaultSrc;
     return (
       <div className='favorites-container'>
         <h1>Favorited Movies</h1>
@@ -23,8 +30,9 @@ class Favorites extends Component {
             <Link to={`/movie/${favorite.id}`}>
               <img
                 src={'http://image.tmdb.org/t/p/w500' + favorite.poster_path}
-                className='posters'
+                className='favorites-posters'
                 alt='movie'
+                onError={addDefaultSrc}
               />
             </Link>
           ))}
@@ -35,12 +43,19 @@ class Favorites extends Component {
             <Link to={`/tv/${favorite.id}`}>
               <img
                 src={'http://image.tmdb.org/t/p/w500' + favorite.poster_path}
-                className='posters'
+                className='favorites-posters'
                 alt='tv'
+                onError={addDefaultSrc}
               />
             </Link>
           ))}
         </div>
+        <img
+          src={up}
+          alt='scroll back to up'
+          className='scroll-back'
+          onClick={this.scrollTop}
+        />
       </div>
     );
   }

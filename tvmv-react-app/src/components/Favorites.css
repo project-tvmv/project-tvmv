@@ -8,3 +8,19 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.favorites-posters {
+  margin-bottom: 1.5vh;
+  width: 33vh;
+  height: 51vh;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.2s ease-in-out;
+  padding-right: 2vh;
+}
+
+.favorites-posters:hover {
+  opacity: 1;
+}
