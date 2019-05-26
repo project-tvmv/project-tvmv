@@ -27,11 +27,12 @@ class ShowRecommended extends Component {
       .catch(err => console.log(err));
   }
 
+
   fetchData = (id) => {
     axios
       .get(
         `https://api.themoviedb.org/3/tv/${
-          this.state.fetchId
+          this.props.match.params.id
         }/similar?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&page=1`
       )
       .then(res => {

@@ -23,7 +23,7 @@ class Favorites extends Component {
     const favoriteShows = JSON.parse(localStorage.getItem('favoriteShows'));
     const addDefaultSrc = this.props.addDefaultSrc;
 
-    if (favoriteMovies === null || favoriteShows === null) {
+    if (favoriteMovies === null && favoriteShows === null) {
       return (
         <h1 className='no-favorites'>
           You currently have no starred content. :(
@@ -32,32 +32,58 @@ class Favorites extends Component {
     }
     return (
       <div className='favorites-container'>
-        <h1>Favorited Movies</h1>
-        <div className='favorite-flex'>
-          {favoriteMovies.map(favorite => (
-            <Link to={`/movie/${favorite.id}`}>
-              <img
-                src={'http://image.tmdb.org/t/p/w500' + favorite.poster_path}
-                className='favorites-posters'
-                alt='movie'
-                onError={addDefaultSrc}
-              />
-            </Link>
-          ))}
-        </div>
-        <h1>Favorited Shows</h1>
-        <div className='favorite-flex'>
-          {favoriteShows.map(favorite => (
-            <Link to={`/television/${favorite.id}`}>
-              <img
-                src={'http://image.tmdb.org/t/p/w500' + favorite.poster_path}
-                className='favorites-posters'
-                alt='tv'
-                onError={addDefaultSrc}
-              />
-            </Link>
-          ))}
-        </div>
+        {favoriteMovies !== null && favoriteMovies.length > 0 ? (
+          <>
+            <h1>Favorited Movies</h1>
+            <div className='favorite-flex'>
+              {favoriteMovies.map(favorite => {
+                if (!favorite) {
+                  return favorite;
+                } else {
+                  return (
+                    <Link to={`/movie/${favorite.id}`}>
+                      <img
+                        src={
+                          'http://image.tmdb.org/t/p/w500' +
+                          favorite.poster_path
+                        }
+                        className='favorites-posters'
+                        alt='movie'
+                        onError={addDefaultSrc}
+                      />
+                    </Link>
+                  );
+                }
+              })}
+            </div>
+          </>
+        ) : null}
+        {favoriteShows !== null && favoriteShows.length > 0 ? (
+          <>
+            <h1>Favorited Shows</h1>
+            <div className='favorite-flex'>
+              {favoriteShows.map(favorite => {
+                if (!favorite) {
+                  return favorite;
+                } else {
+                  return (
+                    <Link to={`/television/${favorite.id}`}>
+                      <img
+                        src={
+                          'http://image.tmdb.org/t/p/w500' +
+                          favorite.poster_path
+                        }
+                        className='favorites-posters'
+                        alt='tv'
+                        onError={addDefaultSrc}
+                      />
+                    </Link>
+                  );
+                }
+              })}
+            </div>
+          </>
+        ) : null}
         <img
           src={up}
           alt='scroll back to up'

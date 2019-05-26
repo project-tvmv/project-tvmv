@@ -138,6 +138,7 @@ select:-webkit-autofill:focus {
   object-fit: cover;
   object-position: top;
   opacity: 0.4;
+  border-radius: 6px;
 }
 
 .poster-info {
@@ -173,7 +174,7 @@ select:-webkit-autofill:focus {
 }
 
 .section-extras {
-  margin-top: 10%;
+  margin-top: 12%;
   margin-left: 1%;
 }
 
@@ -310,6 +311,11 @@ select:-webkit-autofill:focus {
   right: 0;
   margin: 10% auto;
   filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.616));
+}
+
+.extras-error-message {
+  color: rgb(22, 22, 22);
+  user-select: none;
 }
 
 /* ============================== POSTERS */
@@ -454,11 +460,6 @@ iframe > .movie {
   z-index: 500;
   width: 2%;
   cursor: pointer;
-  transition: 0.2s ease-in-out;
-}
-
-.hero-star:hover {
-  transform: scale(1.08);
 }
 
 /* ============================== BUTTONS */

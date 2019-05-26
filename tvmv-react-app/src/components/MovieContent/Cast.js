@@ -1,8 +1,9 @@
 //--------------DEPENDANCIES-------------------//
 import React from 'react';
 import { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
+
 //--------------CLASS COMPONENT-------------------//
 class Cast extends Component {
   constructor(props) {
@@ -13,15 +14,26 @@ class Cast extends Component {
   }
   //--------------GETING MOVIE CREDITS-------------------//
   componentDidMount() {
+    this.fetchData();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      this.fetchData();
+    }
+  }
+
+  fetchData = () => {
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${
-          this.props.id
+          this.props.match.params.id
         }/credits?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
       )
       .then(res => this.setState({ credits: res.data.cast }))
       .catch(err => console.log(err));
-  }
+  };
+
   render() {
     //--------------DECONSTRUCTING-------------------//
     const credits = this.state.credits;
@@ -45,7 +57,6 @@ class Cast extends Component {
                     onError={this.props.addDefaultSrc}
                   />
                 </Link>
-
                 <p className='poster-info'>
                   {cast.name} as {cast.character}
                 </p>
@@ -58,4 +69,4 @@ class Cast extends Component {
   }
 }
 
-export default Cast;
+export default withRouter(Cast);

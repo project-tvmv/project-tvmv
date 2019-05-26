@@ -31,10 +31,58 @@ class SingleShow extends Component {
 
   //--------------RETREIVING DATA FROM MOVIE IN STATE ID-------------------//
   componentDidMount() {
+    this.fetchData().then(() => {
+      if (
+        JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
+          if (item !== null) {
+            return `${item.id}` === this.state.id;
+          }
+        })
+      ) {
+        this.setState({
+          isStarClicked: true
+        });
+      } else {
+        this.setState({
+          isStarClicked: false
+        });
+      }
+    });
+    //---- FAVORITE SECTION -----//
+    if (!localStorage.favoriteShows) {
+      let favoriteShows = [];
+      favoriteShows.push(JSON.parse(localStorage.getItem('favoriteShows')));
+      localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.fetchData().then(() => {
+        if (
+          JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
+            if (item !== null) {
+              return `${item.id}` === this.state.id;
+            }
+          })
+        ) {
+          this.setState({
+            isStarClicked: true
+          });
+        } else {
+          this.setState({
+            isStarClicked: false
+          });
+        }
+      });
+    }
+  }
+
+  fetchData = () => {
     axios
       .get(
         `https://api.themoviedb.org/3/tv/${
-          this.state.id
+          this.props.match.params.id
         }?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
       )
       .then(res => this.setState({ show: res.data }))
@@ -43,44 +91,23 @@ class SingleShow extends Component {
     axios
       .get(
         `https://api.themoviedb.org/3/tv/${
-          this.state.id
+          this.props.match.params.id
         }?language=en-US&api_key=6d9a91a4158b0a021d546ccd83d3f52e`
       )
       .then(res => this.setState({ seasons: res.data.seasons }))
       .catch(err => console.log(err));
 
-    axios
+    return axios
       .get(
-        ` https://api.themoviedb.org/3/tv/${this.state.id}/season/${
+        ` https://api.themoviedb.org/3/tv/${
+          this.props.match.params.id
+        }/season/${
           this.state.selectedSeason
         }?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
       )
       .then(res => this.setState({ episodes: res.data.episodes }))
       .catch(err => console.log(err));
-
-    //---- FAVORITE SECTION -----//
-    if (!localStorage.favoriteShows) {
-      let favoriteShows = [];
-      favoriteShows.push(JSON.parse(localStorage.getItem('favoriteShows')));
-      localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
-    }
-
-    if (
-      JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
-        if (item !== null) {
-          return `${item.id}` === this.state.id;
-        }
-      })
-    ) {
-      this.setState({
-        isStarClicked: true
-      });
-    } else {
-      this.setState({
-        isStarClicked: false
-      });
-    }
-  }
+  };
 
   selectSeason = number => {
     this.setState({ selectedSeason: number });
@@ -201,7 +228,10 @@ class SingleShow extends Component {
             </p>
           </div>
           <p className='single-page-hero-desc'>{show.overview}</p>
-          <Link to={`/show/${this.state.id}/1/1`} className='button-links'>
+          <Link
+            to={`/show/${this.props.match.params.id}/1/1`}
+            className='button-links'
+          >
             <button className='watch-movie'>Start watching</button>
           </Link>
         </div>
@@ -236,9 +266,9 @@ class SingleShow extends Component {
             <>
               <div className='episode-container'>
                 <Link
-                  to={`/show/${this.state.id}/${this.state.selectedSeason}/${
-                    episode.episode_number
-                  }`}
+                  to={`/show/${this.props.match.params.id}/${
+                    this.state.selectedSeason
+                  }/${episode.episode_number}`}
                   className='links'
                 >
                   <img
