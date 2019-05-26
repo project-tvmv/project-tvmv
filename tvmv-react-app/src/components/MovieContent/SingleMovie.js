@@ -34,26 +34,30 @@ class SingleMovie extends Component {
       )
       .then(res => this.setState({ movie: res.data }))
       .catch(err => console.log(err));
+
+      //------FAVORITES----//
+
+      let favoriteMovies = []
+      favoriteMovies.push(JSON.parse(localStorage.getItem('favoriteMovies')));
+      localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
   }
 
+    // -----------------------------FAVORITES---------------------------------- //
+
   addMovietoLocalFavorites = (id, poster_path) => {
-    // initializes favoriteMovie array
-    let favoriteMovies = []
+    // grabs current items and spreads them to a new array. Add new item after it.
+    let currentMovies = JSON.parse(localStorage.getItem('favoriteMovies'));
+    let favoriteMovies = [...currentMovies, {id, poster_path}]
+    // removes any null in array
+    const filteredMovies = favoriteMovies.filter(item => item !== null)
 
-    // if there is an item in the favorite movie array in local storage, add to the end of it
-    if (localStorage.favoriteMovies) {
-      const current = JSON.parse(localStorage.getItem('favoriteMovies'));
-      favoriteMovies = [...current, { id, poster_path }];
+    localStorage.setItem('favoriteMovies', JSON.stringify(filteredMovies))
 
-      localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
-
-      // console log local storage to see what's inside
-      console.log(JSON.parse(localStorage.favoriteMovies))
-    }
-    
-    //if not, create a localstorage property and add the first item
-    favoriteMovies = [{id, poster_path}]
-    localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+    /**
+     * To grab items, you must first JSON.parse(localStorage.getItem('favoriteMovies'))
+     *  Then you can add it to a new variable.
+     *          const favoriteMovies = JSON.parse(localStorage.getItem('favoriteMovies'))
+     *  */
 
     // console log local storage to see what's inside
     console.log(JSON.parse(localStorage.favoriteMovies))
