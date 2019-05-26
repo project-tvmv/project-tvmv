@@ -44,34 +44,38 @@ class Recommended extends Component {
 
   render() {
     const recommended = this.state.recommended;
-    return (
-      <div>
-        <div className='section'>
-          <h1 className='section-header'>Recommended</h1>
+    if (recommended.length === 0) {
+      return null;
+    } else {
+      return (
+        <div>
+          <div className='section'>
+            <h1 className='section-header'>Recommended</h1>
+          </div>
+          <div className='six-poster-container'>
+            {recommended.slice(0, 8).map((recommend, index) => (
+              <div key={recommend.id}>
+                <Link to={`/movie/${recommend.id}`} onClick={this.fetchData}>
+                  <Tilt
+                    className='Tilt'
+                    options={{ max: 12, scale: 1.04, perspective: 1000 }}
+                  >
+                    <img
+                      src={
+                        'http://image.tmdb.org/t/p/w500' + recommend.poster_path
+                      }
+                      alt={recommend.name}
+                      className='posters'
+                      onError={this.props.addDefaultSrc}
+                    />
+                  </Tilt>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className='six-poster-container'>
-          {recommended.slice(0, 8).map((recommend, index) => (
-            <div key={recommend.id}>
-              <Link to={`/movie/${recommend.id}`} onClick={this.fetchData}>
-                <Tilt
-                  className='Tilt'
-                  options={{ max: 12, scale: 1.04, perspective: 1000 }}
-                >
-                  <img
-                    src={
-                      'http://image.tmdb.org/t/p/w500' + recommend.poster_path
-                    }
-                    alt={recommend.name}
-                    className='posters'
-                    onError={this.props.addDefaultSrc}
-                  />
-                </Tilt>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
