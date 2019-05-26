@@ -133,17 +133,19 @@ class SingleShow extends Component {
         />
         <div className='tv-select-container'>
           <h1 className='section'>Episodes</h1>
-          <h1 className='section seasons-header'>Seasons</h1>
-          <div className='seasons-flex'>
-            {seasons.map(season => (
-              <p
-                className='seasons'
-                onClick={() => this.selectSeason(season.season_number)}
-              >
-                {season.season_number}
-              </p>
-            ))}
-          </div>
+          <h1 className='section seasons-header'>
+            Season {this.state.selectedSeason}{' '}
+          </h1>
+        </div>
+        <div className='seasons-flex'>
+          {seasons.map(season => (
+            <p
+              className='seasons'
+              onClick={() => this.selectSeason(season.season_number)}
+            >
+              {season.season_number}
+            </p>
+          ))}
         </div>
         <div className='episodes-container'>
           {episodes.map(episode => (
