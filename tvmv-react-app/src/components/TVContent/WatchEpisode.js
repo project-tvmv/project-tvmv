@@ -25,12 +25,13 @@ class WatchEpisode extends Component {
         />
         <div className='iframe-container'>
           <iframe
-            src={`https://videospider.stream/personal?key=AhWLPUIlhYfa18fg&video_id=${
+            src={`https://videospider.stream/personal?key=kSZoH21SOgg1GH07&video_id=${
               this.state.id
             }&tmdb=1&tv=1&s=${this.state.seasonNumber}&e=${this.state.episode}`}
             border='none'
             className='movie'
             title='show'
+            allowFullScreen
           />
         </div>
       </div>
