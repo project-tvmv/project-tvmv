@@ -12,7 +12,7 @@ const AdamSandler = ({ adamSandler }) => {
             <Link to={`/movie/${adam.id}`}>
               <Tilt
                 className='Tilt'
-                options={{ max: 12, scale: 1.04, perspective: 500 }}
+                options={{ max: 12, scale: 1.04, perspective: 800 }}
               >
                 <img
                   src={'http://image.tmdb.org/t/p/w500' + adam.poster_path}

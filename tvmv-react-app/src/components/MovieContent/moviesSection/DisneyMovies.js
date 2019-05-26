@@ -12,7 +12,7 @@ const DisneyMovies = ({ disney }) => {
             <Link to={`/movie/${disney.id}`}>
               <Tilt
                 className='Tilt'
-                options={{ max: 12, scale: 1.04, perspective: 500 }}
+                options={{ max: 12, scale: 1.04, perspective: 800 }}
               >
                 <img
                   src={

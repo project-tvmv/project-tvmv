@@ -261,6 +261,7 @@ select:-webkit-autofill:focus {
 .genre-header {
   position: absolute;
   z-index: 500;
+  width: max-content;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -523,5 +524,5 @@ iframe > .movie {
 }
 .prev:hover {
   background: #1861ff;
-  color: whiet;
+  color: white;
 }

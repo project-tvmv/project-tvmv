@@ -48,10 +48,10 @@ class SearchResults extends Component {
             />
           </div>
         ))}
-        {contents.slice(0, 20).map((content, index) => (
+        {contents.slice(0, 18).map((content, index) => (
           <Tilt
             className='Tilt'
-            options={{ max: 12, scale: 1.04, perspective: 500 }}
+            options={{ max: 12, scale: 1.04, perspective: 800 }}
           >
             <Link
               to={

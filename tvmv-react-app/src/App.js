@@ -21,6 +21,7 @@ import WatchMovie from './components/MovieContent/WatchMovie';
 import Television from './components/TVContent/Television';
 import TVResults from './components/TVContent/TVResults';
 import WatchEpisode from './components/TVContent/WatchEpisode';
+import Favorites from './components/Favorites';
 require('dotenv').config();
 //--------------CLASS COMPONENT-------------------//
 class App extends React.Component {
@@ -342,11 +343,19 @@ class App extends React.Component {
                 <SearchResults {...props} addDefaultSrc={this.addDefaultSrc} />
               )}
             />
+            {/*------------------------Stream Route---------------*/}
             <Route path='/trailer/:id' component={MovieTrailer} />
             <Route path='/playing/:id' component={WatchMovie} />
             <Route
               path='/show/:id/:selectedSeason/:episode_number'
               component={WatchEpisode}
+            />
+            {/*------------------------Favorites Route---------------*/}
+            <Route
+              path='/favorites'
+              render={props => (
+                <Favorites {...props} addDefaultSrc={this.addDefaultSrc} />
+              )}
             />
           </div>
         </>
