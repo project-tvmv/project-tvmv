@@ -14,7 +14,6 @@ import ShowRecommended from './ShowRecommended';
 import back from '../../assets/icons/arrow-left.svg';
 import star from '../../assets/icons/star.svg';
 import starFilled from '../../assets/icons/star-filled.svg';
-import Loading from '../Loading';
 //--------------CLASS COMPONENT-------------------//
 class SingleShow extends Component {
   constructor(props) {

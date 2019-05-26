@@ -455,6 +455,11 @@ iframe > .movie {
   z-index: 500;
   width: 2%;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.hero-star:hover {
+  transform: scale(1.08);
 }
 
 /* ============================== BUTTONS */
