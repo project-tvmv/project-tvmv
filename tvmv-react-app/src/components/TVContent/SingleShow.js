@@ -83,6 +83,10 @@ class SingleShow extends Component {
   };
 
   render() {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    });
     //--------------DECONSTRUCTING-------------------//
     const show = this.state.show;
     const episodes = this.state.episodes;
@@ -117,8 +121,8 @@ class SingleShow extends Component {
             </p>
           </div>
           <p className='single-page-hero-desc'>{show.overview}</p>
-          <Link to={`/playing/${this.state.id}`} className='button-links'>
-            <button className='watch-movie'>Watch last episode</button>
+          <Link to={`/show/${this.state.id}/1/1`} className='button-links'>
+            <button className='watch-movie'>Start watching</button>
           </Link>
         </div>
         <img
