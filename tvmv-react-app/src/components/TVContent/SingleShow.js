@@ -57,9 +57,12 @@ class SingleShow extends Component {
       .catch(err => console.log(err));
 
       //---- FAVORITE SECTION -----//
-      let favoriteShows = []
-      favoriteShows.push(JSON.parse(localStorage.getItem('favoriteShows')));
-      localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
+      if (!localStorage.favoriteShows) {
+        let favoriteShows = []
+        favoriteShows.push(JSON.parse(localStorage.getItem('favoriteShows')));
+        localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
+      }
+     
   }
 
   selectSeason = number => {
@@ -79,8 +82,8 @@ class SingleShow extends Component {
 
   addShowtoLocalFavorites = (id, poster_path) => {
     // grabs current items and spreads them to a new array. Add new item after it.
-    let currenteShows = JSON.parse(localStorage.getItem('favoriteShows'));
-    let favoriteShows = [...currenteShows, {id, poster_path}]
+    let favoriteShows = JSON.parse(localStorage.getItem('favoriteShows'));
+    favoriteShows.push({id, poster_path})
     // removes any null in array
     const filteredShows = favoriteShows.filter(item => item !== null)
 
