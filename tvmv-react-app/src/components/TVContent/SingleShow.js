@@ -31,34 +31,8 @@ class SingleShow extends Component {
 
   //--------------RETREIVING DATA FROM MOVIE IN STATE ID-------------------//
   componentDidMount() {
-    this.fetchData().then(() => {
-      if (
-        JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
-          if (item !== null) {
-            return `${item.id}` === this.state.id;
-          }
-        })
-      ) {
-        this.setState({
-          isStarClicked: true
-        });
-      } else {
-        this.setState({
-          isStarClicked: false
-        });
-      }
-    });
-    //---- FAVORITE SECTION -----//
-    if (!localStorage.favoriteShows) {
-      let favoriteShows = [];
-      favoriteShows.push(JSON.parse(localStorage.getItem('favoriteShows')));
-      localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props.match.params.id !== prevProps.match.params.id) {
-      this.fetchData().then(() => {
+    this.fetchData()
+      .then(() => {
         if (
           JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
             if (item !== null) {
@@ -74,7 +48,37 @@ class SingleShow extends Component {
             isStarClicked: false
           });
         }
-      });
+      })
+      .catch(() => console.log('Aye something happened!'));
+    //---- FAVORITE SECTION -----//
+    if (!localStorage.favoriteShows) {
+      let favoriteShows = [];
+      favoriteShows.push(JSON.parse(localStorage.getItem('favoriteShows')));
+      localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.fetchData()
+        .then(() => {
+          if (
+            JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
+              if (item !== null) {
+                return `${item.id}` === this.state.id;
+              }
+            })
+          ) {
+            this.setState({
+              isStarClicked: true
+            });
+          } else {
+            this.setState({
+              isStarClicked: false
+            });
+          }
+        })
+        .catch(() => console.log('Aye something happened!'));
     }
   }
 
@@ -172,7 +176,7 @@ class SingleShow extends Component {
     axios
       .get(
         ` https://api.themoviedb.org/3/tv/${
-          this.state.id
+          this.props.match.params.id
         }/season/${seasonNumber}?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
       )
       .then(res => this.setState({ episodes: res.data.episodes }))
