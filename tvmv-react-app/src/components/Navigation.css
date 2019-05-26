@@ -18,8 +18,8 @@
 
 .span-icon {
   display: block;
-  width: 60px;
-  height: 60px;
+  width: 5vw;
+  height: 5vh;
   background: white;
   transition: 0.2s ease-in-out;
 }

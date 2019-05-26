@@ -51,7 +51,7 @@ class GenrePage extends Component {
     const content = this.state.content;
     const addDefaultSrc = this.props.addDefaultSrc;
     return (
-      <div className='full-page-container'>
+      <>
         <img
           src={back}
           className='hero-back'
@@ -63,43 +63,45 @@ class GenrePage extends Component {
           <div key={content.id}>
             <img
               src={'http://image.tmdb.org/t/p/original' + content.backdrop_path}
-              className='title-image-section genre-page-posters'
+              className='genre-header-poster'
               alt={content.title}
               onError={addDefaultSrc}
             />
           </div>
         ))}
-        {content.slice(0, 18).map((content, index) => (
-          <div key={content.id}>
-            <Link to={`/movie/${content.id}`}>
-              <img
-                src={'http://image.tmdb.org/t/p/w500' + content.poster_path}
-                className='genre-page-poster'
-                onError={addDefaultSrc}
-                alt={content.title}
-              />
-            </Link>
+        <div className='full-page-container'>
+          {content.slice(0, 18).map((content, index) => (
+            <div key={content.id}>
+              <Link to={`/movie/${content.id}`}>
+                <img
+                  src={'http://image.tmdb.org/t/p/w500' + content.poster_path}
+                  className='genre-page-poster'
+                  onError={addDefaultSrc}
+                  alt={content.title}
+                />
+              </Link>
+            </div>
+          ))}
+          <div className='page-buttons-flex'>
+            <button
+              className={this.state.pageNumber === 1 ? 'prev-disabled' : 'prev'}
+              alt='previous'
+              name='prev'
+              onClick={this.pageChange}
+            >
+              Previous Page
+            </button>
+            <button
+              className='next'
+              alt='next'
+              name='next'
+              onClick={this.pageChange}
+            >
+              Next Page
+            </button>
           </div>
-        ))}
-        <div className='page-buttons-flex'>
-          <button
-            className={this.state.pageNumber === 1 ? 'prev-disabled' : 'prev'}
-            alt='previous'
-            name='prev'
-            onClick={this.pageChange}
-          >
-            Previous Page
-          </button>
-          <button
-            className='next'
-            alt='next'
-            name='next'
-            onClick={this.pageChange}
-          >
-            Next Page
-          </button>
         </div>
-      </div>
+      </>
     );
   }
 }
