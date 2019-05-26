@@ -24,3 +24,13 @@
 .favorites-posters:hover {
   opacity: 1;
 }
+
+.no-favorites {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 48vh auto 0;
+  font-size: 4vh;
+  color: #292929;
+  user-select: none;
+}

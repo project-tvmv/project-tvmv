@@ -22,6 +22,14 @@ class Favorites extends Component {
     const favoriteMovies = JSON.parse(localStorage.getItem('favoriteMovies'));
     const favoriteShows = JSON.parse(localStorage.getItem('favoriteShows'));
     const addDefaultSrc = this.props.addDefaultSrc;
+
+    if (favoriteMovies === null || favoriteShows === null) {
+      return (
+        <h1 className='no-favorites'>
+          You currently have no starred content. :(
+        </h1>
+      );
+    }
     return (
       <div className='favorites-container'>
         <h1>Favorited Movies</h1>
@@ -40,7 +48,7 @@ class Favorites extends Component {
         <h1>Favorited Shows</h1>
         <div className='favorite-flex'>
           {favoriteShows.map(favorite => (
-            <Link to={`/tv/${favorite.id}`}>
+            <Link to={`/television/${favorite.id}`}>
               <img
                 src={'http://image.tmdb.org/t/p/w500' + favorite.poster_path}
                 className='favorites-posters'
