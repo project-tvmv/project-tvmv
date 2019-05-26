@@ -1,7 +1,7 @@
 //--------------DEPENDANCIES------------//
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Tilt from 'react-tilt';
 //--------------STYLES------------------//
 import '../../App.css';
@@ -27,7 +27,7 @@ class ShowRecommended extends Component {
       .catch(err => console.log(err));
   }
 
-  fetchData() {
+  fetchData = (id) => {
     axios
       .get(
         `https://api.themoviedb.org/3/tv/${
@@ -36,6 +36,7 @@ class ShowRecommended extends Component {
       )
       .then(res => {
         this.setState({ recommended: res.data.results });
+        this.props.history.push(`/television/${id}`)
       })
       .catch(err => {
         console.log(err);
@@ -53,7 +54,7 @@ class ShowRecommended extends Component {
         <div className='six-poster-container'>
           {recommended.slice(0, 8).map((recommend, index) => (
             <div key={recommend.id}>
-              <Link to={`/television/${recommend.id}`} onClick={this.fetchData}>
+              <div onClick={() => this.fetchData(recommend.id)}>
                 <Tilt
                   className='Tilt'
                   options={{ max: 12, scale: 1.04, perspective: 1000 }}
@@ -68,7 +69,7 @@ class ShowRecommended extends Component {
                     onError={addDefaultSrc}
                   />
                 </Tilt>
-              </Link>
+              </div>
             </div>
           ))}
         </div>
@@ -77,4 +78,4 @@ class ShowRecommended extends Component {
   }
 }
 
-export default ShowRecommended;
+export default withRouter(ShowRecommended);
