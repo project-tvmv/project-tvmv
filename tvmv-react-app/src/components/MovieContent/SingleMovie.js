@@ -47,20 +47,20 @@ class SingleMovie extends Component {
       this.setState({
         isStarClicked: false
       })
-    } else if (JSON.parse(localStorage.getItem('favoriteMovies')).find(item => item.id === this.state.id) ) {
+    } 
+
+    if (JSON.parse(localStorage.getItem('favoriteMovies')).find(item => `${item.id}` === this.state.id)) {
       this.setState({
-        isStarClicked: false
+        isStarClicked: true
+      })
+      
+    } else {
+      this.setState({
+        isStarClicked:false
       })
     }
 
-    // JSON.parse(localStorage.getItem('favoriteMovies'))
-    // .map(item => {
-    //   if (item.id === this.state.id) {
-    //     this.setState({
-    //       isStarClicked: true
-    //     })
-    //   }
-    // })
+    
   }
 
   // -----------------------------FAVORITES---------------------------------- //
