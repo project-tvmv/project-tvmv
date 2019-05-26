@@ -13,6 +13,7 @@ import Recommended from './Recommended';
 //--------------ASSETS-------------------//
 import back from '../../assets/icons/arrow-left.svg';
 import star from '../../assets/icons/star.svg';
+import starFilled from '../../assets/icons/star-filled.svg'
 
 //--------------CLASS COMPONENT-------------------//
 class SingleMovie extends Component {
@@ -21,7 +22,8 @@ class SingleMovie extends Component {
     this.state = {
       id: this.props.match.params.id, // MATCHES THE ID IN THE URL (PARAMS)
       movie: [],
-      name: this.props.match.params.name
+      name: this.props.match.params.name,
+      isStarClicked: false
     };
   }
 
@@ -36,25 +38,67 @@ class SingleMovie extends Component {
       .then(res => this.setState({ movie: res.data }))
       .catch(err => console.log(err));
 
-      //------FAVORITES----//
+    //------FAVORITES----//
 
-      if (!localStorage.favoriteMovies) {
-        let favoriteMovies = []
-        favoriteMovies.push(JSON.parse(localStorage.getItem('favoriteMovies')));
-        localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
-      }
+    if (!localStorage.favoriteMovies) {
+      let favoriteMovies = [];
+      favoriteMovies.push(JSON.parse(localStorage.getItem('favoriteMovies')));
+      localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+      this.setState({
+        isStarClicked: false
+      })
+    } else if (JSON.parse(localStorage.getItem('favoriteMovies')).find(item => item.id === this.state.id) ) {
+      this.setState({
+        isStarClicked: false
+      })
+    }
+
+    // JSON.parse(localStorage.getItem('favoriteMovies'))
+    // .map(item => {
+    //   if (item.id === this.state.id) {
+    //     this.setState({
+    //       isStarClicked: true
+    //     })
+    //   }
+    // })
   }
 
-    // -----------------------------FAVORITES---------------------------------- //
+  // -----------------------------FAVORITES---------------------------------- //
 
   addMovietoLocalFavorites = (id, poster_path) => {
     // grabs current items and spreads them to a new array. Add new item after it.
     let favoriteMovies = JSON.parse(localStorage.getItem('favoriteMovies'));
-    favoriteMovies.push({id, poster_path})
+   if (!this.state.isStarClicked) {
+    favoriteMovies.push({ id, poster_path });
     // removes any null in array
-    const filteredMovies = favoriteMovies.filter(item => item !== null)
+    const filteredMovies = favoriteMovies.filter(item => item !== null);
+    const result = [];
+    const map = new Map();
+    for (const item of filteredMovies) {
+      if (!map.has(item.id)) {
+        map.set(item.id, true);
+        result.push({
+          id: item.id,
+          poster_path: item.poster_path
+        });
+      }
+    }
 
-    localStorage.setItem('favoriteMovies', JSON.stringify(filteredMovies))
+    this.setState({
+      isStarClicked: true
+    }, () => localStorage.setItem('id', `${id}`))
+
+    
+    localStorage.setItem('favoriteMovies', JSON.stringify(result));
+   } else {
+    let currentShow = favoriteMovies.filter(item => item.id !== id)
+    localStorage.removeItem('id')
+    localStorage.setItem('favoriteMovies', JSON.stringify(currentShow))
+    this.setState({
+      isStarClicked: false
+    })
+
+  }
 
     /**
      * To grab items, you must first JSON.parse(localStorage.getItem('favoriteMovies'))
@@ -63,7 +107,7 @@ class SingleMovie extends Component {
      *  */
 
     // console log local storage to see what's inside
-    console.log(JSON.parse(localStorage.favoriteMovies))
+    console.log(JSON.parse(localStorage.favoriteMovies));
   };
 
   render() {
@@ -72,46 +116,49 @@ class SingleMovie extends Component {
     const movie = this.state.movie;
     //--------------END OF DECONSTRUCTING-------------------//
     return (
-      <div className='single-page-containter'>
+      <div className="single-page-containter">
         {/* //--------------HERO SECTION-------------------// */}
         <img
           src={back}
-          className='hero-back'
-          alt='back'
+          className="hero-back"
+          alt="back"
           onClick={this.props.history.goBack}
         />
-        <img src={star} 
-        className='hero-star' 
-        alt='star' 
-        onClick={()=> (
-          this.addMovietoLocalFavorites(this.state.movie.id, 
-          this.state.movie.poster_path)
-          )}   
+        <img
+          src={this.state.isStarClicked ? starFilled : star}
+          className="hero-star"
+          alt="star"
+          onClick={() =>
+            this.addMovietoLocalFavorites(
+              this.state.movie.id,
+              this.state.movie.poster_path
+            )
+          }
         />
-        <div className='single-page-hero-info'>
-          <h1 className='single-page-hero-title'>{movie.title}</h1>
-          <div className='movie-details'>
-            <p className='movie-details-text'>
+        <div className="single-page-hero-info">
+          <h1 className="single-page-hero-title">{movie.title}</h1>
+          <div className="movie-details">
+            <p className="movie-details-text">
               {moment(movie.release_date, 'YYYY-MM-DD').format('MMMM Do YYYY')}
             </p>
-            <p className='line-breaks'>|</p>
-            <p className='movie-details-text'>{movie.vote_average}</p>
-            <p className='line-breaks'>|</p>
-            <p className='movie-details-text'>Runtime: {movie.runtime} mins</p>
+            <p className="line-breaks">|</p>
+            <p className="movie-details-text">{movie.vote_average}</p>
+            <p className="line-breaks">|</p>
+            <p className="movie-details-text">Runtime: {movie.runtime} mins</p>
           </div>
-          <p className='single-page-hero-desc'>{movie.overview}</p>
-          <div className='single-page-button-flex'>
-            <Link to={`/playing/${this.state.id}`} className='button-links'>
-              <button className='watch-movie'>Watch movie</button>
+          <p className="single-page-hero-desc">{movie.overview}</p>
+          <div className="single-page-button-flex">
+            <Link to={`/playing/${this.state.id}`} className="button-links">
+              <button className="watch-movie">Watch movie</button>
             </Link>
-            <Link to={`/trailer/${this.state.id}`} className='button-links'>
-              <button className='watch-trailer'> Watch trailer </button>
+            <Link to={`/trailer/${this.state.id}`} className="button-links">
+              <button className="watch-trailer"> Watch trailer </button>
             </Link>
           </div>
         </div>
         <img
           src={'http://image.tmdb.org/t/p/original' + movie.backdrop_path}
-          className='full-hero'
+          className="full-hero"
           alt={movie.title}
           onError={this.props.addDefaultSrc}
         />
