@@ -240,7 +240,7 @@ class SingleShow extends Component {
           src={
             show.name === 'Game of Thrones'
               ? 'https://www.sheknows.com/wp-content/uploads/2019/02/game-of-thrones-character-posters-FI.jpg'
-              : 'http://image.tmdb.org/t/p/original' + show.backdrop_path
+              : 'https://image.tmdb.org/t/p/original' + show.backdrop_path
           }
           className='full-hero'
           alt={show.title}
@@ -272,7 +272,7 @@ class SingleShow extends Component {
                   className='links'
                 >
                   <img
-                    src={'http://image.tmdb.org/t/p/w500' + episode.still_path}
+                    src={'https://image.tmdb.org/t/p/w500' + episode.still_path}
                     className='episode-photo'
                     alt={episode.name}
                     onError={this.props.addDefaultSrc}

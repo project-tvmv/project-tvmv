@@ -47,7 +47,7 @@ class TVResults extends Component {
         {resultsData.slice(0, 1).map(results => (
           <div key={results.id}>
             <img
-              src={'http://image.tmdb.org/t/p/original' + results.backdrop_path}
+              src={'https://image.tmdb.org/t/p/original' + results.backdrop_path}
               className='title-image-section genre-page-posters'
               alt={results.name}
             />
@@ -61,7 +61,7 @@ class TVResults extends Component {
             >
               <Link to={`/television/${results.id}`}>
                 <img
-                  src={'http://image.tmdb.org/t/p/w500' + results.poster_path}
+                  src={'https://image.tmdb.org/t/p/w500' + results.poster_path}
                   className='genre-page-poster'
                   alt={results.name}
                   onError={this.props.addDefaultSrc}

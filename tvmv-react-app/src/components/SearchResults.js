@@ -40,7 +40,7 @@ class SearchResults extends Component {
         {contents.slice(0, 1).map(content => (
           <div key={content.id}>
             <img
-              src={'http://image.tmdb.org/t/p/original' + content.backdrop_path}
+              src={'https://image.tmdb.org/t/p/original' + content.backdrop_path}
               className='title-image-section genre-page-posters'
               alt={content.title}
               onError={this.props.addDefaultSrc}
@@ -56,7 +56,7 @@ class SearchResults extends Component {
             }
           >
             <img
-              src={'http://image.tmdb.org/t/p/w500' + content.poster_path}
+              src={'https://image.tmdb.org/t/p/w500' + content.poster_path}
               alt={content.name}
               className='genre-page-poster'
               onError={this.props.addDefaultSrc}

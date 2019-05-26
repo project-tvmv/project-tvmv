@@ -14,7 +14,7 @@ const SubHero = ({ movie, show }) => {
             <p className='subhero-desc'>{movie.overview.slice(0, 300)}...</p>
             <Link to={`/movie/${movie.id}`}>
               <img
-                src={'http://image.tmdb.org/t/p/original' + movie.backdrop_path}
+                src={'https://image.tmdb.org/t/p/original' + movie.backdrop_path}
                 alt={movie.title}
                 className='subhero-image-left'
               />
@@ -31,7 +31,7 @@ const SubHero = ({ movie, show }) => {
             </p>
             <Link to={`/television/${show.id}`}>
               <img
-                src={'http://image.tmdb.org/t/p/original' + show.backdrop_path}
+                src={'https://image.tmdb.org/t/p/original' + show.backdrop_path}
                 alt={show.name}
                 className='subhero-image-right'
               />

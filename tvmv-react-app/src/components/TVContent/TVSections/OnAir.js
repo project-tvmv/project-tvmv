@@ -15,7 +15,7 @@ const OnAir = ({ onAir }) => {
                 options={{ max: 12, scale: 1.04, perspective: 1000 }}
               >
                 <img
-                  src={'http://image.tmdb.org/t/p/w500' + onAir.poster_path}
+                  src={'https://image.tmdb.org/t/p/w500' + onAir.poster_path}
                   alt={onAir.name}
                   className='posters twelve-posters'
                 />

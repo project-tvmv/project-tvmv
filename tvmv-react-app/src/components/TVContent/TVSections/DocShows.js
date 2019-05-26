@@ -16,7 +16,7 @@ const DocShows = ({ documentaryShows }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/w500' +
+                    'https://image.tmdb.org/t/p/w500' +
                     documentaryShows.poster_path
                   }
                   alt={documentaryShows.name}

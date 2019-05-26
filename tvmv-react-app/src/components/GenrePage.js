@@ -62,7 +62,7 @@ class GenrePage extends Component {
         {content.slice(0, 1).map(content => (
           <div key={content.id}>
             <img
-              src={'http://image.tmdb.org/t/p/original' + content.backdrop_path}
+              src={'https://image.tmdb.org/t/p/original' + content.backdrop_path}
               className='genre-header-poster'
               alt={content.title}
               onError={addDefaultSrc}
@@ -74,7 +74,7 @@ class GenrePage extends Component {
             <div key={content.id}>
               <Link to={`/movie/${content.id}`}>
                 <img
-                  src={'http://image.tmdb.org/t/p/w500' + content.poster_path}
+                  src={'https://image.tmdb.org/t/p/w500' + content.poster_path}
                   className='genre-page-poster'
                   onError={addDefaultSrc}
                   alt={content.title}

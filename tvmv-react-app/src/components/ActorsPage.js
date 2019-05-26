@@ -47,7 +47,7 @@ class ActorsPage extends Component {
       <>
         <div className='actors-content'>
           <img
-            src={'http://image.tmdb.org/t/p/w500' + name.profile_path}
+            src={'https://image.tmdb.org/t/p/w500' + name.profile_path}
             className='actors-posters'
             alt={name.name}
             onError={addDefaultSrc}
@@ -65,7 +65,7 @@ class ActorsPage extends Component {
         {filmography.slice(0, 1).map((work, index) => (
           <div key={work.id}>
             <img
-              src={'http://image.tmdb.org/t/p/original' + work.backdrop_path}
+              src={'https://image.tmdb.org/t/p/original' + work.backdrop_path}
               className='title-image-section'
               alt={work.title}
             />
@@ -76,7 +76,7 @@ class ActorsPage extends Component {
             <div key={work.id}>
               <Link to={`/movie/${work.id}`}>
                 <img
-                  src={'http://image.tmdb.org/t/p/w500' + work.poster_path}
+                  src={'https://image.tmdb.org/t/p/w500' + work.poster_path}
                   className='actors-page-posters'
                   alt={work.title}
                   onError={addDefaultSrc}

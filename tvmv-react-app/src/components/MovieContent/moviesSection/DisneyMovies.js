@@ -16,7 +16,7 @@ const DisneyMovies = ({ disney }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/w500' + disney.poster_path
+                    'https://image.tmdb.org/t/p/w500' + disney.poster_path
                   }
                   alt={disney.title}
                   className='posters twelve-posters'

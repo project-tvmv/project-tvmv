@@ -52,7 +52,7 @@ class ShowCast extends Component {
                   <Link to={`/actor/${cast.id}`} className='links'>
                     <img
                       src={
-                        'http://image.tmdb.org/t/p/original' + cast.profile_path
+                        'https://image.tmdb.org/t/p/original' + cast.profile_path
                       }
                       alt={cast.character}
                       className='cast-posters'

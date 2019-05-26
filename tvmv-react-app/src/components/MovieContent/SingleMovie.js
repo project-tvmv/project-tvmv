@@ -193,7 +193,7 @@ class SingleMovie extends Component {
           </div>
         </div>
         <img
-          src={'http://image.tmdb.org/t/p/original' + movie.backdrop_path}
+          src={'https://image.tmdb.org/t/p/original' + movie.backdrop_path}
           className='full-hero'
           alt={movie.title}
           onError={this.props.addDefaultSrc}

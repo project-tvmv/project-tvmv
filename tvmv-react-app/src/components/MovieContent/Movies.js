@@ -105,7 +105,7 @@ class Movies extends Component {
             <p className='section-break-desc'>{familyMovies[19].overview}</p>
             <img
               src={
-                'http://image.tmdb.org/t/p/original' +
+                'https://image.tmdb.org/t/p/original' +
                 familyMovies[19].backdrop_path
               }
               alt={familyMovies[19].title}
@@ -121,7 +121,7 @@ class Movies extends Component {
             <p className='section-break-desc'>{horrorMovies[19].overview}</p>
             <img
               src={
-                'http://image.tmdb.org/t/p/original' +
+                'https://image.tmdb.org/t/p/original' +
                 horrorMovies[19].backdrop_path
               }
               alt={horrorMovies[19].title}
@@ -139,7 +139,7 @@ class Movies extends Component {
             </p>
             <img
               src={
-                'http://image.tmdb.org/t/p/original' +
+                'https://image.tmdb.org/t/p/original' +
                 romanticComedies[19].backdrop_path
               }
               alt={romanticComedies[19].title}
@@ -155,7 +155,7 @@ class Movies extends Component {
             <p className='section-break-desc'>{kids[18].overview}</p>
             <img
               src={
-                'http://image.tmdb.org/t/p/original' + kids[18].backdrop_path
+                'https://image.tmdb.org/t/p/original' + kids[18].backdrop_path
               }
               alt={kids[18].title}
               className='section-break-image'

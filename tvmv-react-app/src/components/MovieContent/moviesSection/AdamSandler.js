@@ -15,7 +15,7 @@ const AdamSandler = ({ adamSandler }) => {
                 options={{ max: 12, scale: 1.04, perspective: 1000 }}
               >
                 <img
-                  src={'http://image.tmdb.org/t/p/w500' + adam.poster_path}
+                  src={'https://image.tmdb.org/t/p/w500' + adam.poster_path}
                   alt={adam.title}
                   className='posters twelve-posters'
                 />

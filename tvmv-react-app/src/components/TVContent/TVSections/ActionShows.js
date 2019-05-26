@@ -16,7 +16,7 @@ const ActionShows = ({ actionShows }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/w500' +
+                    'https://image.tmdb.org/t/p/w500' +
                     actionShow.poster_path
                   }
                   alt={actionShow.name}

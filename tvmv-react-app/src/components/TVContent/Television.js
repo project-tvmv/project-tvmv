@@ -100,7 +100,7 @@ class Television extends Component {
             <p className='section-break-desc'>{popularShows[19].overview}</p>
             <img
               src={
-                'http://image.tmdb.org/t/p/original' +
+                'https://image.tmdb.org/t/p/original' +
                 popularShows[19].backdrop_path
               }
               alt={popularShows[19].name}
@@ -116,7 +116,7 @@ class Television extends Component {
             <p className='section-break-desc'>{realityTV[19].overview}</p>
             <img
               src={
-                'http://image.tmdb.org/t/p/original' +
+                'https://image.tmdb.org/t/p/original' +
                 realityTV[19].backdrop_path
               }
               alt={realityTV[19].name}
@@ -134,7 +134,7 @@ class Television extends Component {
             </p>
             <img
               src={
-                'http://image.tmdb.org/t/p/original' +
+                'https://image.tmdb.org/t/p/original' +
                 documentaryShows[19].backdrop_path
               }
               alt={documentaryShows[19].name}
@@ -150,7 +150,7 @@ class Television extends Component {
             <p className='section-break-desc'>{disneyChannel[19].overview}</p>
             <img
               src={
-                'http://image.tmdb.org/t/p/original' +
+                'https://image.tmdb.org/t/p/original' +
                 disneyChannel[19].backdrop_path
               }
               alt={disneyChannel[19].name}

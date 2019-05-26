@@ -20,7 +20,7 @@ const NewTV = ({ newShows }) => {
                 options={{ max: 12, scale: 1.1, perspective: 1000 }}
               >
                 <img
-                  src={'http://image.tmdb.org/t/p/w500' + newShow.poster_path}
+                  src={'https://image.tmdb.org/t/p/w500' + newShow.poster_path}
                   alt={newShow.name}
                   className='posters'
                 />

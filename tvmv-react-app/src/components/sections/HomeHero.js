@@ -19,7 +19,7 @@ const HomeHero = ({ popularMovies, popularShows }) => {
             <NavLink to={`/movie/${popularMovie.id}`}>
               <img
                 src={
-                  'http://image.tmdb.org/t/p/original' +
+                  'https://image.tmdb.org/t/p/original' +
                   popularMovie.backdrop_path
                 }
                 alt={popularMovie.title}
@@ -43,7 +43,7 @@ const HomeHero = ({ popularMovies, popularShows }) => {
                 src={
                   popularShow.name === 'Game of Thrones'
                     ? 'https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/21/1495474029-game-of-thrones2.jpg'
-                    : 'http://image.tmdb.org/t/p/original' +
+                    : 'https://image.tmdb.org/t/p/original' +
                       popularShow.backdrop_path
                 }
                 alt={popularShow.name}
