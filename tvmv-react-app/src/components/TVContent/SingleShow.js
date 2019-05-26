@@ -19,7 +19,11 @@ class SingleShow extends Component {
     super(props);
     this.state = {
       id: this.props.match.params.id, // MATCHES THE ID IN THE URL (PARAMS)
-      show: []
+      show: [],
+      episodes: [],
+      seasons: [],
+      selectedSeason: 1,
+      selectedEpisode: null
     };
   }
 
@@ -33,12 +37,56 @@ class SingleShow extends Component {
       )
       .then(res => this.setState({ show: res.data }))
       .catch(err => console.log(err));
+
+    axios
+      .get(
+        `https://api.themoviedb.org/3/tv/${
+          this.state.id
+        }?language=en-US&api_key=6d9a91a4158b0a021d546ccd83d3f52e`
+      )
+      .then(res => this.setState({ seasons: res.data.seasons }))
+      .catch(err => console.log(err));
+
+    axios
+      .get(
+        ` https://api.themoviedb.org/3/tv/${this.state.id}/season/${
+          this.state.selectedSeason
+        }?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
+      )
+      .then(res => this.setState({ episodes: res.data.episodes }))
+      .catch(err => console.log(err));
   }
 
+  selectSeason = number => {
+    this.setState({ selectedSeason: number });
+    this.getEpisodes(number);
+  };
+
+  componentWillReceiveProps = nextProps => {
+    let episodeNum = nextProps.match.params.episodeNumber;
+    if (episodeNum && episodeNum !== this.state.selectedEpisode) {
+      console.log('component recieved new props');
+      this.setState({ selectedEpisode: episodeNum });
+    }
+  };
+
+  // -----------------------------EPISODES---------------------------------- //
+  getEpisodes = seasonNumber => {
+    axios
+      .get(
+        ` https://api.themoviedb.org/3/tv/${
+          this.state.id
+        }/season/${seasonNumber}?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
+      )
+      .then(res => this.setState({ episodes: res.data.episodes }))
+      .catch(err => console.log(err));
+  };
+
   render() {
-    window.scroll(0, 0);
     //--------------DECONSTRUCTING-------------------//
     const show = this.state.show;
+    const episodes = this.state.episodes;
+    const seasons = this.state.seasons;
     const addDefaultSrc = this.props.addDefaultSrc;
     //--------------END OF DECONSTRUCTING-------------------//
     return (
@@ -83,6 +131,44 @@ class SingleShow extends Component {
           className='full-hero'
           alt={show.title}
         />
+        <div className='tv-select-container'>
+          <h1 className='section'>Episodes</h1>
+          <h1 className='section seasons-header'>Seasons</h1>
+          <div className='seasons-flex'>
+            {seasons.map(season => (
+              <p
+                className='seasons'
+                onClick={() => this.selectSeason(season.season_number)}
+              >
+                {season.season_number}
+              </p>
+            ))}
+          </div>
+        </div>
+        <div className='episodes-container'>
+          {episodes.map(episode => (
+            <>
+              <div className='episode-container'>
+                <Link
+                  to={`/show/${this.state.id}/${this.state.selectedSeason}/${
+                    episode.episode_number
+                  }`}
+                  className='links'
+                >
+                  <img
+                    src={'http://image.tmdb.org/t/p/w500' + episode.still_path}
+                    className='episode-photo'
+                    alt={episode.name}
+                  />
+                  <div className='episode-info-flex'>
+                    <p className='episode-number'>{episode.episode_number}.</p>
+                    <p className='episode-name'>{episode.name}</p>
+                  </div>
+                </Link>
+              </div>
+            </>
+          ))}
+        </div>
         <ShowCast id={this.state.id} addDefaultSrc={addDefaultSrc} />
         <ShowExtras id={this.state.id} addDefaultSrc={addDefaultSrc} />
         <ShowRecommended id={this.state.id} addDefaultSrc={addDefaultSrc} />

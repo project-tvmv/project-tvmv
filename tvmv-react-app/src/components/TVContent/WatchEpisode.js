@@ -4,12 +4,13 @@ import { withRouter } from 'react-router-dom';
 
 import back from '../../assets/icons/arrow-left.svg';
 
-class MovieTrailer extends Component {
+class WatchEpisode extends Component {
   constructor(props) {
     super(props);
     this.state = {
       id: this.props.match.params.id,
-      movieKey: ''
+      episode: this.props.match.params.episode_number,
+      seasonNumber: this.props.match.params.selectedSeason
     };
   }
 
@@ -26,10 +27,10 @@ class MovieTrailer extends Component {
           <iframe
             src={`https://videospider.stream/personal?key=AhWLPUIlhYfa18fg&video_id=${
               this.state.id
-            }&tmdb=1`}
+            }&tmdb=1&tv=1&s=${this.state.seasonNumber}&e=${this.state.episode}`}
             border='none'
             className='movie'
-            title='movie'
+            title='show'
           />
         </div>
       </div>
@@ -37,4 +38,4 @@ class MovieTrailer extends Component {
   }
 }
 
-export default withRouter(MovieTrailer);
+export default withRouter(WatchEpisode);
