@@ -174,8 +174,12 @@ select:-webkit-autofill:focus {
 }
 
 .section-extras {
-  margin-top: 12%;
+  margin-top: 10%;
   margin-left: 1%;
+}
+
+.tv-extras {
+  margin-top: 3%;
 }
 
 .second-section {

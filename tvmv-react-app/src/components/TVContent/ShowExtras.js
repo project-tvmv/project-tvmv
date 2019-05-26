@@ -29,7 +29,7 @@ class ShowExtras extends Component {
     const extras = this.state.extras;
     return (
       <div>
-        <div className='section-extras'>
+        <div className='section-extras tv-extras'>
           <h1 className='section-header'>Extras</h1>
         </div>
         <div className='extras-container'>
