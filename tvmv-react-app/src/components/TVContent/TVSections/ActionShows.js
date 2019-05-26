@@ -12,7 +12,7 @@ const ActionShows = ({ actionShows }) => {
             <Link to={`/television/${actionShow.id}`}>
               <Tilt
                 className='Tilt'
-                options={{ max: 12, scale: 1.04, perspective: 500 }}
+                options={{ max: 12, scale: 1.04, perspective: 800 }}
               >
                 <img
                   src={

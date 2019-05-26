@@ -1,0 +1,10 @@
+.favorites-container {
+  text-align: left;
+  width: 93%;
+  margin: 0 auto;
+}
+
+.favorite-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
