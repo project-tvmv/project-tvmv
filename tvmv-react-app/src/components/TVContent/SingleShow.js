@@ -13,6 +13,7 @@ import ShowRecommended from './ShowRecommended';
 //--------------ASSETS------------------------//
 import back from '../../assets/icons/arrow-left.svg';
 import star from '../../assets/icons/star.svg';
+import starFilled from '../../assets/icons/star-filled.svg';
 //--------------CLASS COMPONENT-------------------//
 class SingleShow extends Component {
   constructor(props) {
@@ -23,7 +24,8 @@ class SingleShow extends Component {
       episodes: [],
       seasons: [],
       selectedSeason: 1,
-      selectedEpisode: null
+      selectedEpisode: null,
+      isStarClicked: false
     };
   }
 
@@ -82,11 +84,33 @@ class SingleShow extends Component {
   addShowtoLocalFavorites = (id, poster_path) => {
     // grabs current items and spreads them to a new array. Add new item after it.
     let favoriteShows = JSON.parse(localStorage.getItem('favoriteShows'));
-    favoriteShows.push({ id, poster_path });
-    // removes any null in array
-    const filteredShows = favoriteShows.filter(item => item !== null);
+    if (!this.state.isStarClicked || favoriteShows === null) {
+      favoriteShows.push({ id, poster_path });
+      // removes any null in array
+      const filteredShows = favoriteShows.filter(item => item !== null);
+      const result = [];
+      const map = new Map();
+      for (const item of filteredShows) {
+        if (!map.has(item.id)) {
+          map.set(item.id, true);
+          result.push({
+            id: item.id,
+            poster_path: item.poster_path
+          });
+        }
+      }
+      this.setState({
+        isStarClicked: true
+      });
 
-    localStorage.setItem('favoriteShows', JSON.stringify(filteredShows));
+      localStorage.setItem('favoriteShows', JSON.stringify(result));
+    } else {
+      let currentShow = favoriteShows.filter(item => item.id !== id);
+      localStorage.setItem('favoriteShows', JSON.stringify(currentShow));
+      this.setState({
+        isStarClicked: false
+      });
+    }
 
     /**
      * To grab items, you must first JSON.parse(localStorage.getItem('favoriteShows'))
@@ -97,6 +121,8 @@ class SingleShow extends Component {
     // console log local storage to see what's inside
     console.log(JSON.parse(localStorage.favoriteShows));
   };
+
+  //----------------------------UNSTAR FAVE---------------------------//
 
   // -----------------------------EPISODES---------------------------------- //
   getEpisodes = seasonNumber => {
@@ -131,7 +157,7 @@ class SingleShow extends Component {
           onClick={this.props.history.goBack}
         />
         <img
-          src={star}
+          src={this.state.isStarClicked ? starFilled : star}
           className='hero-star'
           alt='star'
           onClick={() =>
