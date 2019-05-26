@@ -7,6 +7,7 @@ import moment from 'moment';
 //--------------STYLES-------------------//
 import '../App.css';
 import './ActorsPage.css';
+import up from '../assets/icons/arrow-up.svg';
 //--------------CLASS COMPONENT-------------------//
 
 class ActorsPage extends Component {
@@ -39,6 +40,10 @@ class ActorsPage extends Component {
       .catch(err => console.log(err));
   }
 
+  scrollTop = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  };
+
   render() {
     const filmography = this.state.filmography;
     const name = this.state.name;
@@ -66,7 +71,7 @@ class ActorsPage extends Component {
           <div key={work.id}>
             <img
               src={'https://image.tmdb.org/t/p/original' + work.backdrop_path}
-              className='title-image-section'
+              className='actors-image-section'
               alt={work.title}
             />
           </div>
@@ -85,6 +90,12 @@ class ActorsPage extends Component {
             </div>
           ))}
         </div>
+        <img
+          src={up}
+          alt='scroll back to up'
+          className='scroll-back'
+          onClick={this.scrollTop}
+        />
       </>
     );
   }

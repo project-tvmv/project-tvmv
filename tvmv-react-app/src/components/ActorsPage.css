@@ -1,6 +1,6 @@
 .actors-content {
   display: flex;
-  width: 92%;
+  width: 93.5%;
   margin: 2.5% auto;
 }
 
@@ -20,12 +20,20 @@
 }
 
 .actor-bio {
+  width: 100%;
   line-height: 30px;
-  font-size: 16px;
+  font-size: 2vh;
   height: 21.5vh;
   overflow: hidden;
+  text-align: justify;
 }
 
+.actors-image-section {
+  height: 38vh;
+  width: 93.5%;
+  object-fit: cover;
+  opacity: 0.5;
+}
 .actors-page-posters {
   width: 32vh;
   height: 48vh;
@@ -36,4 +44,10 @@
 
 .actors-page-posters:hover {
   opacity: 1;
+}
+
+.actors-posters {
+  width: 32vh;
+  height: 48vh;
+  object-fit: cover;
 }
