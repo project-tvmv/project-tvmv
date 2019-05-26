@@ -18,7 +18,7 @@ const PopularMovies = ({ popularMovies }) => {
               <Link to={`/movie/${popularMovie.id}`}>
                 <Tilt
                   className='Tilt'
-                  options={{ max: 12, scale: 1.05, perspective: 800 }}
+                  options={{ max: 12, scale: 1.1, perspective: 1000 }}
                 >
                   <img
                     src={

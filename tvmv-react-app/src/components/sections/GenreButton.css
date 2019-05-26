@@ -29,7 +29,6 @@
 }
 
 .genre-links:hover {
-  background: #1861ff;
-  filter: drop-shadow(0px 0px 10px #2756ff42);
-  transform: scale(1.15);
+  background: #414141;
+  transform: scale(1.1);
 }

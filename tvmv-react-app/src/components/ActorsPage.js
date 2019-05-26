@@ -2,7 +2,6 @@
 import React from 'react';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Tilt from 'react-tilt';
 import axios from 'axios';
 import moment from 'moment';
 //--------------STYLES-------------------//
@@ -72,22 +71,17 @@ class ActorsPage extends Component {
             />
           </div>
         ))}
-        <div className='full-page-container'>
+        <div className='actors-page-container'>
           {filmography.map((work, index) => (
             <div key={work.id}>
-              <Tilt
-                className='Tilt'
-                options={{ max: 12, scale: 1.04, perspective: 800 }}
-              >
-                <Link to={`/movie/${work.id}`}>
-                  <img
-                    src={'http://image.tmdb.org/t/p/w500' + work.poster_path}
-                    className='posters actors-page-posters'
-                    alt={work.title}
-                    onError={addDefaultSrc}
-                  />
-                </Link>
-              </Tilt>
+              <Link to={`/movie/${work.id}`}>
+                <img
+                  src={'http://image.tmdb.org/t/p/w500' + work.poster_path}
+                  className='actors-page-posters'
+                  alt={work.title}
+                  onError={addDefaultSrc}
+                />
+              </Link>
             </div>
           ))}
         </div>

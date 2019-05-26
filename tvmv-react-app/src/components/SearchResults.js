@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Component } from 'react';
-import Tilt from 'react-tilt';
 //--------------ASSETS-------------------//
 import back from '../assets/icons/arrow-left.svg';
 //--------------CLASS COMPONENT-------------------//
@@ -49,25 +48,20 @@ class SearchResults extends Component {
           </div>
         ))}
         {contents.slice(0, 18).map((content, index) => (
-          <Tilt
-            className='Tilt'
-            options={{ max: 12, scale: 1.04, perspective: 800 }}
+          <Link
+            to={
+              content.media_type === 'movie'
+                ? `/movie/${content.id}`
+                : `/television/${content.id}`
+            }
           >
-            <Link
-              to={
-                content.media_type === 'movie'
-                  ? `/movie/${content.id}`
-                  : `/television/${content.id}`
-              }
-            >
-              <img
-                src={'http://image.tmdb.org/t/p/w500' + content.poster_path}
-                alt={content.name}
-                className='genre-page-poster'
-                onError={this.props.addDefaultSrc}
-              />
-            </Link>
-          </Tilt>
+            <img
+              src={'http://image.tmdb.org/t/p/w500' + content.poster_path}
+              alt={content.name}
+              className='genre-page-poster'
+              onError={this.props.addDefaultSrc}
+            />
+          </Link>
         ))}
       </div>
     );

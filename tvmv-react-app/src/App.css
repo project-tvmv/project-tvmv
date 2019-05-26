@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 input:-webkit-autofill,
@@ -33,6 +34,12 @@ select:-webkit-autofill:focus {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+}
+
+.cast-container {
+  width: 98%;
+  margin: 0 auto;
+  display: flex;
 }
 
 .extras-container {
@@ -119,6 +126,7 @@ select:-webkit-autofill:focus {
 }
 
 .section-flex {
+  padding-right: 2.5vh;
   width: 27vh;
   display: flex;
   flex-direction: column;
@@ -186,8 +194,9 @@ select:-webkit-autofill:focus {
 .section-break-tite {
   position: absolute;
   z-index: 500;
-  margin-top: 15%;
+  margin-top: 13%;
   margin-left: 2%;
+  font-size: 8vh;
   filter: drop-shadow(0px 7px 5px rgba(0, 0, 0, 0.329));
 }
 
@@ -197,7 +206,7 @@ select:-webkit-autofill:focus {
   z-index: 500;
   margin-top: 18%;
   margin-left: 2%;
-  font-size: 18px;
+  font-size: 2vh;
   text-align: left;
   filter: drop-shadow(0px 7px 5px rgba(0, 0, 0, 0.329));
 }
@@ -209,7 +218,6 @@ select:-webkit-autofill:focus {
   object-fit: cover;
   object-position: top;
   opacity: 0.8;
-  border-radius: 6px;
 }
 
 .episode-container {
@@ -307,7 +315,7 @@ select:-webkit-autofill:focus {
   width: 20vh;
   height: 30vh;
   object-fit: cover;
-  border-radius: 5px;
+
   cursor: pointer;
 }
 
@@ -334,11 +342,12 @@ select:-webkit-autofill:focus {
 }
 
 .genre-page-poster {
+  position: relative;
+  z-index: 1;
   margin-bottom: 1vh;
   width: 28vh;
   height: 45vh;
   object-fit: cover;
-  border-radius: 5px;
   cursor: pointer;
   opacity: 0.7;
   transition: 0.2s ease-in-out;
@@ -346,14 +355,22 @@ select:-webkit-autofill:focus {
 
 .genre-page-poster:hover {
   opacity: 1;
+  transform: scale(1.08);
+  z-index: 500;
+  box-shadow: 0px 0px 30px black;
 }
 
 .cast-posters {
   width: 27vh;
   height: 41vh;
   object-fit: cover;
-  border-radius: 5px;
+  opacity: 0.8;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.cast-posters:hover {
+  opacity: 1;
 }
 
 .full-hero {
@@ -362,7 +379,6 @@ select:-webkit-autofill:focus {
   object-fit: cover;
   object-position: 0 20%;
   opacity: 0.7;
-  border-radius: 6px;
   margin: 0 auto;
 }
 
@@ -441,7 +457,7 @@ iframe > .movie {
 .watch-movie {
   padding: 5% 2%;
   width: 100%;
-  border-radius: 5px;
+
   background: white;
   color: black;
   border: 1.5px solid white;
@@ -461,7 +477,7 @@ iframe > .movie {
   margin-left: 2%;
   padding: 5% 2%;
   width: 100%;
-  border-radius: 5px;
+
   background: rgba(0, 0, 0, 0.11);
   color: white;
   border: 2px solid white;
@@ -472,9 +488,9 @@ iframe > .movie {
 }
 
 .watch-trailer:hover {
-  background: rgb(255, 233, 37);
-  border: 2px solid rgb(255, 233, 37);
-  color: rgb(24, 24, 24);
+  background: black;
+  border: 2px solid black;
+  color: white;
 }
 
 .prev-disabled {
@@ -482,7 +498,7 @@ iframe > .movie {
   width: 16%;
   background: none;
   border: 4px solid rgb(22, 22, 22);
-  border-radius: 5px;
+
   color: rgb(22, 22, 22);
   font-size: 1.7vh;
   font-weight: 500;
@@ -495,7 +511,7 @@ iframe > .movie {
   width: 16%;
   background: rgb(22, 22, 22);
   border: none;
-  border-radius: 5px;
+
   color: white;
   font-size: 1.7vh;
   font-weight: 500;
@@ -509,7 +525,6 @@ iframe > .movie {
   width: 16%;
   background: rgb(22, 22, 22);
   border: none;
-  border-radius: 5px;
   color: white;
   font-size: 1.7vh;
   font-weight: 500;
