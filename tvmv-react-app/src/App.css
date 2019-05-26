@@ -138,7 +138,6 @@ select:-webkit-autofill:focus {
   object-fit: cover;
   object-position: top;
   opacity: 0.4;
-  border-radius: 6px;
 }
 
 .poster-info {

@@ -65,13 +65,13 @@ class SingleShow extends Component {
       localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
     }
 
-    } 
-
-    if (JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
-      if (item !== null) {
-        return `${item.id}` === this.state.id
-      }
-    }) ) {
+    if (
+      JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
+        if (item !== null) {
+          return `${item.id}` === this.state.id;
+        }
+      })
+    ) {
       this.setState({
         isStarClicked: true
       });

@@ -7,11 +7,11 @@
 .favorite-flex {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .favorites-posters {
   margin-bottom: 2vh;
+  margin-right: 2vh;
   width: 33vh;
   height: 51vh;
   object-fit: cover;
