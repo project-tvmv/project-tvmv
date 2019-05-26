@@ -45,11 +45,14 @@ class Recommended extends Component {
 
   render() {
     const recommended = this.state.recommended;
-    return (
-      <div>
-        <div className='section'>
-          <h1 className='section-header'>Recommended</h1>
-        </div>
+    if (recommended.length === 0) {
+      return null;
+    } else {
+      return (
+        <div>
+          <div className='section'>
+            <h1 className='section-header'>Recommended</h1>
+          </div> 
         <div className='six-poster-container'>
           {recommended.slice(0, 8).map((recommend, index) => (
             <div key={recommend.id}>
@@ -74,6 +77,7 @@ class Recommended extends Component {
       </div>
     );
   }
+}
 }
 
 export default withRouter(Recommended);

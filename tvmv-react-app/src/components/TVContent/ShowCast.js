@@ -37,34 +37,38 @@ class ShowCast extends Component {
   render() {
     const credits = this.state.credits;
     const addDefaultSrc = this.props.addDefaultSrc;
-    return (
-      <div>
-        <div className='section'>
-          <h1 className='section-header'>Starring</h1>
-        </div>
-        <div className='cast-container'>
-          {credits.slice(0, 6).map((cast, index) => (
-            <div key={cast.id}>
-              <div className='section-flex'>
-                <Link to={`/actor/${cast.id}`} className='links'>
-                  <img
-                    src={
-                      'http://image.tmdb.org/t/p/original' + cast.profile_path
-                    }
-                    alt={cast.character}
-                    className='cast-posters'
-                    onError={addDefaultSrc}
-                  />
-                </Link>
-                <p className='poster-info'>
-                  {cast.name} as {cast.character}
-                </p>
+    if (credits.length === 0) {
+      return null;
+    } else {
+      return (
+        <div>
+          <div className='section'>
+            <h1 className='section-header'>Starring</h1>
+          </div>
+          <div className='cast-container'>
+            {credits.slice(0, 6).map((cast, index) => (
+              <div key={cast.id}>
+                <div className='section-flex'>
+                  <Link to={`/actor/${cast.id}`} className='links'>
+                    <img
+                      src={
+                        'http://image.tmdb.org/t/p/original' + cast.profile_path
+                      }
+                      alt={cast.character}
+                      className='cast-posters'
+                      onError={addDefaultSrc}
+                    />
+                  </Link>
+                  <p className='poster-info'>
+                    {cast.name} as {cast.character}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 

@@ -42,32 +42,36 @@ class Extras extends Component {
   render() {
     //--------------DECONSTRUCTING-------------------//
     const extras = this.state.extras;
-    //--------------END DECONSTRUCTING-------------------//
-    return (
-      <div>
-        <div className='section-extras'>
-          <h1 className='section-header'>Extras</h1>
-        </div>
-        <div className='extras-container'>
-          {extras.slice(0, 3).map((extra, index) => (
-            <div key={extra.id}>
-              <div className='extras-flex'>
-                <ReactPlayer
-                  url={`https://www.youtube.com/embed/${extra.key}`}
-                  width='45vh'
-                  height='25vh'
-                  pip={true}
-                  controls={true}
-                  light={true}
-                  className='video'
-                  playing={true}
-                />
+    if (extras.length === 0) {
+      return null;
+    } else {
+      //--------------END DECONSTRUCTING-------------------//
+      return (
+        <div>
+          <div className='section-extras'>
+            <h1 className='section-header'>Extras</h1>
+          </div>
+          <div className='extras-container'>
+            {extras.slice(0, 3).map((extra, index) => (
+              <div key={extra.id}>
+                <div className='extras-flex'>
+                  <ReactPlayer
+                    url={`https://www.youtube.com/embed/${extra.key}`}
+                    width='45vh'
+                    height='25vh'
+                    pip={true}
+                    controls={true}
+                    light={true}
+                    className='video'
+                    playing={true}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 

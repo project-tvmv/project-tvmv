@@ -14,6 +14,7 @@ import ShowRecommended from './ShowRecommended';
 import back from '../../assets/icons/arrow-left.svg';
 import star from '../../assets/icons/star.svg';
 import starFilled from '../../assets/icons/star-filled.svg';
+import Loading from '../Loading';
 //--------------CLASS COMPONENT-------------------//
 class SingleShow extends Component {
   constructor(props) {
@@ -52,11 +53,10 @@ class SingleShow extends Component {
       let favoriteShows = [];
       favoriteShows.push(JSON.parse(localStorage.getItem('favoriteShows')));
       localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
+    }
 
-    } 
-
-    
-  }
+  } 
+  
   componentDidUpdate(prevProps, prevState) {
     if (this.props.match.params.id !== prevProps.match.params.id) {
       this.fetchData().then(() => {
