@@ -342,6 +342,24 @@ select:-webkit-autofill:focus {
   opacity: 1;
 }
 
+.episodes-fade {
+  display: block;
+  width: 93.1%;
+  height: 20vh;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 93%,
+    rgba(0, 0, 0, 0.7455357142857143) 100%
+  );
+  position: absolute;
+  z-index: 400;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  margin-top: 0.9vh;
+  pointer-events: none;
+}
+
 .actors-page-posters {
   margin-bottom: 8%;
 }
@@ -452,6 +470,23 @@ iframe > .movie {
   cursor: pointer;
 }
 
+.click-left {
+  width: 4vh;
+  position: absolute;
+  z-index: 500;
+  left: 9vh;
+  margin-top: 5%;
+  cursor: pointer;
+}
+.click-right {
+  width: 4vh;
+  position: absolute;
+  z-index: 500;
+  right: 9vh;
+  margin-top: 5%;
+  cursor: pointer;
+}
+
 .trailer-back {
   position: absolute;
   top: 15%;
@@ -474,10 +509,9 @@ iframe > .movie {
 .watch-movie {
   padding: 5% 2%;
   width: 100%;
-
-  background: white;
-  color: black;
-  border: 1.5px solid white;
+  border: 2px solid rgb(68, 255, 174);
+  background: rgb(68, 255, 174);
+  color: rgb(32, 32, 32);
   font-size: 1.7vh;
   font-weight: 500;
   cursor: pointer;
@@ -485,16 +519,15 @@ iframe > .movie {
 }
 
 .watch-movie:hover {
-  background: rgb(0, 68, 255);
-  border: 1.5px solid rgb(0, 68, 255);
-  color: white;
+  background: white;
+  border: 2px solid white;
+  color: black;
 }
 
 .watch-trailer {
   margin-left: 2%;
   padding: 5% 2%;
   width: 100%;
-
   background: rgba(0, 0, 0, 0.11);
   color: white;
   border: 2px solid white;
@@ -505,8 +538,8 @@ iframe > .movie {
 }
 
 .watch-trailer:hover {
-  background: black;
-  border: 2px solid black;
+  background: #070707;
+  border: 2px solid #070707;
   color: white;
 }
 
@@ -515,7 +548,6 @@ iframe > .movie {
   width: 16%;
   background: none;
   border: 4px solid rgb(22, 22, 22);
-
   color: rgb(22, 22, 22);
   font-size: 1.7vh;
   font-weight: 500;
@@ -528,7 +560,6 @@ iframe > .movie {
   width: 16%;
   background: rgb(22, 22, 22);
   border: none;
-
   color: white;
   font-size: 1.7vh;
   font-weight: 500;
@@ -551,10 +582,10 @@ iframe > .movie {
 }
 
 .next:hover {
-  background: #1861ff;
-  color: white;
+  background: rgb(68, 255, 174);
+  color: black;
 }
 .prev:hover {
-  background: #1861ff;
-  color: white;
+  background: rgb(68, 255, 174);
+  color: black;
 }

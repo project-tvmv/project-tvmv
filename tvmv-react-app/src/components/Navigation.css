@@ -25,7 +25,7 @@
 }
 
 .span-icon:hover {
-  background: rgb(0, 68, 255);
+  background: rgb(68, 255, 174);
 }
 
 .search-nav {
@@ -54,31 +54,31 @@
 }
 
 .is-active > .search-nav {
-  background: rgb(0, 68, 255);
+  background: rgb(68, 255, 174);
   mask-image: url('../assets/icons/search.svg');
   mask-repeat: no-repeat;
 }
 
 .is-active > .home {
-  background: rgb(0, 68, 255);
+  background: rgb(68, 255, 174);
   mask-image: url('../assets/icons/home.svg');
   mask-repeat: no-repeat;
 }
 
 .is-active > .tv {
-  background: rgb(0, 68, 255);
+  background: rgb(68, 255, 174);
   mask-image: url('../assets/icons/tv.svg');
   mask-repeat: no-repeat;
 }
 
 .is-active > .movies {
-  background: rgb(0, 68, 255);
+  background: rgb(68, 255, 174);
   mask-image: url('../assets/icons/film.svg');
   mask-repeat: no-repeat;
 }
 
 .is-active > .favorites {
-  background: rgb(0, 68, 255);
+  background: rgb(68, 255, 174);
   mask-image: url('../assets/icons/star_nav.svg');
   mask-repeat: no-repeat;
 }

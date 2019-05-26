@@ -29,6 +29,6 @@
 }
 
 .genre-links:hover {
-  background: #414141;
+  background: rgb(68, 255, 174);
   transform: scale(1.1);
 }

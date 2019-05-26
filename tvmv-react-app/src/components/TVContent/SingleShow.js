@@ -14,6 +14,8 @@ import ShowRecommended from './ShowRecommended';
 import back from '../../assets/icons/arrow-left.svg';
 import star from '../../assets/icons/star.svg';
 import starFilled from '../../assets/icons/star-filled.svg';
+import clickRightBtn from '../../assets/icons/chevrons-right.svg';
+import clickLeftBtn from '../../assets/icons/chevrons-left.svg';
 //--------------CLASS COMPONENT-------------------//
 class SingleShow extends Component {
   constructor(props) {
@@ -267,6 +269,9 @@ class SingleShow extends Component {
             </p>
           ))}
         </div>
+        <img src={clickLeftBtn} alt='click-click' className='click-left' />
+        <img src={clickRightBtn} alt='click-right' className='click-right' />
+        <span className='episodes-fade' />
         <div className='episodes-container'>
           {episodes.map(episode => (
             <>
