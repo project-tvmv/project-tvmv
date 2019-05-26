@@ -18,6 +18,7 @@ import DisneyMovies from './moviesSection/DisneyMovies';
 import './Movies.css';
 //--------------ASSETS-------------------//
 import search from '../../assets/icons/search.svg';
+import up from '../../assets/icons/arrow-up.svg';
 //--------------CLASS COMPONENT-------------------//
 class Movies extends Component {
   constructor(props) {
@@ -59,6 +60,10 @@ class Movies extends Component {
     });
     //--------------PUSHES USERS TO MOVIERESULTS.JS PAGE-------------------//
     this.props.history.push(`/results/${this.state.search}`);
+  };
+
+  scrollTop = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
   };
 
   render() {
@@ -159,6 +164,12 @@ class Movies extends Component {
         </Link>
         <Kids kids={kids} />
         <AdamSandler adamSandler={adamSandler} />
+        <img
+          src={up}
+          alt='scroll back to up'
+          className='scroll-back'
+          onClick={this.scrollTop}
+        />
       </div>
     );
   }

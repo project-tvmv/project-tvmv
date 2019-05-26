@@ -15,6 +15,7 @@ import CartoonNetwork from './TVSections/CartoonNetwork';
 import MysteryShows from './TVSections/MysteryShows';
 //--------------ASSETS-------------------//
 import search from '../../assets/icons/search.svg';
+import up from '../../assets/icons/arrow-up.svg';
 import DocShows from './TVSections/DocShows';
 //--------------CLASS COMPONENT-------------------//
 class Television extends Component {
@@ -56,6 +57,10 @@ class Television extends Component {
     });
     //--------------PUSHES USERS TO MOVIERESULTS.JS PAGE-------------------//
     this.props.history.push(`/tv-results/${this.state.search}`);
+  };
+
+  scrollTop = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
   };
 
   render() {
@@ -155,6 +160,12 @@ class Television extends Component {
         </Link>
         <DisneyChannel disneyChannel={disneyChannel} />
         <CartoonNetwork cartoonNetwork={cartoonNetwork} />
+        <img
+          src={up}
+          alt='scroll back to up'
+          className='scroll-back'
+          onClick={this.scrollTop}
+        />
       </div>
     );
   }

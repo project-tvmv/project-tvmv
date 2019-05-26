@@ -13,11 +13,11 @@ const Navigation = () => {
       <NavLink exact to='/' activeClassName='is-active'>
         <span className='span-icon home' alt='home' />
       </NavLink>
-      <NavLink to='/TV' activeClassName='is-active'>
-        <span className='span-icon tv' alt='television' />
-      </NavLink>
       <NavLink to='/movies' activeClassName='is-active'>
         <span className='span-icon movies' alt='movies' />
+      </NavLink>
+      <NavLink to='/TV' activeClassName='is-active'>
+        <span className='span-icon tv' alt='television' />
       </NavLink>
       <NavLink to='/favorites' activeClassName='is-active'>
         <span className='span-icon favorites' alt='favorites' />

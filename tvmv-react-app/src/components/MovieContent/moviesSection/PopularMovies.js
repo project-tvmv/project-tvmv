@@ -7,7 +7,7 @@ const PopularMovies = ({ popularMovies }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>Popular Movies</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {popularMovies.slice(0, 16).map((popular, index) => (
+        {popularMovies.slice(0, 12).map((popular, index) => (
           <div key={popular.id}>
             <Link to={`/movie/${popular.id}`}>
               <Tilt

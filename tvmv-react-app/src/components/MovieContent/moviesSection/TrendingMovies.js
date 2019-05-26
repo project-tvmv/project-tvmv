@@ -7,7 +7,7 @@ const TrendingMovies = ({ trendingMovies }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>What's Trending</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {trendingMovies.slice(0, 16).map((trending, index) => (
+        {trendingMovies.slice(0, 12).map((trending, index) => (
           <div key={trending.id}>
             <Link to={`/movie/${trending.id}`}>
               <Tilt

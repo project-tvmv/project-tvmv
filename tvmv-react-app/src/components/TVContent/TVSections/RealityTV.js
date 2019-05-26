@@ -7,7 +7,7 @@ const RealityTV = ({ realityTV }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>Reality TV</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {realityTV.slice(0, 16).map((realityTv, index) => (
+        {realityTV.slice(0, 12).map((realityTv, index) => (
           <div key={realityTv.id}>
             <Link to={`/television/${realityTv.id}`}>
               <Tilt

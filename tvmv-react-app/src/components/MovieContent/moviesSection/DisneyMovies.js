@@ -7,7 +7,7 @@ const DisneyMovies = ({ disney }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>Disney Essentials</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {disney.slice(0, 16).map((disney, index) => (
+        {disney.slice(0, 12).map((disney, index) => (
           <div key={disney.id}>
             <Link to={`/movie/${disney.id}`}>
               <Tilt

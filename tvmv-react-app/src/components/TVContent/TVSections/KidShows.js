@@ -7,7 +7,7 @@ const KidShows = ({ kidsShows }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>Shows For Kids</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {kidsShows.slice(0, 16).map((KidShow, index) => (
+        {kidsShows.slice(0, 12).map((KidShow, index) => (
           <div key={KidShow.id}>
             <Link to={`/television/${KidShow.id}`}>
               <Tilt

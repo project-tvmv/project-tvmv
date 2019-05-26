@@ -4,7 +4,6 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import back from '../assets/icons/arrow-left.svg';
-import Tilt from 'react-tilt';
 import axios from 'axios';
 //--------------STYLES-------------------//
 import '../App.css';
@@ -21,17 +20,34 @@ class GenrePage extends Component {
   }
 
   componentDidMount() {
+    this.getContent(this.state.genre, this.state.pageNumber);
+  }
+
+  getContent = (genre, pageNumber) => {
     axios
       .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${
-          this.state.pageNumber
-        }&with_genres=${this.state.genre}`
+        `https://api.themoviedb.org/3/discover/movie?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${pageNumber}&with_genres=${genre}`
       )
       .then(res => this.setState({ content: res.data.results }))
       .catch(err => console.log(err));
-  }
+  };
+
+  pageChange = event => {
+    if (event.target.name === 'prev' && this.state.pageNumber === 1) {
+      return;
+    }
+
+    if (event.target.name === 'next') {
+      this.getContent(this.state.genre, this.state.pageNumber + 1);
+      this.setState({ pageNumber: this.state.pageNumber + 1 });
+    } else {
+      this.getContent(this.state.genre, this.state.pageNumber - 1);
+      this.setState({ pageNumber: this.state.pageNumber - 1 });
+    }
+  };
 
   render() {
+    window.scroll({ top: 0, behavior: 'smooth' });
     const content = this.state.content;
     const addDefaultSrc = this.props.addDefaultSrc;
     return (
@@ -53,23 +69,36 @@ class GenrePage extends Component {
             />
           </div>
         ))}
-        {content.slice(0, 20).map((content, index) => (
+        {content.slice(0, 18).map((content, index) => (
           <div key={content.id}>
-            <Tilt
-              className='Tilt'
-              options={{ max: 12, scale: 1.04, perspective: 500 }}
-            >
-              <Link to={`/movie/${content.id}`}>
-                <img
-                  src={'http://image.tmdb.org/t/p/w500' + content.poster_path}
-                  className='genre-page-poster'
-                  onError={addDefaultSrc}
-                  alt={content.title}
-                />
-              </Link>
-            </Tilt>
+            <Link to={`/movie/${content.id}`}>
+              <img
+                src={'http://image.tmdb.org/t/p/w500' + content.poster_path}
+                className='genre-page-poster'
+                onError={addDefaultSrc}
+                alt={content.title}
+              />
+            </Link>
           </div>
         ))}
+        <div className='page-buttons-flex'>
+          <button
+            className={this.state.pageNumber === 1 ? 'prev-disabled' : 'prev'}
+            alt='previous'
+            name='prev'
+            onClick={this.pageChange}
+          >
+            Previous Page
+          </button>
+          <button
+            className='next'
+            alt='next'
+            name='next'
+            onClick={this.pageChange}
+          >
+            Next Page
+          </button>
+        </div>
       </div>
     );
   }

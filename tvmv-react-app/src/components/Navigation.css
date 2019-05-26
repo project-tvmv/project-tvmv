@@ -67,3 +67,12 @@
   background: rgb(0, 68, 255);
   mask-image: url('../assets/icons/star.svg');
 }
+
+.scroll-back {
+  position: fixed;
+  z-index: 500;
+  width: 2%;
+  right: 1.5vh;
+  bottom: 1.5vh;
+  cursor: pointer;
+}

@@ -7,7 +7,7 @@ const CartoonNetwork = ({ cartoonNetwork }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>Only on Cartoon Network</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {cartoonNetwork.slice(0, 16).map((cartoonNetwork, index) => (
+        {cartoonNetwork.slice(0, 12).map((cartoonNetwork, index) => (
           <div key={cartoonNetwork.id}>
             <Link to={`/television/${cartoonNetwork.id}`}>
               <Tilt

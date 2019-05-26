@@ -7,7 +7,7 @@ const OnAir = ({ onAir }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>On Air</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {onAir.slice(0, 16).map((onAir, index) => (
+        {onAir.slice(0, 12).map((onAir, index) => (
           <div key={onAir.id}>
             <Link to={`/television/${onAir.id}`}>
               <Tilt

@@ -7,7 +7,7 @@ const AdamSandler = ({ adamSandler }) => {
     <div className='movie-sections'>
       <h1 className='movie-section-header'>Top Adam Sandler Movies</h1>
       <div className='movie-six-poster-container twelve-movies'>
-        {adamSandler.slice(0, 16).map((adam, index) => (
+        {adamSandler.slice(0, 12).map((adam, index) => (
           <div key={adam.id}>
             <Link to={`/movie/${adam.id}`}>
               <Tilt
