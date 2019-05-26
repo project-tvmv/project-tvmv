@@ -33,15 +33,17 @@
   text-align: left;
   color: white;
   outline: none;
+  letter-spacing: 1px;
 }
 
 .search::placeholder {
   width: 100%;
   font-size: 30px;
   font-weight: 900;
-  text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
   text-align: left;
+  letter-spacing: 1px;
+  color: rgb(43, 43, 43);
 }
 
 .movie-section-header {

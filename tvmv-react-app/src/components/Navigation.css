@@ -49,7 +49,7 @@
 }
 
 .favorites {
-  mask-image: url('../assets/icons/star.svg');
+  mask-image: url('../assets/icons/star_nav.svg');
   mask-repeat: no-repeat;
 }
 
@@ -79,7 +79,7 @@
 
 .is-active > .favorites {
   background: rgb(0, 68, 255);
-  mask-image: url('../assets/icons/star.svg');
+  mask-image: url('../assets/icons/star_nav.svg');
   mask-repeat: no-repeat;
 }
 

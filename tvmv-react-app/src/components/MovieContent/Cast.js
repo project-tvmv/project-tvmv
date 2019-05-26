@@ -14,15 +14,14 @@ class Cast extends Component {
   }
   //--------------GETING MOVIE CREDITS-------------------//
   componentDidMount() {
-    this.fetchData()
+    this.fetchData();
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
-      this.fetchData()
+      this.fetchData();
     }
   }
-  
 
   fetchData = () => {
     axios
@@ -33,7 +32,7 @@ class Cast extends Component {
       )
       .then(res => this.setState({ credits: res.data.cast }))
       .catch(err => console.log(err));
-  }
+  };
 
   render() {
     //--------------DECONSTRUCTING-------------------//
@@ -58,7 +57,6 @@ class Cast extends Component {
                     onError={this.props.addDefaultSrc}
                   />
                 </Link>
-
                 <p className='poster-info'>
                   {cast.name} as {cast.character}
                 </p>

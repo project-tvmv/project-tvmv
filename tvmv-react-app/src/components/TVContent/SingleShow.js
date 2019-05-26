@@ -14,7 +14,6 @@ import ShowRecommended from './ShowRecommended';
 import back from '../../assets/icons/arrow-left.svg';
 import star from '../../assets/icons/star.svg';
 import starFilled from '../../assets/icons/star-filled.svg';
-import Loading from '../Loading';
 //--------------CLASS COMPONENT-------------------//
 class SingleShow extends Component {
   constructor(props) {
@@ -33,81 +32,82 @@ class SingleShow extends Component {
   //--------------RETREIVING DATA FROM MOVIE IN STATE ID-------------------//
   componentDidMount() {
     this.fetchData().then(() => {
-      if (JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
-        if (item !== null) {
-          return `${item.id}` === this.state.id
-        }
-      }) ) {
+      if (
+        JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
+          if (item !== null) {
+            return `${item.id}` === this.state.id;
+          }
+        })
+      ) {
         this.setState({
           isStarClicked: true
-        })
-        
+        });
       } else {
         this.setState({
-          isStarClicked:false
-        })
+          isStarClicked: false
+        });
       }
-    })
+    });
     //---- FAVORITE SECTION -----//
     if (!localStorage.favoriteShows) {
       let favoriteShows = [];
       favoriteShows.push(JSON.parse(localStorage.getItem('favoriteShows')));
       localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
     }
+  }
 
-  } 
-  
   componentDidUpdate(prevProps, prevState) {
     if (this.props.match.params.id !== prevProps.match.params.id) {
       this.fetchData().then(() => {
-        if (JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
-          if (item !== null) {
-            return `${item.id}` === this.state.id
-          }
-        }) ) {
+        if (
+          JSON.parse(localStorage.getItem('favoriteShows')).find(item => {
+            if (item !== null) {
+              return `${item.id}` === this.state.id;
+            }
+          })
+        ) {
           this.setState({
             isStarClicked: true
-          })
-          
+          });
         } else {
           this.setState({
-            isStarClicked:false
-          })
+            isStarClicked: false
+          });
         }
-      })
+      });
     }
   }
-  
 
   fetchData = () => {
     axios
-    .get(
-      `https://api.themoviedb.org/3/tv/${
-        this.props.match.params.id
-      }?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
-    )
-    .then(res => this.setState({ show: res.data }))
-    .catch(err => console.log(err));
+      .get(
+        `https://api.themoviedb.org/3/tv/${
+          this.props.match.params.id
+        }?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
+      )
+      .then(res => this.setState({ show: res.data }))
+      .catch(err => console.log(err));
 
-  axios
-    .get(
-      `https://api.themoviedb.org/3/tv/${
-        this.props.match.params.id
-      }?language=en-US&api_key=6d9a91a4158b0a021d546ccd83d3f52e`
-    )
-    .then(res => this.setState({ seasons: res.data.seasons }))
-    .catch(err => console.log(err));
+    axios
+      .get(
+        `https://api.themoviedb.org/3/tv/${
+          this.props.match.params.id
+        }?language=en-US&api_key=6d9a91a4158b0a021d546ccd83d3f52e`
+      )
+      .then(res => this.setState({ seasons: res.data.seasons }))
+      .catch(err => console.log(err));
 
-  return axios
-    .get(
-      ` https://api.themoviedb.org/3/tv/${this.props.match.params.id}/season/${
-        this.state.selectedSeason
-      }?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
-    )
-    .then(res => this.setState({ episodes: res.data.episodes }))
-    .catch(err => console.log(err));
-
-  }
+    return axios
+      .get(
+        ` https://api.themoviedb.org/3/tv/${
+          this.props.match.params.id
+        }/season/${
+          this.state.selectedSeason
+        }?api_key=6d9a91a4158b0a021d546ccd83d3f52e&language=en-US`
+      )
+      .then(res => this.setState({ episodes: res.data.episodes }))
+      .catch(err => console.log(err));
+  };
 
   selectSeason = number => {
     this.setState({ selectedSeason: number });
@@ -228,7 +228,10 @@ class SingleShow extends Component {
             </p>
           </div>
           <p className='single-page-hero-desc'>{show.overview}</p>
-          <Link to={`/show/${this.state.id}/1/1`} className='button-links'>
+          <Link
+            to={`/show/${this.props.match.params.id}/1/1`}
+            className='button-links'
+          >
             <button className='watch-movie'>Start watching</button>
           </Link>
         </div>
@@ -263,9 +266,9 @@ class SingleShow extends Component {
             <>
               <div className='episode-container'>
                 <Link
-                  to={`/show/${this.state.id}/${this.state.selectedSeason}/${
-                    episode.episode_number
-                  }`}
+                  to={`/show/${this.props.match.params.id}/${
+                    this.state.selectedSeason
+                  }/${episode.episode_number}`}
                   className='links'
                 >
                   <img

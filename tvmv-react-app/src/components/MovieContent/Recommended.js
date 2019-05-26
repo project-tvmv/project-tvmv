@@ -27,7 +27,7 @@ class Recommended extends Component {
       .catch(err => console.log(err));
   }
 
-  fetchData = (id) => {
+  fetchData = id => {
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${
@@ -36,12 +36,12 @@ class Recommended extends Component {
       )
       .then(res => {
         this.setState({ recommended: res.data.results });
-        this.props.history.push(`/movie/${id}`)
+        this.props.history.push(`/movie/${id}`);
       })
       .catch(err => {
         console.log(err);
       });
-  }
+  };
 
   render() {
     const recommended = this.state.recommended;
@@ -52,32 +52,32 @@ class Recommended extends Component {
         <div>
           <div className='section'>
             <h1 className='section-header'>Recommended</h1>
-          </div> 
-        <div className='six-poster-container'>
-          {recommended.slice(0, 8).map((recommend, index) => (
-            <div key={recommend.id}>
-              <div onClick={() => this.fetchData(recommend.id)}>
-                <Tilt
-                  className='Tilt'
-                  options={{ max: 12, scale: 1.04, perspective: 1000 }}
-                >
-                  <img
-                    src={
-                      'http://image.tmdb.org/t/p/w500' + recommend.poster_path
-                    }
-                    alt={recommend.name}
-                    className='posters'
-                    onError={this.props.addDefaultSrc}
-                  />
-                </Tilt>
+          </div>
+          <div className='six-poster-container'>
+            {recommended.slice(0, 8).map((recommend, index) => (
+              <div key={recommend.id}>
+                <div onClick={() => this.fetchData(recommend.id)}>
+                  <Tilt
+                    className='Tilt'
+                    options={{ max: 12, scale: 1.04, perspective: 1000 }}
+                  >
+                    <img
+                      src={
+                        'http://image.tmdb.org/t/p/w500' + recommend.poster_path
+                      }
+                      alt={recommend.name}
+                      className='posters'
+                      onError={this.props.addDefaultSrc}
+                    />
+                  </Tilt>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
-}
 }
 
 export default withRouter(Recommended);
