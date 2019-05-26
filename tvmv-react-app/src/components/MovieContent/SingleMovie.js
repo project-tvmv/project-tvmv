@@ -36,6 +36,29 @@ class SingleMovie extends Component {
       .catch(err => console.log(err));
   }
 
+  addMovietoLocalFavorites = (id, poster_path) => {
+    // initializes favoriteMovie array
+    let favoriteMovies = []
+
+    // if there is an item in the favorite movie array in local storage, add to the end of it
+    if (localStorage.favoriteMovies) {
+      const current = JSON.parse(localStorage.getItem('favoriteMovies'));
+      favoriteMovies = [...current, { id, poster_path }];
+
+      localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+
+      // console log local storage to see what's inside
+      console.log(JSON.parse(localStorage.favoriteMovies))
+    }
+    
+    //if not, create a localstorage property and add the first item
+    favoriteMovies = [{id, poster_path}]
+    localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+
+    // console log local storage to see what's inside
+    console.log(JSON.parse(localStorage.favoriteMovies))
+  };
+
   render() {
     window.scroll(0, 0);
     //--------------DECONSTRUCTING-------------------//
@@ -50,7 +73,14 @@ class SingleMovie extends Component {
           alt='back'
           onClick={this.props.history.goBack}
         />
-        <img src={star} className='hero-star' alt='star' />
+        <img src={star} 
+        className='hero-star' 
+        alt='star' 
+        onClick={()=> (
+          this.addMovietoLocalFavorites(this.state.movie.id, 
+          this.state.movie.poster_path)
+          )}   
+        />
         <div className='single-page-hero-info'>
           <h1 className='single-page-hero-title'>{movie.title}</h1>
           <div className='movie-details'>
