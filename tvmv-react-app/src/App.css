@@ -48,6 +48,33 @@ select:-webkit-autofill:focus {
   text-align: center;
 }
 
+.tv-select-container {
+  margin-top: 1%;
+  display: flex;
+  align-items: center;
+}
+
+.seasons-flex {
+  display: flex;
+}
+
+.seasons-header {
+  padding-left: 2%;
+}
+
+.seasons {
+  margin-left: 6%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgb(36, 36, 36);
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+
+.seasons:hover {
+  background: rgb(73, 73, 73);
+}
+
 .reviews-container {
   width: 98%;
   margin: 0 auto;
@@ -61,6 +88,23 @@ select:-webkit-autofill:focus {
   text-align: left;
   padding-bottom: 2%;
   border-bottom: 2px solid grey;
+}
+
+.episodes-container {
+  display: flex;
+  overflow-x: scroll;
+  width: 98%;
+  margin: 0 auto;
+  margin-top: 0.5%;
+}
+
+.episodes-container::-webkit-scrollbar {
+  height: 12px;
+  background-color: #070707;
+}
+.episodes-container::-webkit-scrollbar-thumb {
+  background-color: #1b1b1b;
+  border-radius: 10px;
 }
 
 /* ========================== SECTIONS */
@@ -164,6 +208,20 @@ select:-webkit-autofill:focus {
   border-radius: 6px;
 }
 
+.episode-container {
+  margin-right: 1%;
+}
+
+.episode-info-flex {
+  display: flex;
+  font-size: 1.8vh;
+}
+
+.episode-name {
+  margin-left: 2%;
+  user-select: none;
+}
+
 /* ========================== TITLES AND TEXTS */
 .section-header {
   text-align: left;
@@ -238,6 +296,20 @@ select:-webkit-autofill:focus {
   object-fit: cover;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.episode-photo {
+  width: 40vh;
+  height: 20vh;
+  object-fit: cover;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  user-select: none;
+}
+
+.episode-photo:hover {
+  opacity: 1;
 }
 
 .actors-page-posters {
