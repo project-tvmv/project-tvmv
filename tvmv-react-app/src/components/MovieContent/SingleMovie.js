@@ -13,6 +13,7 @@ import Recommended from './Recommended';
 //--------------ASSETS-------------------//
 import back from '../../assets/icons/arrow-left.svg';
 import star from '../../assets/icons/star.svg';
+import starFilled from '../../assets/icons/star-filled.svg'
 
 //--------------CLASS COMPONENT-------------------//
 class SingleMovie extends Component {
@@ -21,7 +22,8 @@ class SingleMovie extends Component {
     this.state = {
       id: this.props.match.params.id, // MATCHES THE ID IN THE URL (PARAMS)
       movie: [],
-      name: this.props.match.params.name
+      name: this.props.match.params.name,
+      isStarClicked: false
     };
   }
 
@@ -42,7 +44,23 @@ class SingleMovie extends Component {
       let favoriteMovies = [];
       favoriteMovies.push(JSON.parse(localStorage.getItem('favoriteMovies')));
       localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+      this.setState({
+        isStarClicked: false
+      })
+    } else if (JSON.parse(localStorage.getItem('favoriteMovies')).find(item => item.id === this.state.id) ) {
+      this.setState({
+        isStarClicked: false
+      })
     }
+
+    // JSON.parse(localStorage.getItem('favoriteMovies'))
+    // .map(item => {
+    //   if (item.id === this.state.id) {
+    //     this.setState({
+    //       isStarClicked: true
+    //     })
+    //   }
+    // })
   }
 
   // -----------------------------FAVORITES---------------------------------- //
@@ -50,6 +68,7 @@ class SingleMovie extends Component {
   addMovietoLocalFavorites = (id, poster_path) => {
     // grabs current items and spreads them to a new array. Add new item after it.
     let favoriteMovies = JSON.parse(localStorage.getItem('favoriteMovies'));
+   if (!this.state.isStarClicked) {
     favoriteMovies.push({ id, poster_path });
     // removes any null in array
     const filteredMovies = favoriteMovies.filter(item => item !== null);
@@ -65,7 +84,21 @@ class SingleMovie extends Component {
       }
     }
 
+    this.setState({
+      isStarClicked: true
+    }, () => localStorage.setItem('id', `${id}`))
+
+    
     localStorage.setItem('favoriteMovies', JSON.stringify(result));
+   } else {
+    let currentShow = favoriteMovies.filter(item => item.id !== id)
+    localStorage.removeItem('id')
+    localStorage.setItem('favoriteMovies', JSON.stringify(currentShow))
+    this.setState({
+      isStarClicked: false
+    })
+
+  }
 
     /**
      * To grab items, you must first JSON.parse(localStorage.getItem('favoriteMovies'))
@@ -92,7 +125,7 @@ class SingleMovie extends Component {
           onClick={this.props.history.goBack}
         />
         <img
-          src={star}
+          src={this.state.isStarClicked ? starFilled : star}
           className="hero-star"
           alt="star"
           onClick={() =>
