@@ -16,7 +16,7 @@ const TrendingMovies = ({ trendingMovies }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' + trending.poster_path
+                    'http://image.tmdb.org/t/p/w500' + trending.poster_path
                   }
                   alt={trending.title}
                   className='posters twelve-posters'

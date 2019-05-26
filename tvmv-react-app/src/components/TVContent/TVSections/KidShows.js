@@ -16,7 +16,7 @@ const KidShows = ({ kidsShows }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' + KidShow.poster_path
+                    'http://image.tmdb.org/t/p/w500' + KidShow.poster_path
                   }
                   alt={KidShow.name}
                   className='posters twelve-posters'

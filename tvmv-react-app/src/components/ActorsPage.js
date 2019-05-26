@@ -48,7 +48,7 @@ class ActorsPage extends Component {
       <>
         <div className='actors-content'>
           <img
-            src={'http://image.tmdb.org/t/p/original' + name.profile_path}
+            src={'http://image.tmdb.org/t/p/w500' + name.profile_path}
             className='actors-posters'
             alt={name.name}
             onError={addDefaultSrc}

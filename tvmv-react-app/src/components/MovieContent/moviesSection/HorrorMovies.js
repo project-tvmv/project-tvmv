@@ -16,7 +16,7 @@ const HorrorMovies = ({ horrorMovies }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' + horror.poster_path
+                    'http://image.tmdb.org/t/p/w500' + horror.poster_path
                   }
                   alt={horror.title}
                   className='posters twelve-posters'

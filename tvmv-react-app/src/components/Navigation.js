@@ -3,30 +3,24 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 //--------------STYLES-------------------//
 import './Navigation.css';
-//--------------ASSETS-------------------//
-import search from '../assets/icons/search.svg';
-import home from '../assets/icons/home.svg';
-import tv from '../assets/icons/tv.svg';
-import movie from '../assets/icons/film.svg';
-import favorites from '../assets/icons/star.svg';
 //--------------STATELESS FUNCTION-------------------//
 const Navigation = () => {
   return (
     <div className='navigation-container'>
-      <NavLink to='/search'>
-        <img src={search} className='nav-icons' alt='search' />
+      <NavLink to='/search' activeClassName='is-active'>
+        <span className='span-icon search-nav' alt='search' />
       </NavLink>
-      <NavLink to='/'>
-        <img src={home} className='nav-icons' alt='home' />
+      <NavLink exact to='/' activeClassName='is-active'>
+        <span className='span-icon home' alt='home' />
       </NavLink>
-      <NavLink to='/TV'>
-        <img src={tv} className='nav-icons' alt='television' />
+      <NavLink to='/TV' activeClassName='is-active'>
+        <span className='span-icon tv' alt='television' />
       </NavLink>
-      <NavLink to='/movies'>
-        <img src={movie} className='nav-icons' alt='movies' />
+      <NavLink to='/movies' activeClassName='is-active'>
+        <span className='span-icon movies' alt='movies' />
       </NavLink>
-      <NavLink to='/favorites'>
-        <img src={favorites} className='nav-icons' alt='favorites' />
+      <NavLink to='/favorites' activeClassName='is-active'>
+        <span className='span-icon favorites' alt='favorites' />
       </NavLink>
     </div>
   );

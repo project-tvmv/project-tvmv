@@ -16,7 +16,7 @@ const NewShows = ({ newShows }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' + newShow.poster_path
+                    'http://image.tmdb.org/t/p/w500' + newShow.poster_path
                   }
                   alt={newShow.name}
                   className='posters twelve-posters'

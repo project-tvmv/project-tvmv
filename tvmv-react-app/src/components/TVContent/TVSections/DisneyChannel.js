@@ -16,7 +16,7 @@ const DisneyChannel = ({ disneyChannel }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' +
+                    'http://image.tmdb.org/t/p/w500' +
                     disneyChannel.poster_path
                   }
                   alt={disneyChannel.name}

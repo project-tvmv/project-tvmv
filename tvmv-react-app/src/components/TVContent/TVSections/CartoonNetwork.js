@@ -16,7 +16,7 @@ const CartoonNetwork = ({ cartoonNetwork }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' +
+                    'http://image.tmdb.org/t/p/w500' +
                     cartoonNetwork.poster_path
                   }
                   alt={cartoonNetwork.name}

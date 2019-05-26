@@ -16,7 +16,7 @@ const RealityTV = ({ realityTV }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' + realityTv.poster_path
+                    'http://image.tmdb.org/t/p/w500' + realityTv.poster_path
                   }
                   alt={realityTv.name}
                   className='posters twelve-posters'

@@ -16,7 +16,7 @@ const PopularMovies = ({ popularMovies }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' + popular.poster_path
+                    'http://image.tmdb.org/t/p/w500' + popular.poster_path
                   }
                   alt={popular.title}
                   className='posters twelve-posters'

@@ -16,7 +16,7 @@ const MysteryShows = ({ mysteryShows }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' +
+                    'http://image.tmdb.org/t/p/w500' +
                     mysteryShows.poster_path
                   }
                   alt={mysteryShows.name}

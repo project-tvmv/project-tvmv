@@ -22,6 +22,7 @@ const Home = ({
   trendingMovies,
   romanticComedies
 }) => {
+  window.scroll({ top: 0, behavior: 'smooth' });
   return (
     <div className='home-container'>
       <HomeHero popularMovies={popularMovies} popularShows={popularShows} />

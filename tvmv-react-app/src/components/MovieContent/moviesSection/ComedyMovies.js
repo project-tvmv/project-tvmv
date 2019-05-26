@@ -16,7 +16,7 @@ const ComedyMovies = ({ comedyMovies }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' + comedy.poster_path
+                    'http://image.tmdb.org/t/p/w500' + comedy.poster_path
                   }
                   alt={comedy.title}
                   className='posters twelve-posters'

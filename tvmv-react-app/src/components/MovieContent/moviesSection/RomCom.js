@@ -16,7 +16,7 @@ const RomCom = ({ romanticComedy }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' + romcom.poster_path
+                    'http://image.tmdb.org/t/p/w500' + romcom.poster_path
                   }
                   alt={romcom.title}
                   className='posters twelve-posters'

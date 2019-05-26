@@ -20,7 +20,8 @@ class SingleMovie extends Component {
     super(props);
     this.state = {
       id: this.props.match.params.id, // MATCHES THE ID IN THE URL (PARAMS)
-      movie: []
+      movie: [],
+      name: this.props.match.params.name
     };
   }
 

@@ -16,7 +16,7 @@ const PopularShows = ({ popularShows }) => {
               >
                 <img
                   src={
-                    'http://image.tmdb.org/t/p/original' +
+                    'http://image.tmdb.org/t/p/w500' +
                     popularShow.poster_path
                   }
                   alt={popularShow.name}

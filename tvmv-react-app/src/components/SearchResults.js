@@ -61,7 +61,7 @@ class SearchResults extends Component {
               }
             >
               <img
-                src={'http://image.tmdb.org/t/p/original' + content.poster_path}
+                src={'http://image.tmdb.org/t/p/w500' + content.poster_path}
                 alt={content.name}
                 className='genre-page-poster'
                 onError={this.props.addDefaultSrc}
