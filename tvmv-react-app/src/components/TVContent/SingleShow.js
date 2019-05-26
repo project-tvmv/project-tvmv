@@ -56,13 +56,12 @@ class SingleShow extends Component {
       .then(res => this.setState({ episodes: res.data.episodes }))
       .catch(err => console.log(err));
 
-      //---- FAVORITE SECTION -----//
-      if (!localStorage.favoriteShows) {
-        let favoriteShows = []
-        favoriteShows.push(JSON.parse(localStorage.getItem('favoriteShows')));
-        localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
-      }
-     
+    //---- FAVORITE SECTION -----//
+    if (!localStorage.favoriteShows) {
+      let favoriteShows = [];
+      favoriteShows.push(JSON.parse(localStorage.getItem('favoriteShows')));
+      localStorage.setItem('favoriteShows', JSON.stringify(favoriteShows));
+    }
   }
 
   selectSeason = number => {
@@ -83,20 +82,20 @@ class SingleShow extends Component {
   addShowtoLocalFavorites = (id, poster_path) => {
     // grabs current items and spreads them to a new array. Add new item after it.
     let favoriteShows = JSON.parse(localStorage.getItem('favoriteShows'));
-    favoriteShows.push({id, poster_path})
+    favoriteShows.push({ id, poster_path });
     // removes any null in array
-    const filteredShows = favoriteShows.filter(item => item !== null)
+    const filteredShows = favoriteShows.filter(item => item !== null);
 
-    localStorage.setItem('favoriteShows', JSON.stringify(filteredShows))
+    localStorage.setItem('favoriteShows', JSON.stringify(filteredShows));
 
-      /**
+    /**
      * To grab items, you must first JSON.parse(localStorage.getItem('favoriteShows'))
      *  Then you can add it to a new variable.
      *          const favoriteShows = JSON.parse(localStorage.getItem('favoriteShows'))
      *  */
 
     // console log local storage to see what's inside
-    console.log(JSON.parse(localStorage.favoriteShows))
+    console.log(JSON.parse(localStorage.favoriteShows));
   };
 
   // -----------------------------EPISODES---------------------------------- //
@@ -131,14 +130,17 @@ class SingleShow extends Component {
           alt='back'
           onClick={this.props.history.goBack}
         />
-        <img src={star} 
-        className='hero-star' 
-        alt='star' 
-        onClick={()=>(
-          this.addShowtoLocalFavorites(
-            this.state.show.id, this.state.show.poster_path
+        <img
+          src={star}
+          className='hero-star'
+          alt='star'
+          onClick={() =>
+            this.addShowtoLocalFavorites(
+              this.state.show.id,
+              this.state.show.poster_path
             )
-        )}/>
+          }
+        />
         <div className='single-page-hero-info'>
           <h1 className='single-page-hero-title'>{show.name}</h1>
           <div className='movie-details'>
@@ -201,6 +203,7 @@ class SingleShow extends Component {
                     src={'http://image.tmdb.org/t/p/w500' + episode.still_path}
                     className='episode-photo'
                     alt={episode.name}
+                    onError={this.props.addDefaultSrc}
                   />
                   <div className='episode-info-flex'>
                     <p className='episode-number'>{episode.episode_number}.</p>

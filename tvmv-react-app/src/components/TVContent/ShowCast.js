@@ -2,7 +2,6 @@
 import React from 'react';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Tilt from 'react-tilt';
 import axios from 'axios';
 //--------------STYLES-------------------//
 import '../../App.css';
@@ -32,25 +31,20 @@ class ShowCast extends Component {
         <div className='section'>
           <h1 className='section-header'>Starring</h1>
         </div>
-        <div className='six-poster-container'>
+        <div className='cast-container'>
           {credits.slice(0, 6).map((cast, index) => (
             <div key={cast.id}>
               <div className='section-flex'>
-                <Tilt
-                  className='Tilt'
-                  options={{ max: 12, scale: 1.04, perspective: 800 }}
-                >
-                  <Link to={`/actor/${cast.id}`} className='links'>
-                    <img
-                      src={
-                        'http://image.tmdb.org/t/p/original' + cast.profile_path
-                      }
-                      alt={cast.character}
-                      className='cast-posters'
-                      onError={addDefaultSrc}
-                    />
-                  </Link>
-                </Tilt>
+                <Link to={`/actor/${cast.id}`} className='links'>
+                  <img
+                    src={
+                      'http://image.tmdb.org/t/p/original' + cast.profile_path
+                    }
+                    alt={cast.character}
+                    className='cast-posters'
+                    onError={addDefaultSrc}
+                  />
+                </Link>
                 <p className='poster-info'>
                   {cast.name} as {cast.character}
                 </p>

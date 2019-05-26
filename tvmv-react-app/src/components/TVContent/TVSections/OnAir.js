@@ -12,7 +12,7 @@ const OnAir = ({ onAir }) => {
             <Link to={`/television/${onAir.id}`}>
               <Tilt
                 className='Tilt'
-                options={{ max: 12, scale: 1.04, perspective: 800 }}
+                options={{ max: 12, scale: 1.04, perspective: 1000 }}
               >
                 <img
                   src={'http://image.tmdb.org/t/p/w500' + onAir.poster_path}

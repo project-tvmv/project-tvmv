@@ -10,62 +10,77 @@
   height: 50vh;
 }
 
-.nav-icons {
+/* .nav-icons {
   stroke: white;
   width: 2.5vh;
   cursor: pointer;
-}
+} */
 
 .span-icon {
   display: block;
-  width: 2.5vh;
-  height: 2.5vh;
+  width: 60px;
+  height: 60px;
   background: white;
+  transition: 0.2s ease-in-out;
+}
+
+.span-icon:hover {
+  background: rgb(0, 68, 255);
 }
 
 .search-nav {
   mask-image: url('../assets/icons/search.svg');
+  mask-repeat: no-repeat;
 }
 
 .home {
   mask-image: url('../assets/icons/home.svg');
+  mask-repeat: no-repeat;
 }
 
 .tv {
   mask-image: url('../assets/icons/tv.svg');
+  mask-repeat: no-repeat;
 }
 
 .movies {
   mask-image: url('../assets/icons/film.svg');
+  mask-repeat: no-repeat;
 }
 
 .favorites {
   mask-image: url('../assets/icons/star.svg');
+  mask-repeat: no-repeat;
 }
 
 .is-active > .search-nav {
   background: rgb(0, 68, 255);
   mask-image: url('../assets/icons/search.svg');
+  mask-repeat: no-repeat;
 }
 
 .is-active > .home {
   background: rgb(0, 68, 255);
   mask-image: url('../assets/icons/home.svg');
+  mask-repeat: no-repeat;
 }
 
 .is-active > .tv {
   background: rgb(0, 68, 255);
   mask-image: url('../assets/icons/tv.svg');
+  mask-repeat: no-repeat;
 }
 
 .is-active > .movies {
   background: rgb(0, 68, 255);
   mask-image: url('../assets/icons/film.svg');
+  mask-repeat: no-repeat;
 }
 
 .is-active > .favorites {
   background: rgb(0, 68, 255);
   mask-image: url('../assets/icons/star.svg');
+  mask-repeat: no-repeat;
 }
 
 .scroll-back {

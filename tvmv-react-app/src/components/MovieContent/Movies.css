@@ -46,7 +46,8 @@
 
 .movie-section-header {
   text-align: left;
-  margin-top: 2%;
+  margin-top: 3%;
+  width: max-content;
 }
 
 .movie-six-poster-container {
@@ -66,7 +67,10 @@
   width: 28vh;
   height: 45vh;
   object-fit: cover;
-  border-radius: 5px;
   cursor: pointer;
-  transition: 0.2s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.twelve-posters:hover {
+  box-shadow: 0px 0px 30px black;
 }
