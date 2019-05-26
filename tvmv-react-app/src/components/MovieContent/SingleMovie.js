@@ -35,7 +35,34 @@ class SingleMovie extends Component {
       )
       .then(res => this.setState({ movie: res.data }))
       .catch(err => console.log(err));
+
+      //------FAVORITES----//
+
+      let favoriteMovies = []
+      favoriteMovies.push(JSON.parse(localStorage.getItem('favoriteMovies')));
+      localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
   }
+
+    // -----------------------------FAVORITES---------------------------------- //
+
+  addMovietoLocalFavorites = (id, poster_path) => {
+    // grabs current items and spreads them to a new array. Add new item after it.
+    let currentMovies = JSON.parse(localStorage.getItem('favoriteMovies'));
+    let favoriteMovies = [...currentMovies, {id, poster_path}]
+    // removes any null in array
+    const filteredMovies = favoriteMovies.filter(item => item !== null)
+
+    localStorage.setItem('favoriteMovies', JSON.stringify(filteredMovies))
+
+    /**
+     * To grab items, you must first JSON.parse(localStorage.getItem('favoriteMovies'))
+     *  Then you can add it to a new variable.
+     *          const favoriteMovies = JSON.parse(localStorage.getItem('favoriteMovies'))
+     *  */
+
+    // console log local storage to see what's inside
+    console.log(JSON.parse(localStorage.favoriteMovies))
+  };
 
   render() {
     window.scroll(0, 0);
@@ -51,7 +78,14 @@ class SingleMovie extends Component {
           alt='back'
           onClick={this.props.history.goBack}
         />
-        <img src={star} className='hero-star' alt='star' />
+        <img src={star} 
+        className='hero-star' 
+        alt='star' 
+        onClick={()=> (
+          this.addMovietoLocalFavorites(this.state.movie.id, 
+          this.state.movie.poster_path)
+          )}   
+        />
         <div className='single-page-hero-info'>
           <h1 className='single-page-hero-title'>{movie.title}</h1>
           <div className='movie-details'>
