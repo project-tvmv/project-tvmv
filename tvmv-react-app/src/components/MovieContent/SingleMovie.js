@@ -50,9 +50,11 @@ class SingleMovie extends Component {
     }
 
     if (
-      JSON.parse(localStorage.getItem('favoriteMovies')).find(
-        item => `${item.id}` === this.state.id
-      )
+      JSON.parse(localStorage.getItem('favoriteMovies')).find(item => {
+        if (item !== null) {
+          return `${item.id}` === this.state.id;
+        }
+      })
     ) {
       this.setState({
         isStarClicked: true
