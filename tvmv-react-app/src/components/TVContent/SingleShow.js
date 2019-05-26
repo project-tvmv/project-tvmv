@@ -101,6 +101,8 @@ class SingleShow extends Component {
       .then(res => this.setState({ seasons: res.data.seasons }))
       .catch(err => console.log(err));
 
+    this.setState({ selectedSeason: 1 });
+
     return axios
       .get(
         ` https://api.themoviedb.org/3/tv/${
