@@ -42,8 +42,7 @@ class MovieTrailer extends Component {
           width='100%'
           height='100vh'
           pip={true}
-          controls={true}
-          light={true}
+          controls={false}
           className='trailer'
           playing={true}
           loop={true}

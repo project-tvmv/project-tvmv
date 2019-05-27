@@ -46,7 +46,9 @@ class MovieResults extends Component {
         {resultsData.slice(0, 1).map(results => (
           <div key={results.id}>
             <img
-              src={'https://image.tmdb.org/t/p/original' + results.backdrop_path}
+              src={
+                'https://image.tmdb.org/t/p/original' + results.backdrop_path
+              }
               className='title-image-section genre-page-posters'
               alt={results.title}
             />
@@ -56,7 +58,7 @@ class MovieResults extends Component {
           <div key={results.id}>
             <Tilt
               className='Tilt'
-              options={{ max: 12, scale: 1.04, perspective: 1000 }}
+              options={{ max: 12, scale: 1, perspective: 1000 }}
             >
               <Link to={`/movie/${results.id}`}>
                 <img

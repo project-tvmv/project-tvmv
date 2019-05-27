@@ -67,7 +67,7 @@ class Extras extends Component {
                   width='45vh'
                   height='25vh'
                   pip={true}
-                  controls={true}
+                  controls={false}
                   light={true}
                   className='video'
                   playing={true}
