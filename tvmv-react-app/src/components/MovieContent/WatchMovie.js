@@ -30,6 +30,7 @@ class MovieTrailer extends Component {
             border='none'
             className='movie'
             title='movie'
+            allowFullScreen
           />
         </div>
       </div>
