@@ -2,7 +2,6 @@
 import React from 'react';
 import { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import Slider from 'react-slick';
 import axios from 'axios';
 import moment from 'moment';
 //--------------STYLES-------------------------//
