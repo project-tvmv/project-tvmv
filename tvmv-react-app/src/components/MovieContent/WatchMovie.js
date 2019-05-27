@@ -24,7 +24,7 @@ class MovieTrailer extends Component {
         />
         <div className='iframe-container'>
           <iframe
-            src={`https://videospider.stream/personal?key=kSZoH21SOgg1GH07&video_id=${
+            src={`https://videospider.stream/personal?key=AhWLPUIlhYfa18fg&video_id=${
               this.state.id
             }&tmdb=1`}
             border='none'
