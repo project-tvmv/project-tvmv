@@ -2,6 +2,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import Slider from 'react-slick';
 import axios from 'axios';
 import moment from 'moment';
 //--------------STYLES-------------------------//
@@ -198,6 +199,7 @@ class SingleShow extends Component {
     const seasons = this.state.seasons;
     const addDefaultSrc = this.props.addDefaultSrc;
     //--------------END OF DECONSTRUCTING-------------------//
+
     return (
       <div className='single-page-containter'>
         {/* //--------------HERO SECTION-------------------// */}

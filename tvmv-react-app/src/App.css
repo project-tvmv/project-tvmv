@@ -452,6 +452,10 @@ iframe > .movie {
   width: 100%;
 }
 
+/* .react-player__play-icon {
+  visibility: hidden;
+} */
+
 .video {
   padding-right: 25px;
 }
@@ -510,8 +514,8 @@ iframe > .movie {
 .watch-movie {
   padding: 5% 2%;
   width: 100%;
-  border: 2px solid rgb(68, 255, 174);
-  background: rgb(68, 255, 174);
+  border: 2px solid white;
+  background: white;
   color: rgb(32, 32, 32);
   font-size: 1.7vh;
   font-weight: 500;
@@ -520,8 +524,8 @@ iframe > .movie {
 }
 
 .watch-movie:hover {
-  background: white;
-  border: 2px solid white;
+  border: 2px solid rgb(68, 255, 174);
+  background: rgb(68, 255, 174);
   color: black;
 }
 
