@@ -61,7 +61,6 @@ class MovieTrailer extends Component {
             className='movie'
             title='movie'
             allowFullScreen
-            sandbox
           />
         </div>
       </div>
