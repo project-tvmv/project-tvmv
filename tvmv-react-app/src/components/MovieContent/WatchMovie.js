@@ -1,15 +1,13 @@
 import React from 'react';
 import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-
 import back from '../../assets/icons/arrow-left.svg';
 
 class MovieTrailer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: this.props.match.params.id,
-      movieKey: ''
+      id: this.props.match.params.id
     };
   }
 
