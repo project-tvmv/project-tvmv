@@ -53,7 +53,7 @@ class Search extends Component {
         <img src={search} alt='search-icon' className='search-page-icon' />
         <form onSubmit={this.onSubmit} className='search-page-form'>
           <input
-            className='search'
+            className='main-search'
             placeholder='What can we help you find today?'
             type='text'
             name='search'

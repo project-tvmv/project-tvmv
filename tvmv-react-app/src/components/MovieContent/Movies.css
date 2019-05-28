@@ -21,10 +21,11 @@
 
 .search-movie-icon {
   width: 2.5%;
+  margin-left: 5%;
 }
 
 .search {
-  width: 100%;
+  width: 110%;
   padding: 1% 0;
   padding-left: 30px;
   background: none;

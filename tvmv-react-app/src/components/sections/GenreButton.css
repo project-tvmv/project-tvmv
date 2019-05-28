@@ -6,6 +6,11 @@
   justify-content: center;
 }
 
+.genre-links:hover > .genre-buttons {
+  color: black;
+  font-weight: 500;
+}
+
 .genre-links {
   background: #232323;
   border-radius: 5px;

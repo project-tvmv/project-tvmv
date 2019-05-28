@@ -29,7 +29,7 @@ class SearchResults extends Component {
   render() {
     const contents = this.state.resultsData;
     return (
-      <div className='full-page-container'>
+      <div className='search-container'>
         <img
           src={back}
           className='hero-back'
@@ -40,29 +40,33 @@ class SearchResults extends Component {
         {contents.slice(0, 1).map(content => (
           <div key={content.id}>
             <img
-              src={'https://image.tmdb.org/t/p/original' + content.backdrop_path}
-              className='title-image-section genre-page-posters'
+              src={
+                'https://image.tmdb.org/t/p/original' + content.backdrop_path
+              }
+              className='search-header'
               alt={content.title}
               onError={this.props.addDefaultSrc}
             />
           </div>
         ))}
-        {contents.slice(0, 18).map((content, index) => (
-          <Link
-            to={
-              content.media_type === 'movie'
-                ? `/movie/${content.id}`
-                : `/television/${content.id}`
-            }
-          >
-            <img
-              src={'https://image.tmdb.org/t/p/w500' + content.poster_path}
-              alt={content.name}
-              className='genre-page-poster'
-              onError={this.props.addDefaultSrc}
-            />
-          </Link>
-        ))}
+        <div className='search-results'>
+          {contents.slice(0, 18).map((content, index) => (
+            <Link
+              to={
+                content.media_type === 'movie'
+                  ? `/movie/${content.id}`
+                  : `/television/${content.id}`
+              }
+            >
+              <img
+                src={'https://image.tmdb.org/t/p/w500' + content.poster_path}
+                alt={content.name}
+                className='genre-page-poster'
+                onError={this.props.addDefaultSrc}
+              />
+            </Link>
+          ))}
+        </div>
       </div>
     );
   }
