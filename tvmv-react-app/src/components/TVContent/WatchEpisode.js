@@ -12,7 +12,8 @@ class WatchEpisode extends Component {
       episode: this.props.match.params.episode_number,
       seasonNumber: this.props.match.params.selectedSeason,
       generatedTicket: '',
-      ip: []
+      ip: [],
+      currentEpisode: this.props.match.params.episode_number
     };
   }
 
@@ -45,6 +46,8 @@ class WatchEpisode extends Component {
       });
   }
 
+  // nextEpisode = () => {};
+
   render() {
     return (
       <div className='fullscreen-video'>
@@ -54,6 +57,7 @@ class WatchEpisode extends Component {
           alt='back'
           onClick={this.props.history.goBack}
         />
+        {/* <button className='next-episode'>Next Episode</button> */}
         <div className='iframe-container'>
           <iframe
             src={`https://videospider.stream/getvideo?key=AhWLPUIlhYfa18fg&video_id=${

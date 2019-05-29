@@ -34,6 +34,12 @@ select:-webkit-autofill:focus {
   width: 95%;
 }
 
+@media (max-width: 1440px) {
+  .home-container {
+    margin-left: 6vh;
+  }
+}
+
 .popular-movies-container {
   margin-top: -4%;
 }
@@ -43,7 +49,7 @@ select:-webkit-autofill:focus {
   height: 30vh;
   margin: 0 auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .cast-container {
@@ -575,6 +581,33 @@ iframe > .movie {
   background: #070707;
   border: 2px solid #070707;
   color: white;
+}
+
+.fullscreen-video:hover > .next-episode {
+  animation: fade-out 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.next-episode {
+  position: absolute;
+  bottom: 5vh;
+  right: 1.5vh;
+  z-index: 600;
+  padding: 1% 2%;
+  width: 16%;
+  background: white;
+  border: none;
+  color: black;
+  font-size: 1.7vh;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  outline: none;
+  opacity: 0;
+}
+
+.next-episode:hover {
+  background: rgb(68, 255, 174);
 }
 
 .prev-disabled {
