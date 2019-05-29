@@ -43,7 +43,7 @@ select:-webkit-autofill:focus {
   height: 30vh;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .cast-container {

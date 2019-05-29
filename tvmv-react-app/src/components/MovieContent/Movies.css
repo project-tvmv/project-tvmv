@@ -76,6 +76,13 @@
   transition: 0.3s ease-in-out;
 }
 
+@media (max-width: 1440px) {
+  .twelve-posters {
+    width: 24vh;
+    height: 35vh;
+  }
+}
+
 .twelve-posters:hover {
   box-shadow: 0px 0px 30px black;
 }
