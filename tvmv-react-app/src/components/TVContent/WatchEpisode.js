@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import back from '../../assets/icons/arrow-left.svg';
 
@@ -9,11 +9,11 @@ class WatchEpisode extends Component {
     super(props);
     this.state = {
       id: this.props.match.params.id,
-      episode: this.props.match.params.episode_number,
+      episode: parseInt(this.props.match.params.episode_number),
       seasonNumber: this.props.match.params.selectedSeason,
       generatedTicket: '',
       ip: [],
-      currentEpisode: this.props.match.params.episode_number
+      currentEpisode: parseInt(this.props.match.params.episode_number)
     };
   }
 
@@ -21,7 +21,6 @@ class WatchEpisode extends Component {
     axios
       .get(`https://ip.seeip.org/geoip`)
       .then(res => {
-        console.log('ip:', res.data.ip);
         this.setState({
           ip: res.data.ip
         });
@@ -32,7 +31,6 @@ class WatchEpisode extends Component {
             }&s=${this.state.seasonNumber}&ip=${this.state.ip}`
           )
           .then(res => {
-            console.log('response:', res);
             this.setState({
               generatedTicket: res.data
             });
@@ -46,7 +44,14 @@ class WatchEpisode extends Component {
       });
   }
 
-  // nextEpisode = () => {};
+  nextEpisode = () => {
+    this.setState({
+      episode: this.state.episode + 1
+    });
+    this.setState({
+      currentEpisode: this.state.currentEpisode + 1
+    });
+  };
 
   render() {
     return (
@@ -57,7 +62,15 @@ class WatchEpisode extends Component {
           alt='back'
           onClick={this.props.history.goBack}
         />
-        {/* <button className='next-episode'>Next Episode</button> */}
+        <Link
+          onClick={this.nextEpisode}
+          to={`/show/${this.props.match.params.id}/${this.state.seasonNumber}/${
+            this.state.currentEpisode
+          }`}
+          className='episode-link'
+        >
+          <button className='next-episode'>Next Episode</button>
+        </Link>
         <div className='iframe-container'>
           <iframe
             src={`https://videospider.stream/getvideo?key=AhWLPUIlhYfa18fg&video_id=${

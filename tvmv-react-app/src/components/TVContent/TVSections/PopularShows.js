@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-tilt';
 
-const PopularShows = ({ popularShows }) => {
+const PopularShows = ({ popularShows, addDefaultSrc }) => {
   return (
     <div className='movie-sections'>
       <h1 className='movie-section-header'>Popular TV Shows</h1>
@@ -16,11 +16,11 @@ const PopularShows = ({ popularShows }) => {
               >
                 <img
                   src={
-                    'https://image.tmdb.org/t/p/w500' +
-                    popularShow.poster_path
+                    'https://image.tmdb.org/t/p/w500' + popularShow.poster_path
                   }
                   alt={popularShow.name}
                   className='posters twelve-posters'
+                  onError={addDefaultSrc}
                 />
               </Tilt>
             </Link>

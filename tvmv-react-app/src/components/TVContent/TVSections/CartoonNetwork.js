@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-tilt';
 
-const CartoonNetwork = ({ cartoonNetwork }) => {
+const CartoonNetwork = ({ cartoonNetwork, addDefaultSrc }) => {
   return (
     <div className='movie-sections'>
       <h1 className='movie-section-header'>Only on Cartoon Network</h1>
@@ -21,6 +21,7 @@ const CartoonNetwork = ({ cartoonNetwork }) => {
                   }
                   alt={cartoonNetwork.name}
                   className='posters twelve-posters'
+                  onError={addDefaultSrc}
                 />
               </Tilt>
             </Link>

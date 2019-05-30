@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-tilt';
 
-const RealityTV = ({ realityTV }) => {
+const RealityTV = ({ realityTV, addDefaultSrc }) => {
   return (
     <div className='movie-sections'>
       <h1 className='movie-section-header'>Reality TV</h1>
@@ -20,6 +20,7 @@ const RealityTV = ({ realityTV }) => {
                   }
                   alt={realityTv.name}
                   className='posters twelve-posters'
+                  onError={addDefaultSrc}
                 />
               </Tilt>
             </Link>

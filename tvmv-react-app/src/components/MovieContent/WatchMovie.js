@@ -18,7 +18,6 @@ class MovieTrailer extends Component {
     axios
       .get(`https://ip.seeip.org/geoip`)
       .then(res => {
-        console.log('ip:', res.data.ip);
         this.setState({
           ip: res.data.ip
         });
@@ -29,7 +28,6 @@ class MovieTrailer extends Component {
             }&ip=${this.state.ip}`
           )
           .then(res => {
-            console.log('response:', res);
             this.setState({
               generatedTicket: res.data
             });

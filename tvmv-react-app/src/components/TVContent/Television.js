@@ -75,6 +75,7 @@ class Television extends Component {
     const cartoonNetwork = this.props.cartoonNetwork;
     const documentaryShows = this.props.documentaryShows;
     const mysteryShows = this.props.mysteryShows;
+    const addDefaultSrc = this.props.addDefaultSrc;
     return (
       <div className='movies-container'>
         <div className='hero-container'>
@@ -92,8 +93,11 @@ class Television extends Component {
           </form>
         </div>
         {/* --------------END SEARCH FIELD------------------- */}
-        <NewShows newShows={newShows} />
-        <PopularShows popularShows={popularShows} />
+        <NewShows newShows={newShows} addDefaultSrc={addDefaultSrc} />
+        <PopularShows
+          popularShows={popularShows}
+          addDefaultSrc={addDefaultSrc}
+        />
         <Link to={`/television/${popularShows[19].id}`} className='links'>
           <div className='section-break'>
             <h1 className='section-break-tite'>{popularShows[19].name}</h1>
@@ -108,8 +112,8 @@ class Television extends Component {
             />
           </div>
         </Link>
-        <OnAir onAir={onAir} />
-        <ActionShows actionShows={actionShows} />
+        <OnAir onAir={onAir} addDefaultSrc={addDefaultSrc} />
+        <ActionShows actionShows={actionShows} addDefaultSrc={addDefaultSrc} />
         <Link to={`/television/${realityTV[19].id}`} className='links'>
           <div className='section-break'>
             <h1 className='section-break-tite'>{realityTV[19].name}</h1>
@@ -124,8 +128,8 @@ class Television extends Component {
             />
           </div>
         </Link>
-        <RealityTV realityTV={realityTV} />
-        <KidShows kidsShows={kidsShows} />
+        <RealityTV realityTV={realityTV} addDefaultSrc={addDefaultSrc} />
+        <KidShows kidsShows={kidsShows} addDefaultSrc={addDefaultSrc} />
         <Link to={`/television/${documentaryShows[19].id}`} className='links'>
           <div className='section-break'>
             <h1 className='section-break-tite'>{documentaryShows[19].name}</h1>
@@ -142,8 +146,14 @@ class Television extends Component {
             />
           </div>
         </Link>
-        <DocShows documentaryShows={documentaryShows} />
-        <MysteryShows mysteryShows={mysteryShows} />
+        <DocShows
+          documentaryShows={documentaryShows}
+          addDefaultSrc={addDefaultSrc}
+        />
+        <MysteryShows
+          mysteryShows={mysteryShows}
+          addDefaultSrc={addDefaultSrc}
+        />
         <Link to={`/television/${disneyChannel[19].id}`} className='links'>
           <div className='section-break'>
             <h1 className='section-break-tite'>{disneyChannel[19].name}</h1>
@@ -158,8 +168,14 @@ class Television extends Component {
             />
           </div>
         </Link>
-        <DisneyChannel disneyChannel={disneyChannel} />
-        <CartoonNetwork cartoonNetwork={cartoonNetwork} />
+        <DisneyChannel
+          disneyChannel={disneyChannel}
+          addDefaultSrc={addDefaultSrc}
+        />
+        <CartoonNetwork
+          cartoonNetwork={cartoonNetwork}
+          addDefaultSrc={addDefaultSrc}
+        />
         <img
           src={up}
           alt='scroll back to up'

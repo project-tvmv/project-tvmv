@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-tilt';
 
-const MysteryShows = ({ mysteryShows }) => {
+const MysteryShows = ({ mysteryShows, addDefaultSrc }) => {
   return (
     <div className='movie-sections'>
       <h1 className='movie-section-header'>For The Sherlocks</h1>
@@ -16,11 +16,11 @@ const MysteryShows = ({ mysteryShows }) => {
               >
                 <img
                   src={
-                    'https://image.tmdb.org/t/p/w500' +
-                    mysteryShows.poster_path
+                    'https://image.tmdb.org/t/p/w500' + mysteryShows.poster_path
                   }
                   alt={mysteryShows.name}
                   className='posters twelve-posters'
+                  onError={addDefaultSrc}
                 />
               </Tilt>
             </Link>

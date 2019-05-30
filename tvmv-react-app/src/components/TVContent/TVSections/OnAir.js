@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-tilt';
 
-const OnAir = ({ onAir }) => {
+const OnAir = ({ onAir, addDefaultSrc }) => {
   return (
     <div className='movie-sections'>
       <h1 className='movie-section-header'>On Air</h1>
@@ -18,6 +18,7 @@ const OnAir = ({ onAir }) => {
                   src={'https://image.tmdb.org/t/p/w500' + onAir.poster_path}
                   alt={onAir.name}
                   className='posters twelve-posters'
+                  onError={addDefaultSrc}
                 />
               </Tilt>
             </Link>

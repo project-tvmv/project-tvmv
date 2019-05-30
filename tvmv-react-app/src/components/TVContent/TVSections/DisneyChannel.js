@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-tilt';
 
-const DisneyChannel = ({ disneyChannel }) => {
+const DisneyChannel = ({ disneyChannel, addDefaultSrc }) => {
   return (
     <div className='movie-sections'>
       <h1 className='movie-section-header'>You're Watching Disney Channel</h1>
@@ -21,6 +21,7 @@ const DisneyChannel = ({ disneyChannel }) => {
                   }
                   alt={disneyChannel.name}
                   className='posters twelve-posters'
+                  onError={addDefaultSrc}
                 />
               </Tilt>
             </Link>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-tilt';
 
-const KidShows = ({ kidsShows }) => {
+const KidShows = ({ kidsShows, addDefaultSrc }) => {
   return (
     <div className='movie-sections'>
       <h1 className='movie-section-header'>Shows For Kids</h1>
@@ -15,11 +15,10 @@ const KidShows = ({ kidsShows }) => {
                 options={{ max: 12, scale: 1.04, perspective: 1000 }}
               >
                 <img
-                  src={
-                    'https://image.tmdb.org/t/p/w500' + KidShow.poster_path
-                  }
+                  src={'https://image.tmdb.org/t/p/w500' + KidShow.poster_path}
                   alt={KidShow.name}
                   className='posters twelve-posters'
+                  onError={addDefaultSrc}
                 />
               </Tilt>
             </Link>

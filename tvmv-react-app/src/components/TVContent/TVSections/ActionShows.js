@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Tilt from 'react-tilt';
 
-const ActionShows = ({ actionShows }) => {
+const ActionShows = ({ actionShows, addDefaultSrc }) => {
   return (
     <div className='movie-sections'>
       <h1 className='movie-section-header'>For The Adrenaline Junkies</h1>
@@ -16,11 +16,11 @@ const ActionShows = ({ actionShows }) => {
               >
                 <img
                   src={
-                    'https://image.tmdb.org/t/p/w500' +
-                    actionShow.poster_path
+                    'https://image.tmdb.org/t/p/w500' + actionShow.poster_path
                   }
                   alt={actionShow.name}
                   className='posters twelve-posters'
+                  onError={addDefaultSrc}
                 />
               </Tilt>
             </Link>

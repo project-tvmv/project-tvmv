@@ -583,15 +583,10 @@ iframe > .movie {
   color: white;
 }
 
-.fullscreen-video:hover > .next-episode {
-  animation: fade-out 0.2s ease-in-out;
-  opacity: 1;
-}
-
 .next-episode {
   position: absolute;
-  bottom: 5vh;
-  right: 1.5vh;
+  bottom: 8vh;
+  right: 2vh;
   z-index: 600;
   padding: 1% 2%;
   width: 16%;
@@ -603,7 +598,7 @@ iframe > .movie {
   cursor: pointer;
   transition: 0.2s ease-in-out;
   outline: none;
-  opacity: 0;
+  opacity: 1;
 }
 
 .next-episode:hover {

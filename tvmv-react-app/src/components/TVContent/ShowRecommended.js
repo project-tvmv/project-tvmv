@@ -27,8 +27,7 @@ class ShowRecommended extends Component {
       .catch(err => console.log(err));
   }
 
-
-  fetchData = (id) => {
+  fetchData = id => {
     axios
       .get(
         `https://api.themoviedb.org/3/tv/${
@@ -37,12 +36,12 @@ class ShowRecommended extends Component {
       )
       .then(res => {
         this.setState({ recommended: res.data.results });
-        this.props.history.push(`/television/${id}`)
+        this.props.history.push(`/television/${id}`);
       })
       .catch(err => {
         console.log(err);
       });
-  }
+  };
 
   render() {
     const recommended = this.state.recommended;
