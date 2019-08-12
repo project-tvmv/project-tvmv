@@ -194,7 +194,11 @@ class SingleMovie extends Component {
           <p>
             Warning: Content may contain inappropriate ads. For an ad-free
             experience, we recommend installing the{' '}
-            <a href='https://ublock.org/' target='_blank'>
+            <a
+              href='https://ublock.org/'
+              rel='noopener noreferrer'
+              target='_blank'
+            >
               uBlock Origin
             </a>{' '}
             extension.
