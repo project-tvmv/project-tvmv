@@ -243,6 +243,14 @@ class SingleShow extends Component {
           >
             <button className='watch-movie'>Start watching</button>
           </Link>
+          <p>
+            Warning: Content may contain inappropriate ads. For an ad-free
+            experience, we recommend installing the{' '}
+            <a href='https://ublock.org/' target='_blank'>
+              uBlock Origin
+            </a>{' '}
+            extension.
+          </p>
         </div>
         <img
           // If the show's name is Game of Thrones, this returns a custom image... I'm very OCD. :P

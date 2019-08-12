@@ -191,6 +191,14 @@ class SingleMovie extends Component {
               <button className='watch-trailer'> Watch trailer </button>
             </Link>
           </div>
+          <p>
+            Warning: Content may contain inappropriate ads. For an ad-free
+            experience, we recommend installing the{' '}
+            <a href='https://ublock.org/' target='_blank'>
+              uBlock Origin
+            </a>{' '}
+            extension.
+          </p>
         </div>
         <img
           src={'https://image.tmdb.org/t/p/original' + movie.backdrop_path}
